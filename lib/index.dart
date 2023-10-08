@@ -27,5 +27,3 @@ export '/pages/edit_property_2/edit_property2_widget.dart'
     show EditProperty2Widget;
 export '/pages/edit_property_3/edit_property3_widget.dart'
     show EditProperty3Widget;
-export '/test/test_widget.dart' show TestWidget;
-export '/property2/property2_widget.dart' show Property2Widget;

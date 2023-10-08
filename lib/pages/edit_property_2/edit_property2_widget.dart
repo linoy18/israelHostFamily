@@ -89,22 +89,6 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel1,
-                                updateCallback: () => setState(() {}),
-                                child: AmenitityIndicatorWidget(
-                                  icon: Icon(
-                                    Icons.family_restroom,
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                  ),
-                                  background:
-                                      FlutterFlowTheme.of(context).tertiary,
-                                  borderColor: Color(0xFFE1EDF9),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.familyValue ??=
@@ -135,22 +119,6 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel2,
-                                updateCallback: () => setState(() {}),
-                                child: AmenitityIndicatorWidget(
-                                  icon: Icon(
-                                    Icons.people_alt,
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                  ),
-                                  background:
-                                      FlutterFlowTheme.of(context).tertiary,
-                                  borderColor: Color(0xFFE1EDF9),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.coupleValue ??=
@@ -181,22 +149,6 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel3,
-                                updateCallback: () => setState(() {}),
-                                child: AmenitityIndicatorWidget(
-                                  icon: Icon(
-                                    Icons.person_sharp,
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                  ),
-                                  background:
-                                      FlutterFlowTheme.of(context).tertiary,
-                                  borderColor: Color(0xFFE1EDF9),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.personValue ??=
@@ -227,22 +179,6 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel4,
-                                updateCallback: () => setState(() {}),
-                                child: AmenitityIndicatorWidget(
-                                  icon: Icon(
-                                    Icons.sensor_door_sharp,
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                  ),
-                                  background:
-                                      FlutterFlowTheme.of(context).tertiary,
-                                  borderColor: Color(0xFFE1EDF9),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.secureDoorValue ??=
@@ -276,7 +212,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel5,
+                                model: _model.amenitityIndicatorModel1,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -321,7 +257,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel6,
+                                model: _model.amenitityIndicatorModel2,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -367,7 +303,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel7,
+                                model: _model.amenitityIndicatorModel3,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -412,7 +348,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel8,
+                                model: _model.amenitityIndicatorModel4,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: Icon(
@@ -458,7 +394,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel9,
+                                model: _model.amenitityIndicatorModel5,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -504,7 +440,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel10,
+                                model: _model.amenitityIndicatorModel6,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: Icon(

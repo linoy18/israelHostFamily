@@ -322,37 +322,33 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Hero(
-                                        tag: valueOrDefault<String>(
-                                          searchPropertiesPropertiesRecord
-                                              ?.mainImage,
-                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png' +
-                                              '$propSearchIndex',
-                                        ),
-                                        transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0.0),
-                                            bottomRight: Radius.circular(0.0),
-                                            topLeft: Radius.circular(8.0),
-                                            topRight: Radius.circular(8.0),
-                                          ),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl: valueOrDefault<String>(
-                                              searchPropertiesPropertiesRecord
-                                                  ?.mainImage,
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
+                                      if (propSearchItem.mainImage != null &&
+                                          propSearchItem.mainImage != '')
+                                        Hero(
+                                          tag: searchPropertiesPropertiesRecord!
+                                              .mainImage,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(8.0),
+                                              topRight: Radius.circular(8.0),
                                             ),
-                                            width: double.infinity,
-                                            height: 190.0,
-                                            fit: BoxFit.contain,
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl:
+                                                  searchPropertiesPropertiesRecord!
+                                                      .mainImage,
+                                              width: double.infinity,
+                                              height: 190.0,
+                                              fit: BoxFit.contain,
+                                            ),
                                           ),
                                         ),
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 0.0, 0.0),

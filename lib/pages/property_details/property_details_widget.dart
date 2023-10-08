@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/amenitity_indicator/amenitity_indicator_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -296,67 +295,73 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               ),
                               child: Stack(
                                 children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            child: FlutterFlowExpandedImageView(
-                                              image: CachedNetworkImage(
-                                                fadeInDuration:
-                                                    Duration(milliseconds: 500),
-                                                fadeOutDuration:
-                                                    Duration(milliseconds: 500),
-                                                imageUrl:
-                                                    valueOrDefault<String>(
+                                  if (propertyDetailsPropertiesRecord
+                                          ?.hasMainImage() ??
+                                      true)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              child:
+                                                  FlutterFlowExpandedImageView(
+                                                image: CachedNetworkImage(
+                                                  fadeInDuration: Duration(
+                                                      milliseconds: 500),
+                                                  fadeOutDuration: Duration(
+                                                      milliseconds: 500),
+                                                  imageUrl:
+                                                      valueOrDefault<String>(
+                                                    widget
+                                                        .propertyRef?.mainImage,
+                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
+                                                  ),
+                                                  fit: BoxFit.contain,
+                                                ),
+                                                allowRotation: false,
+                                                tag: valueOrDefault<String>(
                                                   widget.propertyRef?.mainImage,
                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
                                                 ),
-                                                fit: BoxFit.contain,
+                                                useHeroAnimation: true,
                                               ),
-                                              allowRotation: false,
-                                              tag: valueOrDefault<String>(
+                                            ),
+                                          );
+                                        },
+                                        child: Hero(
+                                          tag: valueOrDefault<String>(
+                                            widget.propertyRef?.mainImage,
+                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
+                                          ),
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl: valueOrDefault<String>(
                                                 widget.propertyRef?.mainImage,
                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
                                               ),
-                                              useHeroAnimation: true,
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
                                             ),
-                                          ),
-                                        );
-                                      },
-                                      child: Hero(
-                                        tag: valueOrDefault<String>(
-                                          widget.propertyRef?.mainImage,
-                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                        ),
-                                        transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl: valueOrDefault<String>(
-                                              widget.propertyRef?.mainImage,
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                            ),
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 16.0, 16.0, 16.0),
@@ -845,52 +850,48 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation6']!),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(-0.00, 1.00),
-                        child: Padding(
+                    ],
+                  ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-0.00, 1.00),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 25.0, 16.0, 10.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await launchUrl(Uri(
+                            scheme: 'tel',
+                            path: propertyDetailsPropertiesRecord!.phoneNumber,
+                          ));
+                        },
+                        text: 'צור קשר עם המארחים',
+                        options: FFButtonOptions(
+                          width: 200.0,
+                          height: 50.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 25.0, 16.0, 20.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              if (widget.propertyRef?.userRef !=
-                                  currentUserReference)
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    await launchUrl(Uri(
-                                      scheme: 'tel',
-                                      path: propertyDetailsPropertiesRecord!
-                                          .phoneNumber,
-                                    ));
-                                  },
-                                  text: 'צור קשר עם המארחים',
-                                  options: FFButtonOptions(
-                                    width: 200.0,
-                                    height: 50.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30.0),
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                ),
-                            ],
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
+                          borderRadius: BorderRadius.circular(30.0),
                         ),
                       ),
                     ],

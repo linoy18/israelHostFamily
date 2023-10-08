@@ -322,7 +322,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'שכונה',
+                                  'איזור',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(

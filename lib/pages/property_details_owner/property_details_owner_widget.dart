@@ -163,57 +163,47 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                           ),
                           child: Stack(
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: FlutterFlowExpandedImageView(
-                                          image: Image.network(
-                                            valueOrDefault<String>(
-                                              widget.propertyRef?.mainImage,
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
+                              if (widget.propertyRef?.hasMainImage() != null)
+                                Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.fade,
+                                          child: FlutterFlowExpandedImageView(
+                                            image: Image.network(
+                                              widget.propertyRef!.mainImage,
+                                              fit: BoxFit.contain,
                                             ),
-                                            fit: BoxFit.contain,
+                                            allowRotation: false,
+                                            tag: widget.propertyRef!.mainImage,
+                                            useHeroAnimation: true,
                                           ),
-                                          allowRotation: false,
-                                          tag: valueOrDefault<String>(
-                                            widget.propertyRef?.mainImage,
-                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
-                                          ),
-                                          useHeroAnimation: true,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                  child: Hero(
-                                    tag: valueOrDefault<String>(
-                                      widget.propertyRef?.mainImage,
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
-                                    ),
-                                    transitionOnUserGestures: true,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      child: Image.network(
-                                        valueOrDefault<String>(
-                                          widget.propertyRef?.mainImage,
-                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
+                                      );
+                                    },
+                                    child: Hero(
+                                      tag: widget.propertyRef!.mainImage,
+                                      transitionOnUserGestures: true,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                        child: Image.network(
+                                          widget.propertyRef!.mainImage,
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.cover,
                                         ),
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 16.0),

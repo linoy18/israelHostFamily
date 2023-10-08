@@ -71,7 +71,10 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     _model = createModel(context, () => CreateProperty3Model());
 
     _model.notesController ??= TextEditingController(text: '');
-    _model.phoneController ??= TextEditingController(text: '');
+    _model.phoneController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.phoneController?.text = 'הכנס מספר טלפון נייד ליצירת קשר';
+        }));
   }
 
   @override
@@ -433,7 +436,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                         ),
                                   ),
                                   Container(
-                                    width: 200.0,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    decoration: BoxDecoration(),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 8.0, 0.0),
@@ -444,14 +449,16 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                             TextCapitalization.none,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText:
-                                              'הכנס מספר טלפון ליצירת קשר',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 14.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:

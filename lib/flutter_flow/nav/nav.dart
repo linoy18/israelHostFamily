@@ -239,22 +239,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EditProperty3Widget(
             propertyRef: params.getParam('propertyRef', ParamType.Document),
           ),
-        ),
-        FFRoute(
-          name: 'test',
-          path: '/test',
-          builder: (context, params) => TestWidget(
-            nameTest: params.getParam('nameTest', ParamType.String),
-            descTest: params.getParam('descTest', ParamType.String),
-            areaTest: params.getParam('areaTest', ParamType.String),
-            addTest: params.getParam('addTest', ParamType.String),
-            imageTest: params.getParam('imageTest', ParamType.String),
-          ),
-        ),
-        FFRoute(
-          name: 'property2',
-          path: '/property2',
-          builder: (context, params) => Property2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

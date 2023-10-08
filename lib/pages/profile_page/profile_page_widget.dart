@@ -158,7 +158,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     .headlineSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -173,7 +174,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                            .secondary,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),

@@ -208,7 +208,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: TextFormField(
-                          key: ValueKey('name_4hv2'),
                           controller: _model.nameController,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -373,7 +372,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: TextFormField(
-                          key: ValueKey('area_n9u6'),
                           controller: _model.areaController,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -517,7 +515,8 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
               Align(
                 alignment: AlignmentDirectional(-0.00, 1.00),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
