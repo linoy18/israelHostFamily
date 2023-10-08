@@ -1,4 +1,3 @@
-import '/components/amenitity_indicator/amenitity_indicator_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -96,29 +95,15 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                if (!_model.familyValue!)
-                                  Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: wrapWithModel(
-                                      model: _model.amenitityIndicatorModel1,
-                                      updateCallback: () => setState(() {}),
-                                      child: AmenitityIndicatorWidget(
-                                        icon: Icon(
-                                          Icons.family_restroom,
-                                          color: FlutterFlowTheme.of(context)
-                                              .gray600,
-                                        ),
-                                        background: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .lineGray,
-                                      ),
-                                    ),
-                                  ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.family_restroom_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
@@ -129,8 +114,13 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                 },
                                 title: Text(
                                   'מתאים למשפחה',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -149,39 +139,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel2,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.people_alt_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.group_sharp,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.coupleValue ??= true,
+                                value: _model.coupleValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.coupleValue = newValue!);
                                 },
                                 title: Text(
                                   'מתאים לזוג',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -200,39 +183,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel3,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.person_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.person,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.personValue ??= true,
+                                value: _model.personValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.personValue = newValue!);
                                 },
                                 title: Text(
                                   'מתאים לבודד',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -251,39 +227,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel4,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.sensor_door_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.sensor_door_sharp,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.secureDoorValue ??= true,
+                                value: _model.secureDoorValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.secureDoorValue = newValue!);
                                 },
                                 title: Text(
                                   'ממ\"ד',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -302,39 +271,43 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel5,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.paw,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.paw,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.dogFriendlyValue ??= true,
+                                value: _model.dogFriendlyValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.dogFriendlyValue = newValue!);
                                 },
                                 title: Text(
                                   'ידידותית לכלבים',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 18.0,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם זה אפשרי להביא כלב ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -353,39 +326,42 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel6,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.cat,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.cat,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.catFriendlyValue ??= true,
+                                value: _model.catFriendlyValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.catFriendlyValue = newValue!);
                                 },
                                 title: Text(
                                   'ידידותית לחתולים',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם זה אפשרי להביא חתול ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -404,39 +380,42 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel7,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.babyCarriage,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.babyCarriage,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.babyCribValue ??= true,
+                                value: _model.babyCribValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.babyCribValue = newValue!);
                                 },
                                 title: Text(
                                   'מיטת תינוק',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם יש לכם לול לתינוק בבית ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -455,39 +434,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel8,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.accessible,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.accessible,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.accessibilityValue ??= true,
+                                value: _model.accessibilityValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.accessibilityValue = newValue!);
                                 },
                                 title: Text(
                                   'נגישות (מעלית/כניסה שטוחה)',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -506,39 +478,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel9,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.synagogue,
-                                        color: FlutterFlowTheme.of(context)
-                                            .gray600,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.synagogue,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.familyShabbatValue ??= true,
+                                value: _model.familyShabbatValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.familyShabbatValue = newValue!);
                                 },
                                 title: Text(
                                   'משפחה שומרת שבת',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -557,41 +522,32 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Stack(
-                              children: [
-                                if (!_model.familyKosherValue!)
-                                  Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: wrapWithModel(
-                                      model: _model.amenitityIndicatorModel10,
-                                      updateCallback: () => setState(() {}),
-                                      child: AmenitityIndicatorWidget(
-                                        icon: Icon(
-                                          Icons.food_bank_sharp,
-                                          color: FlutterFlowTheme.of(context)
-                                              .gray600,
-                                        ),
-                                        background: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .lineGray,
-                                      ),
-                                    ),
-                                  ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.food_bank,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 26.0,
+                              ),
                             ),
                             Expanded(
                               child: SwitchListTile.adaptive(
-                                value: _model.familyKosherValue ??= true,
+                                value: _model.familyKosherValue ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.familyKosherValue = newValue!);
                                 },
                                 title: Text(
                                   'משפחה שומרת כשרות',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,

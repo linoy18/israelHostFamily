@@ -250,6 +250,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             addTest: params.getParam('addTest', ParamType.String),
             imageTest: params.getParam('imageTest', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'property2',
+          path: '/property2',
+          builder: (context, params) => Property2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

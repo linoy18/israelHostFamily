@@ -26,7 +26,7 @@ void main() async {
     await tester.enterText(find.byKey(ValueKey('area_n9u6')), 'Hello World3');
     await tester.enterText(
         find.byKey(ValueKey('createProperty_1_5hmq')), 'Hello World4');
-    await tester.tap(find.byKey(ValueKey('Button_20rb')));
+    await tester.tap(find.byKey(ValueKey('null_gsj4')));
   });
 }
 

@@ -1,42 +1,28 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'test_model.dart';
-export 'test_model.dart';
+import 'property2_model.dart';
+export 'property2_model.dart';
 
-class TestWidget extends StatefulWidget {
-  const TestWidget({
-    Key? key,
-    required this.nameTest,
-    required this.descTest,
-    this.areaTest,
-    this.addTest,
-    this.imageTest,
-  }) : super(key: key);
-
-  final String? nameTest;
-  final String? descTest;
-  final String? areaTest;
-  final String? addTest;
-  final String? imageTest;
+class Property2Widget extends StatefulWidget {
+  const Property2Widget({Key? key}) : super(key: key);
 
   @override
-  _TestWidgetState createState() => _TestWidgetState();
+  _Property2WidgetState createState() => _Property2WidgetState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
-  late TestModel _model;
+class _Property2WidgetState extends State<Property2Widget> {
+  late Property2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestModel());
+    _model = createModel(context, () => Property2Model());
   }
 
   @override
@@ -59,7 +45,7 @@ class _TestWidgetState extends State<TestWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'הוספת מקום אירוח',
+            'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),
           actions: [],
@@ -71,18 +57,24 @@ class _TestWidgetState extends State<TestWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                buttonSize: 46.0,
-                icon: Icon(
-                  Icons.arrow_back_rounded,
-                  color: Color(0xFF95A1AC),
-                  size: 24.0,
-                ),
-                onPressed: () async {
-                  context.pop();
+              SwitchListTile.adaptive(
+                value: _model.switchListTileValue ??= false,
+                onChanged: (newValue) async {
+                  setState(() => _model.switchListTileValue = newValue!);
                 },
+                title: Text(
+                  'Title',
+                  style: FlutterFlowTheme.of(context).titleLarge,
+                ),
+                subtitle: Text(
+                  'Subtitle goes here...',
+                  style: FlutterFlowTheme.of(context).labelMedium,
+                ),
+                tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                activeColor: FlutterFlowTheme.of(context).primary,
+                activeTrackColor: FlutterFlowTheme.of(context).accent1,
+                dense: false,
+                controlAffinity: ListTileControlAffinity.trailing,
               ),
             ],
           ),
