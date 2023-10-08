@@ -32,6 +32,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
     super.initState();
     _model = createModel(context, () => ChangePasswordModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'changePassword'});
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
   }

@@ -34,6 +34,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditProperty2Model());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'editProperty_2'});
   }
 
   @override
@@ -89,10 +92,26 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: wrapWithModel(
+                                model: _model.amenitityIndicatorModel1,
+                                updateCallback: () => setState(() {}),
+                                child: AmenitityIndicatorWidget(
+                                  icon: Icon(
+                                    Icons.family_restroom,
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
+                                  background:
+                                      FlutterFlowTheme.of(context).tertiary,
+                                  borderColor: Color(0xFFE1EDF9),
+                                ),
+                              ),
+                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.familyValue ??=
-                                    widget.propertyRef!.hasForFamily(),
+                                    widget.propertyRef!.forFamily,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.familyValue = newValue!);
@@ -119,10 +138,26 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: wrapWithModel(
+                                model: _model.amenitityIndicatorModel2,
+                                updateCallback: () => setState(() {}),
+                                child: AmenitityIndicatorWidget(
+                                  icon: Icon(
+                                    Icons.group_sharp,
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
+                                  background:
+                                      FlutterFlowTheme.of(context).tertiary,
+                                  borderColor: Color(0xFFE1EDF9),
+                                ),
+                              ),
+                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.coupleValue ??=
-                                    widget.propertyRef!.hasForCouple(),
+                                    widget.propertyRef!.forCouple,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.coupleValue = newValue!);
@@ -149,10 +184,26 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: wrapWithModel(
+                                model: _model.amenitityIndicatorModel3,
+                                updateCallback: () => setState(() {}),
+                                child: AmenitityIndicatorWidget(
+                                  icon: Icon(
+                                    Icons.person_sharp,
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
+                                  background:
+                                      FlutterFlowTheme.of(context).tertiary,
+                                  borderColor: Color(0xFFE1EDF9),
+                                ),
+                              ),
+                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.personValue ??=
-                                    widget.propertyRef!.hasForOne(),
+                                    widget.propertyRef!.forOne,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.personValue = newValue!);
@@ -179,10 +230,26 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: wrapWithModel(
+                                model: _model.amenitityIndicatorModel4,
+                                updateCallback: () => setState(() {}),
+                                child: AmenitityIndicatorWidget(
+                                  icon: Icon(
+                                    Icons.sensor_door_sharp,
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
+                                  background:
+                                      FlutterFlowTheme.of(context).tertiary,
+                                  borderColor: Color(0xFFE1EDF9),
+                                ),
+                              ),
+                            ),
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.secureDoorValue ??=
-                                    widget.propertyRef!.hasSecureDoor(),
+                                    widget.propertyRef!.secureDoor,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.secureDoorValue = newValue!);
@@ -212,7 +279,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel1,
+                                model: _model.amenitityIndicatorModel5,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -228,7 +295,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.catValue ??=
-                                    widget.propertyRef!.hasCatFriendly(),
+                                    widget.propertyRef!.catFriendly,
                                 onChanged: (newValue) async {
                                   setState(() => _model.catValue = newValue!);
                                 },
@@ -257,7 +324,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel2,
+                                model: _model.amenitityIndicatorModel6,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -273,7 +340,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.babyCribValue ??=
-                                    widget.propertyRef!.hasBabyCrib(),
+                                    widget.propertyRef!.babyCrib,
                                 onChanged: (newValue) async {
                                   setState(
                                       () => _model.babyCribValue = newValue!);
@@ -303,7 +370,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel3,
+                                model: _model.amenitityIndicatorModel7,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -319,7 +386,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.dogValue ??=
-                                    widget.propertyRef!.hasDogFriendly(),
+                                    widget.propertyRef!.dogFriendly,
                                 onChanged: (newValue) async {
                                   setState(() => _model.dogValue = newValue!);
                                 },
@@ -348,7 +415,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel4,
+                                model: _model.amenitityIndicatorModel8,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: Icon(
@@ -364,7 +431,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.accessibilityValue ??=
-                                    widget.propertyRef!.hasAccessibility(),
+                                    widget.propertyRef!.accessibility,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.accessibilityValue = newValue!);
@@ -394,7 +461,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel5,
+                                model: _model.amenitityIndicatorModel9,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: FaIcon(
@@ -410,7 +477,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.familyShabbatValue ??=
-                                    widget.propertyRef!.hasFamilyKeepShabbat(),
+                                    widget.propertyRef!.familyKeepShabbat,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.familyShabbatValue = newValue!);
@@ -440,7 +507,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: wrapWithModel(
-                                model: _model.amenitityIndicatorModel6,
+                                model: _model.amenitityIndicatorModel10,
                                 updateCallback: () => setState(() {}),
                                 child: AmenitityIndicatorWidget(
                                   icon: Icon(
@@ -456,7 +523,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             Expanded(
                               child: SwitchListTile.adaptive(
                                 value: _model.familyKosherValue ??=
-                                    widget.propertyRef!.hasFamilyKeepKosher(),
+                                    widget.propertyRef!.familyKeepKosher,
                                 onChanged: (newValue) async {
                                   setState(() =>
                                       _model.familyKosherValue = newValue!);

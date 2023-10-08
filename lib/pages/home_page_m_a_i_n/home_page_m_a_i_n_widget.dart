@@ -26,6 +26,8 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
     super.initState();
     _model = createModel(context, () => HomePageMAINModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'homePage_MAIN'});
     _model.textController ??= TextEditingController();
   }
 
@@ -255,7 +257,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                         .override(
                                           fontFamily: 'Urbanist',
                                           color: FlutterFlowTheme.of(context)
-                                              .tertiary,
+                                              .primary,
                                         ),
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
@@ -314,8 +316,12 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: StreamBuilder<List<PropertiesRecord>>(
                 stream: queryPropertiesRecord(
-                  queryBuilder: (propertiesRecord) =>
-                      propertiesRecord.orderBy('lastUpdated', descending: true),
+                  queryBuilder: (propertiesRecord) => propertiesRecord
+                      .where(
+                        'isLive',
+                        isEqualTo: true,
+                      )
+                      .orderBy('lastUpdated', descending: true),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
@@ -367,7 +373,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'propertyDetails',
+                                'propertyDetails_Owner',
                                 queryParameters: {
                                   'propertyRef': serializeParam(
                                     listViewPropertiesRecord,
@@ -382,35 +388,32 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Hero(
-                                  tag: valueOrDefault<String>(
-                                    listViewPropertiesRecord.mainImage,
-                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/jyeiyll24v90/pixasquare-4ojhpgKpS68-unsplash.jpg' +
-                                        '$listViewIndex',
-                                  ),
-                                  transitionOnUserGestures: true,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0.0),
-                                      bottomRight: Radius.circular(0.0),
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: CachedNetworkImage(
-                                      fadeInDuration:
-                                          Duration(milliseconds: 500),
-                                      fadeOutDuration:
-                                          Duration(milliseconds: 500),
-                                      imageUrl: valueOrDefault<String>(
-                                        listViewPropertiesRecord.mainImage,
-                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/jyeiyll24v90/pixasquare-4ojhpgKpS68-unsplash.jpg',
+                                if (listViewPropertiesRecord.mainImage !=
+                                        null &&
+                                    listViewPropertiesRecord.mainImage != '')
+                                  Hero(
+                                    tag: listViewPropertiesRecord.mainImage,
+                                    transitionOnUserGestures: true,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
                                       ),
-                                      width: double.infinity,
-                                      height: 190.0,
-                                      fit: BoxFit.cover,
+                                      child: CachedNetworkImage(
+                                        fadeInDuration:
+                                            Duration(milliseconds: 500),
+                                        fadeOutDuration:
+                                            Duration(milliseconds: 500),
+                                        imageUrl:
+                                            listViewPropertiesRecord.mainImage,
+                                        width: double.infinity,
+                                        height: 190.0,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 12.0, 16.0, 8.0),

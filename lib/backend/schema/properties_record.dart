@@ -131,6 +131,11 @@ class PropertiesRecord extends FirestoreRecord {
   bool get secureDoor => _secureDoor ?? false;
   bool hasSecureDoor() => _secureDoor != null;
 
+  // "hostName" field.
+  String? _hostName;
+  String get hostName => _hostName ?? '';
+  bool hasHostName() => _hostName != null;
+
   void _initializeFields() {
     _propertyName = snapshotData['propertyName'] as String?;
     _propertyDescription = snapshotData['propertyDescription'] as String?;
@@ -155,6 +160,7 @@ class PropertiesRecord extends FirestoreRecord {
     _familyKeepShabbat = snapshotData['familyKeepShabbat'] as bool?;
     _familyKeepKosher = snapshotData['familyKeepKosher'] as bool?;
     _secureDoor = snapshotData['secureDoor'] as bool?;
+    _hostName = snapshotData['hostName'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -215,6 +221,7 @@ Map<String, dynamic> createPropertiesRecordData({
   bool? familyKeepShabbat,
   bool? familyKeepKosher,
   bool? secureDoor,
+  String? hostName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -241,6 +248,7 @@ Map<String, dynamic> createPropertiesRecordData({
       'familyKeepShabbat': familyKeepShabbat,
       'familyKeepKosher': familyKeepKosher,
       'secureDoor': secureDoor,
+      'hostName': hostName,
     }.withoutNulls,
   );
 
@@ -274,7 +282,8 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e1?.accessibility == e2?.accessibility &&
         e1?.familyKeepShabbat == e2?.familyKeepShabbat &&
         e1?.familyKeepKosher == e2?.familyKeepKosher &&
-        e1?.secureDoor == e2?.secureDoor;
+        e1?.secureDoor == e2?.secureDoor &&
+        e1?.hostName == e2?.hostName;
   }
 
   @override
@@ -301,7 +310,8 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e?.accessibility,
         e?.familyKeepShabbat,
         e?.familyKeepKosher,
-        e?.secureDoor
+        e?.secureDoor,
+        e?.hostName
       ]);
 
   @override

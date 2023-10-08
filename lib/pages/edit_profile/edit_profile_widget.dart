@@ -33,6 +33,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     super.initState();
     _model = createModel(context, () => EditProfileModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'editProfile'});
     _model.textController1 ??=
         TextEditingController(text: widget.userProfile?.displayName);
     _model.emailAddressController ??=

@@ -34,6 +34,8 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
     super.initState();
     _model = createModel(context, () => EditProperty3Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'editProperty_3'});
     _model.notesController ??=
         TextEditingController(text: widget.propertyRef?.notes);
   }

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'search_properties_widget.dart' show SearchPropertiesWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
@@ -13,10 +14,11 @@ import 'package:text_search/text_search.dart';
 class SearchPropertiesModel extends FlutterFlowModel<SearchPropertiesWidget> {
   ///  State fields for stateful widgets in this page.
 
+  List<PropertiesRecord> simpleSearchResults1 = [];
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<PropertiesRecord> simpleSearchResults = [];
+  List<PropertiesRecord> simpleSearchResults2 = [];
 
   /// Initialization and disposal methods.
 

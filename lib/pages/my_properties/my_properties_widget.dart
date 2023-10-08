@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -28,6 +27,9 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyPropertiesModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'myProperties'});
   }
 
   @override
@@ -81,18 +83,11 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                 child:
                     PagedListView<DocumentSnapshot<Object?>?, PropertiesRecord>(
                   pagingController: _model.setListViewController(
-                    PropertiesRecord.collection
-                        .where(
-                          'userRef',
-                          isEqualTo: currentUserReference,
-                          isNull: (currentUserReference) == null,
-                        )
-                        .where(
-                          'isLive',
-                          isEqualTo: true,
-                          isNull: (true) == null,
-                        )
-                        .orderBy('lastUpdated', descending: true),
+                    PropertiesRecord.collection.where(
+                      'userRef',
+                      isEqualTo: currentUserReference,
+                      isNull: (currentUserReference) == null,
+                    ),
                   ),
                   padding: EdgeInsets.zero,
                   primary: false,
@@ -157,7 +152,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'propertyDetails_Owner',
+                                'propertyDetails',
                                 queryParameters: {
                                   'propertyRef': serializeParam(
                                     listViewPropertiesRecord,
@@ -172,35 +167,6 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Hero(
-                                  tag: valueOrDefault<String>(
-                                    listViewPropertiesRecord.mainImage,
-                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/jyeiyll24v90/pixasquare-4ojhpgKpS68-unsplash.jpg' +
-                                        '$listViewIndex',
-                                  ),
-                                  transitionOnUserGestures: true,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0.0),
-                                      bottomRight: Radius.circular(0.0),
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: CachedNetworkImage(
-                                      fadeInDuration:
-                                          Duration(milliseconds: 500),
-                                      fadeOutDuration:
-                                          Duration(milliseconds: 500),
-                                      imageUrl: valueOrDefault<String>(
-                                        listViewPropertiesRecord.mainImage,
-                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/jyeiyll24v90/pixasquare-4ojhpgKpS68-unsplash.jpg',
-                                      ),
-                                      width: double.infinity,
-                                      height: 140.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 12.0, 16.0, 8.0),

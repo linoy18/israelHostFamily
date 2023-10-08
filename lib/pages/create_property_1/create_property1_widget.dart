@@ -33,6 +33,8 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
     super.initState();
     _model = createModel(context, () => CreateProperty1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createProperty_1'});
     _model.nameController ??= TextEditingController();
     _model.addressController ??= TextEditingController();
     _model.areaController ??= TextEditingController();

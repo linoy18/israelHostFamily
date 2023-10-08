@@ -106,13 +106,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : HomePageMAINWidget(),
         ),
         FFRoute(
-          name: 'propertyDetails',
-          path: '/propertyDetails',
+          name: 'propertyDetails_Owner',
+          path: '/propertyDetailsOwner',
           asyncParams: {
             'propertyRef':
                 getDoc(['properties'], PropertiesRecord.fromSnapshot),
           },
-          builder: (context, params) => PropertyDetailsWidget(
+          builder: (context, params) => PropertyDetailsOwnerWidget(
             propertyRef: params.getParam('propertyRef', ParamType.Document),
           ),
         ),
@@ -174,6 +174,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'createProperty_3',
           path: '/createProperty3',
           builder: (context, params) => CreateProperty3Widget(
+            mainImage: params.getParam('mainImage', ParamType.String),
             family: params.getParam('family', ParamType.bool),
             couple: params.getParam('couple', ParamType.bool),
             one: params.getParam('one', ParamType.bool),
@@ -188,24 +189,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             descriptioon: params.getParam('descriptioon', ParamType.String),
             address: params.getParam('address', ParamType.String),
             neighborhood: params.getParam('neighborhood', ParamType.String),
-            mainImage: params.getParam('mainImage', ParamType.String),
           ),
         ),
         FFRoute(
           name: 'myProperties',
           path: '/myProperties',
+          requireAuth: true,
           builder: (context, params) => MyPropertiesWidget(),
-        ),
-        FFRoute(
-          name: 'propertyDetails_Owner',
-          path: '/propertyDetailsOwner',
-          asyncParams: {
-            'propertyRef':
-                getDoc(['properties'], PropertiesRecord.fromSnapshot),
-          },
-          builder: (context, params) => PropertyDetailsOwnerWidget(
-            propertyRef: params.getParam('propertyRef', ParamType.Document),
-          ),
         ),
         FFRoute(
           name: 'editProperty_1',
@@ -237,6 +227,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 getDoc(['properties'], PropertiesRecord.fromSnapshot),
           },
           builder: (context, params) => EditProperty3Widget(
+            propertyRef: params.getParam('propertyRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'propertyDetails',
+          path: '/propertyDetails',
+          asyncParams: {
+            'propertyRef':
+                getDoc(['properties'], PropertiesRecord.fromSnapshot),
+          },
+          builder: (context, params) => PropertyDetailsWidget(
             propertyRef: params.getParam('propertyRef', ParamType.Document),
           ),
         )

@@ -25,12 +25,16 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  aligned_dialog: 0.0.6
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
   cloud_firestore: 4.8.0
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
   file_picker: 5.2.6
+  firebase_analytics: 10.4.2
+  firebase_analytics_platform_interface: 3.6.2
+  firebase_analytics_web: 0.5.4+2
   firebase_auth: 4.6.2
   firebase_auth_platform_interface: 6.15.2
   firebase_auth_web: 5.5.2

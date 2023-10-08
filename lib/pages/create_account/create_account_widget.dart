@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -25,6 +26,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
     super.initState();
     _model = createModel(context, () => CreateAccountModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createAccount'});
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
   }
@@ -297,6 +300,12 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     if (user == null) {
                                       return;
                                     }
+
+                                    await UsersRecord.collection
+                                        .doc(user.uid)
+                                        .update(createUsersRecordData(
+                                          numberProperties: 0,
+                                        ));
 
                                     context.pushNamedAuth(
                                         'homePage_MAIN', context.mounted);

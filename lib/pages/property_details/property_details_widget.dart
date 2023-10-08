@@ -1,20 +1,17 @@
 import '/backend/backend.dart';
-import '/components/amenitity_indicator/amenitity_indicator_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
+import '/components/contact_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'property_details_model.dart';
 export 'property_details_model.dart';
 
@@ -30,197 +27,18 @@ class PropertyDetailsWidget extends StatefulWidget {
   _PropertyDetailsWidgetState createState() => _PropertyDetailsWidgetState();
 }
 
-class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
-    with TickerProviderStateMixin {
+class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
   late PropertyDetailsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 60.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 80.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.4, 0.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PropertyDetailsModel());
 
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'propertyDetails'});
   }
 
   @override
@@ -271,6 +89,26 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              buttonSize: 46.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
+            ),
+            actions: [],
+            centerTitle: false,
+            elevation: 0.0,
+          ),
           body: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -286,18 +124,19 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: 320.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFDBE2E7),
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Stack(
-                                children: [
-                                  if (propertyDetailsPropertiesRecord
-                                          ?.hasMainImage() ??
-                                      true)
+                            if (propertyDetailsPropertiesRecord?.mainImage !=
+                                    null &&
+                                propertyDetailsPropertiesRecord?.mainImage !=
+                                    '')
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                height: 320.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFDBE2E7),
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Stack(
+                                  children: [
                                     Align(
                                       alignment:
                                           AlignmentDirectional(0.00, 0.00),
@@ -318,29 +157,20 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                       milliseconds: 500),
                                                   fadeOutDuration: Duration(
                                                       milliseconds: 500),
-                                                  imageUrl:
-                                                      valueOrDefault<String>(
-                                                    widget
-                                                        .propertyRef?.mainImage,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                                  ),
+                                                  imageUrl: widget
+                                                      .propertyRef!.mainImage,
                                                   fit: BoxFit.contain,
                                                 ),
                                                 allowRotation: false,
-                                                tag: valueOrDefault<String>(
-                                                  widget.propertyRef?.mainImage,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                                ),
+                                                tag: widget
+                                                    .propertyRef!.mainImage,
                                                 useHeroAnimation: true,
                                               ),
                                             ),
                                           );
                                         },
                                         child: Hero(
-                                          tag: valueOrDefault<String>(
-                                            widget.propertyRef?.mainImage,
-                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                          ),
+                                          tag: widget.propertyRef!.mainImage,
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
@@ -350,10 +180,8 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                   Duration(milliseconds: 500),
                                               fadeOutDuration:
                                                   Duration(milliseconds: 500),
-                                              imageUrl: valueOrDefault<String>(
-                                                widget.propertyRef?.mainImage,
-                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/crnkz8tyvb21/3.png',
-                                              ),
+                                              imageUrl:
+                                                  widget.propertyRef!.mainImage,
                                               width: double.infinity,
                                               height: double.infinity,
                                               fit: BoxFit.cover,
@@ -362,59 +190,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pop();
-                                              },
-                                              child: Card(
-                                                clipBehavior:
-                                                    Clip.antiAliasWithSaveLayer,
-                                                color: Color(0x3A000000),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  buttonSize: 46.0,
-                                                  icon: Icon(
-                                                    Icons.arrow_back_rounded,
-                                                    color: Colors.white,
-                                                    size: 24.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    context.pop();
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -427,10 +205,14 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                             Expanded(
                               child: Text(
                                 widget.propertyRef!.propertyName,
-                                style:
-                                    FlutterFlowTheme.of(context).displaySmall,
-                              ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation1']!),
+                                style: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                    ),
+                              ),
                             ),
                           ],
                         ),
@@ -452,8 +234,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.normal,
                                     ),
-                              ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation2']!),
+                              ),
                             ),
                           ],
                         ),
@@ -477,8 +258,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                   ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation1']!),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -500,8 +280,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation3']!),
+                                ),
                               ),
                             ),
                           ],
@@ -526,224 +305,344 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                   ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation2']!),
+                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 12.0, 0.0, 0.0),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
+                      Align(
+                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (widget.propertyRef?.hasForFamily() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel1,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.family_restroom,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasForCouple() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel2,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.group,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasForOne() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel3,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.person,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasSecureDoor() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel4,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.sensor_door_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasCatFriendly() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel5,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.cat,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasBabyCrib() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel6,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.babyCarriage,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasDogFriendly() ?? true)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel7,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.paw,
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
-                                      ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
-                                  ),
-                                ),
-                              if (widget.propertyRef?.hasAccessibility() ??
+                              if (propertyDetailsPropertiesRecord?.forFamily ??
                                   true)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel8,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.family_restroom_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'מתאים למשפחה',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord?.forCouple ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.people_alt_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'מתאים לזוג',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord?.forOne ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.person_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'מתאים לאדם אחד',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord
+                                      ?.accessibility ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
                                         Icons.accessible,
                                         color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
+                                            .secondary,
+                                        size: 24.0,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'מתאים לבעלי מוגבלויות / קרקע / מעלית ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              if (widget.propertyRef?.hasFamilyKeepShabbat() ??
+                              if (propertyDetailsPropertiesRecord
+                                      ?.dogFriendly ??
                                   true)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel9,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: FaIcon(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.paw,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'אפשר להביא כלב',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord
+                                      ?.catFriendly ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.cat,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'אפשר להביא חתול',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord
+                                      ?.familyKeepShabbat ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FaIcon(
                                         FontAwesomeIcons.synagogue,
                                         color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
+                                            .secondary,
+                                        size: 24.0,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'משפחה שומרת שבת',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              if (widget.propertyRef?.hasFamilyKeepKosher() ??
+                              if (propertyDetailsPropertiesRecord
+                                      ?.familyKeepKosher ??
                                   true)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.amenitityIndicatorModel10,
-                                    updateCallback: () => setState(() {}),
-                                    child: AmenitityIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.food_bank,
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.food_bank_sharp,
                                         color: FlutterFlowTheme.of(context)
-                                            .grayIcon,
+                                            .secondary,
+                                        size: 24.0,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).lineGray,
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'משפחה שומרת כשרות',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord?.babyCrib ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.babyCarriage,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'מיטת תינוק',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (propertyDetailsPropertiesRecord?.secureDoor ??
+                                  true)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.sensor_door_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'יש ממ\"ד',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Urbanist',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                             ],
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation3']!),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -777,8 +676,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation4']!),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -812,8 +710,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation5']!),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -847,8 +744,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation6']!),
+                        ),
                       ),
                     ],
                   ),
@@ -863,35 +759,54 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          await launchUrl(Uri(
-                            scheme: 'tel',
-                            path: propertyDetailsPropertiesRecord!.phoneNumber,
-                          ));
-                        },
-                        text: 'צור קשר עם המארחים',
-                        options: FFButtonOptions(
-                          width: 200.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w500,
+                      Builder(
+                        builder: (context) => FFButtonWidget(
+                          onPressed: () async {
+                            await showAlignedDialog(
+                              context: context,
+                              isGlobal: true,
+                              avoidOverflow: false,
+                              targetAnchor: AlignmentDirectional(0.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              followerAnchor: AlignmentDirectional(-0.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              builder: (dialogContext) {
+                                return Material(
+                                  color: Colors.transparent,
+                                  child: ContactWidget(
+                                    name: propertyDetailsPropertiesRecord!
+                                        .hostName,
+                                    number: propertyDetailsPropertiesRecord!
+                                        .phoneNumber,
                                   ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                                );
+                              },
+                            ).then((value) => setState(() {}));
+                          },
+                          text: 'צור קשר עם המארחים',
+                          options: FFButtonOptions(
+                            width: 200.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(30.0),
                           ),
-                          borderRadius: BorderRadius.circular(30.0),
                         ),
                       ),
                     ],

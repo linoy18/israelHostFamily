@@ -16,6 +16,7 @@ export 'create_property3_model.dart';
 class CreateProperty3Widget extends StatefulWidget {
   const CreateProperty3Widget({
     Key? key,
+    this.mainImage,
     bool? family,
     bool? couple,
     bool? one,
@@ -30,7 +31,6 @@ class CreateProperty3Widget extends StatefulWidget {
     required this.descriptioon,
     this.address,
     this.neighborhood,
-    this.mainImage,
   })  : this.family = family ?? false,
         this.couple = couple ?? false,
         this.one = one ?? false,
@@ -40,6 +40,7 @@ class CreateProperty3Widget extends StatefulWidget {
         this.acessability = acessability ?? false,
         super(key: key);
 
+  final String? mainImage;
   final bool family;
   final bool couple;
   final bool one;
@@ -54,7 +55,6 @@ class CreateProperty3Widget extends StatefulWidget {
   final String? descriptioon;
   final String? address;
   final String? neighborhood;
-  final String? mainImage;
 
   @override
   _CreateProperty3WidgetState createState() => _CreateProperty3WidgetState();
@@ -70,11 +70,11 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     super.initState();
     _model = createModel(context, () => CreateProperty3Model());
 
-    _model.notesController ??= TextEditingController(text: '');
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createProperty_3'});
+    _model.notesController ??= TextEditingController();
     _model.phoneController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.phoneController?.text = 'הכנס מספר טלפון נייד ליצירת קשר';
-        }));
+    _model.hostNameController ??= TextEditingController();
   }
 
   @override
@@ -424,16 +424,22 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'מספר טלפון ליצירת קשר',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'Urbanist',
-                                          color: FlutterFlowTheme.of(context)
-                                              .gray600,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'מספר טלפון ליצירת קשר',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .gray600,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ],
                                   ),
                                   Container(
                                     width:
@@ -452,13 +458,18 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 14.0,
-                                                  ),
+                                          hintText:
+                                              'הכנס מספר טלפון נייד ליצירת קשר',
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 14.0,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -514,6 +525,95 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                       ),
                                     ),
                                   ),
+                                  Text(
+                                    'שם ליצירת קשר',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  ),
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    decoration: BoxDecoration(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 8.0, 0.0),
+                                      child: TextFormField(
+                                        controller: _model.hostNameController,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 14.0,
+                                              ),
+                                          hintText:
+                                              'הכנס שם או שם משפחה ליצירת קשר',
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 14.0,
+                                              ),
+                                          enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        validator: _model
+                                            .hostNameControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -558,7 +658,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           minNights: _model.countControllerValue,
                           bedsCount: _model.countBedsValue,
                           roomsCount: _model.countRoomsValue,
-                          phoneNumber: currentPhoneNumber,
+                          phoneNumber: _model.phoneController.text,
                           forFamily: widget.family,
                           forCouple: widget.couple,
                           forOne: widget.one,
@@ -570,6 +670,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           familyKeepKosher: widget.keepKosher,
                           secureDoor: widget.secureDoor,
                           mainImage: widget.mainImage,
+                          hostName: _model.hostNameController.text,
                         ),
                         ...mapToFirestore(
                           {
@@ -577,17 +678,55 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           },
                         ),
                       });
-
-                      context.goNamed(
-                        'profilePage',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 250),
+                      if (_model.phoneController.text == null ||
+                          _model.phoneController.text == '') {
+                        var confirmDialogResponse = await showDialog<bool>(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('מספר טלפון חסר'),
+                                  content: Text('הכנס מספר טלפון ליצירת קשר'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, false),
+                                      child: Text('ביטול'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, true),
+                                      child: Text('אישור'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ) ??
+                            false;
+                        if (confirmDialogResponse) {
+                          Navigator.pop(context);
+                        } else {
+                          Navigator.pop(context);
+                        }
+                      } else {
+                        await currentUserReference!.update({
+                          ...mapToFirestore(
+                            {
+                              'numberProperties': FieldValue.increment(1),
+                            },
                           ),
-                        },
-                      );
+                        });
+
+                        context.goNamed(
+                          'homePage_MAIN',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 250),
+                            ),
+                          },
+                        );
+                      }
                     },
                     text: 'פרסם',
                     options: FFButtonOptions(

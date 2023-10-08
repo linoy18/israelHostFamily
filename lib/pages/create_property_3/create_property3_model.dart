@@ -27,6 +27,9 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   // State field(s) for phone widget.
   TextEditingController? phoneController;
   String? Function(BuildContext, String?)? phoneControllerValidator;
+  // State field(s) for hostName widget.
+  TextEditingController? hostNameController;
+  String? Function(BuildContext, String?)? hostNameControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -35,6 +38,7 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   void dispose() {
     notesController?.dispose();
     phoneController?.dispose();
+    hostNameController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
@@ -32,6 +33,30 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SearchPropertiesModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'searchProperties'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await queryPropertiesRecordOnce()
+          .then(
+            (records) => _model.simpleSearchResults1 = TextSearch(
+              records
+                  .map(
+                    (record) => TextSearchItem(record, [
+                      record.propertyName!,
+                      record.propertyDescription!,
+                      record.propertyAddress!,
+                      record.propertyNeighborhood!,
+                      record.notes!
+                    ]),
+                  )
+                  .toList(),
+            ).search(widget.searchTerm!).map((r) => r.object).take(50).toList(),
+          )
+          .onError((_, __) => _model.simpleSearchResults1 = [])
+          .whenComplete(() => setState(() {}));
+    });
 
     _model.textController ??= TextEditingController(text: widget.searchTerm);
   }
@@ -214,7 +239,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   await queryPropertiesRecordOnce()
                                       .then(
                                         (records) => _model
-                                            .simpleSearchResults = TextSearch(
+                                            .simpleSearchResults2 = TextSearch(
                                           records
                                               .map(
                                                 (record) =>
@@ -223,8 +248,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                                   record.propertyDescription!,
                                                   record.propertyAddress!,
                                                   record.propertyNeighborhood!,
-                                                  record.notes!,
-                                                  record.phoneNumber!
+                                                  record.notes!
                                                 ]),
                                               )
                                               .toList(),
@@ -235,7 +259,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                             .toList(),
                                       )
                                       .onError((_, __) =>
-                                          _model.simpleSearchResults = [])
+                                          _model.simpleSearchResults2 = [])
                                       .whenComplete(() => setState(() {}));
                                 },
                                 text: 'חיפוש',
@@ -272,7 +296,8 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final propSearch = _model.simpleSearchResults.toList();
+                        final propSearch =
+                            _model.simpleSearchResults1.map((e) => e).toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -305,7 +330,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'propertyDetails',
+                                      'propertyDetails_Owner',
                                       queryParameters: {
                                         'propertyRef': serializeParam(
                                           propSearchItem,

@@ -40,6 +40,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateProperty2Model());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createProperty_2'});
   }
 
   @override
@@ -122,6 +125,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                             .secondaryText,
                                       ),
                                 ),
+                                subtitle: Text(
+                                  'סמנו האם מתאים למשפחה',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
+                                ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 activeColor:
@@ -164,6 +177,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם מתאים לזוג',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
                                       ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
@@ -210,6 +233,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                             .secondaryText,
                                       ),
                                 ),
+                                subtitle: Text(
+                                  'סמנו אם מתאים לבנאדם אחד',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
+                                ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 activeColor:
@@ -252,6 +285,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם יש לכם חדר מוגן',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
                                       ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
@@ -461,6 +504,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                             .secondaryText,
                                       ),
                                 ),
+                                subtitle: Text(
+                                  'סמנו האם מתאים לבעלי מוגבלויות',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
+                                ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 activeColor:
@@ -505,6 +558,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                             .secondaryText,
                                       ),
                                 ),
+                                subtitle: Text(
+                                  'סמנו אם אתם שומרים שבת',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
+                                ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 activeColor:
@@ -547,6 +610,16 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  'סמנו אם אתם שומרים כשרות',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
                                       ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
