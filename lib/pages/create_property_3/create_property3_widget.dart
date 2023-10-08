@@ -647,37 +647,6 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      await PropertiesRecord.collection.doc().set({
-                        ...createPropertiesRecordData(
-                          propertyName: widget.name,
-                          propertyDescription: widget.descriptioon,
-                          propertyAddress: widget.address,
-                          userRef: currentUserReference,
-                          propertyNeighborhood: widget.neighborhood,
-                          notes: _model.notesController.text,
-                          minNights: _model.countControllerValue,
-                          bedsCount: _model.countBedsValue,
-                          roomsCount: _model.countRoomsValue,
-                          phoneNumber: _model.phoneController.text,
-                          forFamily: widget.family,
-                          forCouple: widget.couple,
-                          forOne: widget.one,
-                          dogFriendly: widget.dog,
-                          catFriendly: widget.cat,
-                          babyCrib: widget.babyCrib,
-                          accessibility: widget.acessability,
-                          familyKeepShabbat: widget.keepShabbat,
-                          familyKeepKosher: widget.keepKosher,
-                          secureDoor: widget.secureDoor,
-                          mainImage: widget.mainImage,
-                          hostName: _model.hostNameController.text,
-                        ),
-                        ...mapToFirestore(
-                          {
-                            'lastUpdated': FieldValue.serverTimestamp(),
-                          },
-                        ),
-                      });
                       if (_model.phoneController.text == null ||
                           _model.phoneController.text == '') {
                         var confirmDialogResponse = await showDialog<bool>(
@@ -708,6 +677,39 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Navigator.pop(context);
                         }
                       } else {
+                        await PropertiesRecord.collection.doc().set({
+                          ...createPropertiesRecordData(
+                            propertyName: widget.name,
+                            propertyDescription: widget.descriptioon,
+                            propertyAddress: widget.address,
+                            userRef: currentUserReference,
+                            propertyNeighborhood: widget.neighborhood,
+                            notes: _model.notesController.text,
+                            minNights: _model.countControllerValue,
+                            bedsCount: _model.countBedsValue,
+                            roomsCount: _model.countRoomsValue,
+                            phoneNumber: _model.phoneController.text,
+                            forFamily: widget.family,
+                            forCouple: widget.couple,
+                            forOne: widget.one,
+                            dogFriendly: widget.dog,
+                            catFriendly: widget.cat,
+                            babyCrib: widget.babyCrib,
+                            accessibility: widget.acessability,
+                            familyKeepShabbat: widget.keepShabbat,
+                            familyKeepKosher: widget.keepKosher,
+                            secureDoor: widget.secureDoor,
+                            mainImage: widget.mainImage,
+                            hostName: _model.hostNameController.text,
+                            isLive: true,
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'lastUpdated': FieldValue.serverTimestamp(),
+                            },
+                          ),
+                        });
+
                         await currentUserReference!.update({
                           ...mapToFirestore(
                             {
