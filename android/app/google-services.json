@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "511353591146",
+    "project_id": "israelhostfamilies",
+    "storage_bucket": "israelhostfamilies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511353591146:android:2c7fb4e8ebf9179f874113",
+        "android_client_info": {
+          "package_name": "com.flutterflow.families"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyiZw8qQZSN0tQjdSS9GRoDbP3juXzVgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
