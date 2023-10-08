@@ -99,6 +99,8 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -158,7 +160,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Change Profile Photo',
+                        'שינוי תמונה',
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),

@@ -1,4 +1,4 @@
-package com.flutterflow.families
+package com.linoybargal.hostFamilies
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -40,6 +40,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         TextEditingController(text: widget.userProfile?.email);
     _model.myBioController ??=
         TextEditingController(text: widget.userProfile?.bio);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

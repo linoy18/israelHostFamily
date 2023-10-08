@@ -59,6 +59,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
     });
 
     _model.textController ??= TextEditingController(text: widget.searchTerm);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -330,7 +331,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'propertyDetails_Owner',
+                                      'propertyDetails',
                                       queryParameters: {
                                         'propertyRef': serializeParam(
                                           propSearchItem,

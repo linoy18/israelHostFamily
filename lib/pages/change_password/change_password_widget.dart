@@ -36,6 +36,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         parameters: {'screen_name': 'changePassword'});
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

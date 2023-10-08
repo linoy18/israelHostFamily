@@ -294,7 +294,7 @@ class FirebaseAuthManager extends AuthManager
       }
       return userCredential == null
           ? null
-          : FamiliesHostFirebaseUser.fromUserCredential(userCredential);
+          : IsraelHostFamiliesFirebaseUser.fromUserCredential(userCredential);
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(

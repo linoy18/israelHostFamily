@@ -28,6 +28,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'login'});
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -133,6 +134,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     fontFamily: 'Urbanist',
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 18.0,
                                   ),
                             ),
                           ],

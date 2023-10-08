@@ -38,6 +38,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
         parameters: {'screen_name': 'editProperty_3'});
     _model.notesController ??=
         TextEditingController(text: widget.propertyRef?.notes);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -39,6 +39,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'propertyDetails'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -29,6 +29,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'homePage_MAIN'});
     _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -373,7 +374,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'propertyDetails_Owner',
+                                'propertyDetails',
                                 queryParameters: {
                                   'propertyRef': serializeParam(
                                     listViewPropertiesRecord,

@@ -30,6 +30,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
         parameters: {'screen_name': 'createAccount'});
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -131,6 +132,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     fontFamily: 'Urbanist',
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 18.0,
                                   ),
                             ),
                           ],

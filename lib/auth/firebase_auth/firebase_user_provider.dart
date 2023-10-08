@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class FamiliesHostFirebaseUser extends BaseAuthUser {
-  FamiliesHostFirebaseUser(this.user);
+class IsraelHostFamiliesFirebaseUser extends BaseAuthUser {
+  IsraelHostFamiliesFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -48,17 +48,18 @@ class FamiliesHostFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      FamiliesHostFirebaseUser(user);
+      IsraelHostFamiliesFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> familiesHostFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> israelHostFamiliesFirebaseUserStream() =>
+    FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = FamiliesHostFirebaseUser(user);
+        currentUser = IsraelHostFamiliesFirebaseUser(user);
         return currentUser!;
       },
     );

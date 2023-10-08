@@ -37,6 +37,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'editProperty_2'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -43,6 +43,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
         TextEditingController(text: widget.propertyRef?.propertyNeighborhood);
     _model.propertyDescriptionController ??=
         TextEditingController(text: widget.propertyRef?.propertyDescription);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

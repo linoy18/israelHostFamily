@@ -68,6 +68,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -120,30 +122,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Card(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        color: Color(0xFFDADADA),
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(60.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              2.0, 2.0, 2.0, 2.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(60.0),
-                            child: Image.network(
-                              valueOrDefault<String>(
-                                columnUsersRecord.photoUrl,
-                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/0lxaal924o7e/2.png',
-                              ),
-                              width: 80.0,
-                              height: 80.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(

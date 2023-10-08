@@ -30,6 +30,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'myProperties'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -152,7 +153,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'propertyDetails',
+                                'propertyDetails_Owner',
                                 queryParameters: {
                                   'propertyRef': serializeParam(
                                     listViewPropertiesRecord,

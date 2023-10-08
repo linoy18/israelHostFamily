@@ -7,6 +7,7 @@ import '/flutter_flow/upload_data.dart';
 import 'create_property1_widget.dart' show CreateProperty1Widget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,11 +26,6 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
   // State field(s) for name widget.
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
@@ -42,6 +38,10 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
   // State field(s) for description widget.
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
 
   /// Initialization and disposal methods.
 
