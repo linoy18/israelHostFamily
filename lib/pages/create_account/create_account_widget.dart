@@ -30,7 +30,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
         parameters: {'screen_name': 'createAccount'});
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

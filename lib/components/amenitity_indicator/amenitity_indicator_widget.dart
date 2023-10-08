@@ -36,8 +36,6 @@ class _AmenitityIndicatorWidgetState extends State<AmenitityIndicatorWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AmenitityIndicatorModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

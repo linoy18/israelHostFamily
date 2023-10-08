@@ -34,8 +34,6 @@ class _ContactWidgetState extends State<ContactWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ContactModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

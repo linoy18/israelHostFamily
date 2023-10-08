@@ -10,8 +10,8 @@ Future initFirebase() async {
             projectId: "israelhostfamilies",
             storageBucket: "israelhostfamilies.appspot.com",
             messagingSenderId: "511353591146",
-            appId: "1:511353591146:web:e11ff9fc2d9b92a7874113",
-            measurementId: "G-SWPLBCSHZ1"));
+            appId: "1:511353591146:web:db6c7c888d349f40874113",
+            measurementId: "G-X1FC5FK52Y"));
   } else {
     await Firebase.initializeApp();
   }

@@ -99,8 +99,6 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

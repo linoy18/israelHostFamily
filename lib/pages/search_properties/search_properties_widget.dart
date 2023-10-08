@@ -59,7 +59,6 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
     });
 
     _model.textController ??= TextEditingController(text: widget.searchTerm);
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

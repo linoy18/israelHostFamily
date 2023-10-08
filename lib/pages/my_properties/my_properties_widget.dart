@@ -30,7 +30,6 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'myProperties'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

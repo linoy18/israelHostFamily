@@ -29,7 +29,6 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'homePage_MAIN'});
     _model.textController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -84,7 +83,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: Image.asset(
-                                    'assets/images/___(1).png',
+                                    'assets/images/___(3).png',
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.4,
                                     height: MediaQuery.sizeOf(context).height *

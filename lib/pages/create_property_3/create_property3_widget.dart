@@ -75,7 +75,6 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     _model.notesController ??= TextEditingController();
     _model.phoneController ??= TextEditingController();
     _model.hostNameController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

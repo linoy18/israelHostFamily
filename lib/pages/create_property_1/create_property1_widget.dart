@@ -40,7 +40,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
     _model.addressController ??= TextEditingController();
     _model.areaController ??= TextEditingController();
     _model.descriptionController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

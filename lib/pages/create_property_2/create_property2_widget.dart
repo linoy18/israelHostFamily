@@ -43,7 +43,6 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createProperty_2'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511353591146:android:2c7fb4e8ebf9179f874113",
+        "mobilesdk_app_id": "1:511353591146:android:92e33e4d9906c2e1874113",
         "android_client_info": {
-          "package_name": "com.flutterflow.families"
+          "package_name": "com.linoybargal.hostFamilies"
         }
       },
       "oauth_client": [],
