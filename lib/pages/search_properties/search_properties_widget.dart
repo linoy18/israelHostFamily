@@ -296,8 +296,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final propSearch =
-                            _model.simpleSearchResults1.map((e) => e).toList();
+                        final propSearch = _model.simpleSearchResults2.toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,

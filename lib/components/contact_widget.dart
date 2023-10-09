@@ -73,7 +73,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.7,
-                      height: MediaQuery.sizeOf(context).height * 0.4,
+                      height: MediaQuery.sizeOf(context).height * 0.37,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
@@ -85,7 +85,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                         ],
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      alignment: AlignmentDirectional(-0.00, 0.00),
+                      alignment: AlignmentDirectional(-0.00, -1.00),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 12.0),
@@ -116,46 +116,52 @@ class _ContactWidgetState extends State<ContactWidget> {
                             MouseRegion(
                               opaque: false,
                               cursor: MouseCursor.defer ?? MouseCursor.defer,
-                              child: AnimatedContainer(
-                                duration: Duration(milliseconds: 150),
-                                curve: Curves.easeInOut,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: _model.mouseRegionHovered1!
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryBackground
-                                      : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 8.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
-                                        child: Icon(
-                                          Icons.person_2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          size: 20.0,
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
+                              child: Visibility(
+                                visible:
+                                    widget.name != null && widget.name != '',
+                                child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 150),
+                                  curve: Curves.easeInOut,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: _model.mouseRegionHovered1!
+                                        ? FlutterFlowTheme.of(context)
+                                            .primaryBackground
+                                        : FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 8.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            widget.name!,
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall,
+                                          child: Icon(
+                                            Icons.person_2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 20.0,
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              widget.name!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
