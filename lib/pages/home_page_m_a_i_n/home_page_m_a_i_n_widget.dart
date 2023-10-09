@@ -121,7 +121,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              'מחבקים את תושבי הדרום',
+                                              'מחבקים את תושבי החזית',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .titleSmall

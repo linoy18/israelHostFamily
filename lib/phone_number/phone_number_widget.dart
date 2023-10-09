@@ -164,7 +164,8 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 50.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          final phoneNumberVal = '+972${currentPhoneNumber}';
+                          final phoneNumberVal =
+                              '+972${_model.phoneNumberController.text}';
                           if (phoneNumberVal == null ||
                               phoneNumberVal.isEmpty ||
                               !phoneNumberVal.startsWith('+')) {

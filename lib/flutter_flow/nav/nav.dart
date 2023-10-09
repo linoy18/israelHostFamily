@@ -8,8 +8,7 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
 import '../../auth/base_auth_user_provider.dart';
-import '../../backend/push_notifications/push_notifications_handler.dart'
-    show PushNotificationsHandler;
+
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -93,11 +92,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'login',
           path: '/login',
           builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
-          name: 'createAccount',
-          path: '/createAccount',
-          builder: (context, params) => CreateAccountWidget(),
         ),
         FFRoute(
           name: 'homePage_MAIN',
@@ -251,6 +245,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'phoneNumber',
           path: '/phoneNumber',
           builder: (context, params) => PhoneNumberWidget(),
+        ),
+        FFRoute(
+          name: 'createAccountCopy',
+          path: '/createAccountCopy',
+          builder: (context, params) => CreateAccountCopyWidget(),
+        ),
+        FFRoute(
+          name: 'loginCopy',
+          path: '/loginCopy',
+          builder: (context, params) => LoginCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -437,7 +441,7 @@ class FFRoute {
                     fit: BoxFit.contain,
                   ),
                 )
-              : PushNotificationsHandler(child: page);
+              : page;
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

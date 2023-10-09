@@ -1,7 +1,5 @@
 // Export pages
 export '/pages/login/login_widget.dart' show LoginWidget;
-export '/pages/create_account/create_account_widget.dart'
-    show CreateAccountWidget;
 export '/pages/home_page_m_a_i_n/home_page_m_a_i_n_widget.dart'
     show HomePageMAINWidget;
 export '/pages/property_details_owner/property_details_owner_widget.dart'
@@ -29,3 +27,6 @@ export '/pages/property_details/property_details_widget.dart'
     show PropertyDetailsWidget;
 export '/pin_code/pin_code_widget.dart' show PinCodeWidget;
 export '/phone_number/phone_number_widget.dart' show PhoneNumberWidget;
+export '/pages/create_account_copy/create_account_copy_widget.dart'
+    show CreateAccountCopyWidget;
+export '/pages/login_copy/login_copy_widget.dart' show LoginCopyWidget;

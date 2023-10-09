@@ -5,28 +5,29 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_account_model.dart';
-export 'create_account_model.dart';
+import 'create_account_copy_model.dart';
+export 'create_account_copy_model.dart';
 
-class CreateAccountWidget extends StatefulWidget {
-  const CreateAccountWidget({Key? key}) : super(key: key);
+class CreateAccountCopyWidget extends StatefulWidget {
+  const CreateAccountCopyWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateAccountWidgetState createState() => _CreateAccountWidgetState();
+  _CreateAccountCopyWidgetState createState() =>
+      _CreateAccountCopyWidgetState();
 }
 
-class _CreateAccountWidgetState extends State<CreateAccountWidget> {
-  late CreateAccountModel _model;
+class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
+  late CreateAccountCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateAccountModel());
+    _model = createModel(context, () => CreateAccountCopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'createAccount'});
+        parameters: {'screen_name': 'createAccountCopy'});
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
   }
