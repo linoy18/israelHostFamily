@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'login_model.dart';
@@ -225,22 +226,38 @@ class _LoginWidgetState extends State<LoginWidget> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 10.0),
-                                child: Text(
-                                  'פותח ע\"י לינוי בר-גל ',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                        Align(
+                          alignment: AlignmentDirectional(-0.00, 0.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 50.0, 0.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.copyright,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 12.0,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 22.0, 0.0, 10.0),
+                                  child: Text(
+                                    'לינוי בר-גל ',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
