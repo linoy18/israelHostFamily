@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/contact/contact_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -782,6 +783,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                         .hostName,
                                     number: propertyDetailsPropertiesRecord!
                                         .phoneNumber,
+                                    mainImage: currentUserPhoto,
                                   ),
                                 );
                               },

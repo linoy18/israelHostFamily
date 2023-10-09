@@ -12,10 +12,12 @@ class ContactWidget extends StatefulWidget {
     Key? key,
     required this.name,
     required this.number,
+    required this.mainImage,
   }) : super(key: key);
 
   final String? name;
   final String? number;
+  final String? mainImage;
 
   @override
   _ContactWidgetState createState() => _ContactWidgetState();
@@ -73,7 +75,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.7,
-                      height: MediaQuery.sizeOf(context).height * 0.37,
+                      height: MediaQuery.sizeOf(context).height * 0.534,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
@@ -113,6 +115,29 @@ class _ContactWidgetState extends State<ContactWidget> {
                               thickness: 1.0,
                               color: FlutterFlowTheme.of(context).alternate,
                             ),
+                            if (widget.mainImage != null &&
+                                widget.mainImage != '')
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 120.0,
+                                    height: 120.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        widget.mainImage,
+                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             MouseRegion(
                               opaque: false,
                               cursor: MouseCursor.defer ?? MouseCursor.defer,
