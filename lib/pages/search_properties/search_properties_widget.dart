@@ -181,7 +181,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Urbanist',
+                                          fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                         ),
@@ -222,7 +222,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                       ),
@@ -274,7 +274,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: Colors.white,
                                       ),
                                   elevation: 2.0,
@@ -387,7 +387,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .darkText,

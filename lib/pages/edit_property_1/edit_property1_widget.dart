@@ -110,7 +110,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                         fontWeight: FontWeight.w500,
@@ -130,7 +130,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Urbanist',
+                                      fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).grayIcon,
                                     ),
@@ -195,7 +195,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                         fontWeight: FontWeight.w500,
@@ -215,7 +215,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
-                                      fontFamily: 'Urbanist',
+                                      fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).grayIcon,
                                       fontWeight: FontWeight.w300,
@@ -282,7 +282,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                         fontWeight: FontWeight.w500,
@@ -302,7 +302,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
-                                      fontFamily: 'Urbanist',
+                                      fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).grayIcon,
                                       fontWeight: FontWeight.w300,
@@ -367,7 +367,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                         fontWeight: FontWeight.w500,
@@ -500,7 +500,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.white,
                                   ),
                           elevation: 2.0,

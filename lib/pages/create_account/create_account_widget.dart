@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -128,7 +127,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     fontSize: 18.0,
@@ -301,12 +300,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     if (user == null) {
                                       return;
                                     }
-
-                                    await UsersRecord.collection
-                                        .doc(user.uid)
-                                        .update(createUsersRecordData(
-                                          numberProperties: 0,
-                                        ));
 
                                     context.pushNamedAuth(
                                         'homePage_MAIN', context.mounted);

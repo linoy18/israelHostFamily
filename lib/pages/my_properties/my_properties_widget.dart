@@ -178,7 +178,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
-                                              fontFamily: 'Urbanist',
+                                              fontFamily: 'Montserrat',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .darkText,

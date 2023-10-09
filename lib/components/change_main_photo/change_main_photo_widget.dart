@@ -259,7 +259,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Urbanist',
+                          fontFamily: 'Montserrat',
                           color: FlutterFlowTheme.of(context).primaryText,
                         ),
                     elevation: 3.0,
@@ -291,7 +291,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle:
                         FlutterFlowTheme.of(context).headlineSmall.override(
-                              fontFamily: 'Urbanist',
+                              fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).tertiary,
                             ),
                     elevation: 3.0,

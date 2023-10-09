@@ -208,7 +208,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
-                                      fontFamily: 'Urbanist',
+                                      fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondary,
                                     ),
@@ -241,7 +241,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 12.0, 24.0, 0.0),
+                            24.0, 10.0, 24.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -292,17 +292,21 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'מאפיינים חשובים',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: Text(
+                                'מאפיינים חשובים',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
                             ),
                           ],
                         ),
@@ -337,7 +341,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -369,7 +373,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -401,7 +405,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -434,7 +438,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -467,7 +471,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -500,7 +504,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -533,7 +537,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -566,7 +570,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -598,7 +602,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -630,7 +634,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -646,7 +650,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 10.0, 24.0, 0.0),
+                            24.0, 10.0, 24.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -680,7 +684,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 10.0, 24.0, 0.0),
+                            24.0, 10.0, 24.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -714,7 +718,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 10.0, 24.0, 0.0),
+                            24.0, 10.0, 24.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [

@@ -103,7 +103,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -122,7 +122,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                 ),
@@ -186,7 +186,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -205,7 +205,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).grayIcon,
                                   fontWeight: FontWeight.w300,
                                 ),
@@ -268,7 +268,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -287,7 +287,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).grayIcon,
                                   fontWeight: FontWeight.w300,
                                 ),
@@ -347,13 +347,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                           children: [
                             Text(
                               'תארו את מקום האירוח',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodySmall,
                             ),
                           ],
                         ),
@@ -635,7 +629,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.white,
                                   ),
                           elevation: 2.0,

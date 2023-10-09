@@ -70,6 +70,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: BoxDecoration(),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -105,7 +106,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Urbanist',
+                                              fontFamily: 'Montserrat',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondary,
@@ -125,7 +126,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                       context)
                                                   .titleSmall
                                                   .override(
-                                                    fontFamily: 'Urbanist',
+                                                    fontFamily: 'Montserrat',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -158,7 +159,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Urbanist',
+                                                      fontFamily: 'Montserrat',
                                                       color: Colors.white,
                                                     ),
                                             elevation: 2.0,
@@ -210,7 +211,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Urbanist',
+                                            fontFamily: 'Montserrat',
                                             color: FlutterFlowTheme.of(context)
                                                 .grayIcon,
                                           ),
@@ -255,7 +256,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Urbanist',
+                                          fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                         ),
@@ -291,7 +292,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Urbanist',
+                                          fontFamily: 'Montserrat',
                                           color: Colors.white,
                                         ),
                                     elevation: 2.0,

@@ -120,7 +120,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -130,7 +130,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -174,7 +174,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -184,7 +184,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -228,7 +228,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -238,7 +238,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -282,7 +282,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -292,7 +292,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -336,7 +336,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         fontSize: 18.0,
@@ -347,7 +347,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -391,7 +391,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -401,7 +401,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -445,7 +445,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -455,7 +455,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -499,7 +499,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -509,7 +509,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -553,7 +553,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -563,7 +563,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -607,7 +607,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                       ),
@@ -617,7 +617,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Urbanist',
+                                        fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                       ),
@@ -740,7 +740,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: Colors.white,
                                 ),
                         elevation: 2.0,

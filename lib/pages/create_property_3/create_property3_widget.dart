@@ -135,7 +135,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).gray600,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -203,7 +203,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).gray600,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -271,7 +271,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).gray600,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -344,7 +344,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).gray600,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -432,7 +432,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Urbanist',
+                                              fontFamily: 'Montserrat',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .gray600,
@@ -464,7 +464,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
@@ -546,7 +546,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
@@ -558,7 +558,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
@@ -671,11 +671,6 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                               },
                             ) ??
                             false;
-                        if (confirmDialogResponse) {
-                          Navigator.pop(context);
-                        } else {
-                          Navigator.pop(context);
-                        }
                       } else {
                         await PropertiesRecord.collection.doc().set({
                           ...createPropertiesRecordData(
@@ -741,7 +736,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                       color: FlutterFlowTheme.of(context).turquoise,
                       textStyle:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Urbanist',
+                                fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).tertiary,
                               ),
                       elevation: 2.0,

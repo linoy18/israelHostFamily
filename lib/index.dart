@@ -27,3 +27,5 @@ export '/pages/edit_property_3/edit_property3_widget.dart'
     show EditProperty3Widget;
 export '/pages/property_details/property_details_widget.dart'
     show PropertyDetailsWidget;
+export '/pin_code/pin_code_widget.dart' show PinCodeWidget;
+export '/phone_number/phone_number_widget.dart' show PhoneNumberWidget;

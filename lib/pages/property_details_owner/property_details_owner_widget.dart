@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -52,10 +53,15 @@ class _PropertyDetailsOwnerWidgetState
   Widget build(BuildContext context) {
     return StreamBuilder<List<PropertiesRecord>>(
       stream: queryPropertiesRecord(
-        queryBuilder: (propertiesRecord) => propertiesRecord.where(
-          'propertyName',
-          isEqualTo: widget.propertyRef?.propertyName,
-        ),
+        queryBuilder: (propertiesRecord) => propertiesRecord
+            .where(
+              'propertyName',
+              isEqualTo: widget.propertyRef?.propertyName,
+            )
+            .where(
+              'userRef',
+              isEqualTo: currentUserReference,
+            ),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -210,7 +216,7 @@ class _PropertyDetailsOwnerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
-                                      fontFamily: 'Urbanist',
+                                      fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondary,
                                     ),
@@ -340,7 +346,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -373,7 +379,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -406,7 +412,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -439,7 +445,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -472,7 +478,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -505,7 +511,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -538,7 +544,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -571,7 +577,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -604,7 +610,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -637,7 +643,7 @@ class _PropertyDetailsOwnerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Urbanist',
+                                                fontFamily: 'Montserrat',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,

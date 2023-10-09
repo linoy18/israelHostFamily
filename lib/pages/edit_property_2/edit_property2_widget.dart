@@ -612,7 +612,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
+                                  fontFamily: 'Montserrat',
                                   color: Colors.white,
                                 ),
                         elevation: 2.0,

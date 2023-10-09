@@ -99,7 +99,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -168,7 +168,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -237,7 +237,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -311,7 +311,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Urbanist',
+                                    fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).gray600,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -463,7 +463,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                       color: FlutterFlowTheme.of(context).turquoise,
                       textStyle:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Urbanist',
+                                fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).tertiary,
                               ),
                       elevation: 2.0,
