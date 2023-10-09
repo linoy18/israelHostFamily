@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/contact_widget.dart';
+import '/components/contact/contact_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

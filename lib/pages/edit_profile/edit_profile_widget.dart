@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/change_photo/change_photo_widget.dart';
+import '/components/change_image/change_image_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -160,7 +160,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               builder: (dialogContext) {
                                 return Material(
                                   color: Colors.transparent,
-                                  child: ChangePhotoWidget(),
+                                  child: ChangeImageWidget(
+                                    imagePath: widget.userProfile?.photoUrl,
+                                  ),
                                 );
                               },
                             ).then((value) => setState(() {}));

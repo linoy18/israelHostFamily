@@ -87,6 +87,7 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
                 child: Padding(

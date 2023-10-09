@@ -73,7 +73,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(44.0, 8.0, 44.0, 10.0),
                     child: Text(
-                      'אנא הקלד את הקוד שהגיע למכשיר הטלפון',
+                      'אנא הקלד את הקוד שהגיע למכשיר הטלפון שלך',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodySmall,
                     ),

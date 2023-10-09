@@ -77,6 +77,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                               10.0, 10.0, 10.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Align(
                                 alignment: AlignmentDirectional(0.00, 0.00),
@@ -86,10 +87,10 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   child: Image.asset(
                                     'assets/images/___(3).png',
                                     width:
-                                        MediaQuery.sizeOf(context).width * 0.4,
+                                        MediaQuery.sizeOf(context).width * 0.3,
                                     height: MediaQuery.sizeOf(context).height *
                                         0.17,
-                                    fit: BoxFit.fitWidth,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
@@ -176,17 +177,13 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [],
-                              ),
                             ],
                           ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 10.0),
+                            10.0, 10.0, 10.0, 10.0),
                         child: Container(
                           width: double.infinity,
                           height: 60.0,
