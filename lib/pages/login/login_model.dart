@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/google_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -17,16 +18,20 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   TextEditingController? passwordController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordControllerValidator;
+  // Model for google component.
+  late GoogleModel googleModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
     passwordVisibility = false;
+    googleModel = createModel(context, () => GoogleModel());
   }
 
   void dispose() {
     emailAddressController?.dispose();
     passwordController?.dispose();
+    googleModel.dispose();
   }
 
   /// Action blocks are added here.

@@ -12,7 +12,28 @@
           "package_name": "com.linoybargal.hostFamilies"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "511353591146-jcigqjkaeshrp881ennpa68spean6quj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "511353591146-u1r83s2iel6erfqo6kt8ff8seau4qofk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "3bf43152255f192f583e47ee5c8af6c99ed97916"
+          }
+        },
+        {
+          "client_id": "511353591146-ts053fu9q2bh5s14clgmvbitnimrlkgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDyiZw8qQZSN0tQjdSS9GRoDbP3juXzVgU"
@@ -20,7 +41,20 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511353591146-ts053fu9q2bh5s14clgmvbitnimrlkgg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511353591146-ijvvr76pnef9o7ngqtt30uopb19k6o39.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.linoybargal.hostFamilies",
+                "app_store_id": "6468937346"
+              }
+            }
+          ]
         }
       }
     }
