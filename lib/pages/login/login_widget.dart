@@ -501,6 +501,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ],
                         ),
                       ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'פותח ע\"י לינוי בר-גל ',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

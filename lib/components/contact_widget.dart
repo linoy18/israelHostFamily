@@ -73,7 +73,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.3,
+                      height: MediaQuery.sizeOf(context).height * 0.4,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
@@ -244,6 +244,57 @@ class _ContactWidgetState extends State<ContactWidget> {
                             Divider(
                               thickness: 1.0,
                               color: FlutterFlowTheme.of(context).alternate,
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'שימו לב לוודא את אמינותו של האדם',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .redApple,
+                                      ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'או המשפחה אליה אתם רוצים להגיע',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .redApple,
+                                      ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: Text(
+                                    'שמרו על עצמכם',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Color(0xFF116659),
+                                        ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
