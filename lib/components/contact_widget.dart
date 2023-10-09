@@ -72,8 +72,8 @@ class _ContactWidgetState extends State<ContactWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: 250.0,
+                      width: MediaQuery.sizeOf(context).width * 0.7,
+                      height: MediaQuery.sizeOf(context).height * 0.4,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
@@ -256,13 +256,14 @@ class _ContactWidgetState extends State<ContactWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
-                                      'שמרו על עצמכם',
+                                      'שימו לב !',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: Color(0xFF116659),
-                                            fontWeight: FontWeight.w600,
+                                            color: FlutterFlowTheme.of(context)
+                                                .redApple,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
@@ -274,7 +275,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'שימו לב לוודא את אמינותו של האדם',
+                                  'על אחריותכם לוודא את אמינותו של האדם\nאו המשפחה אליה אתם רוצים להגיע',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -285,21 +286,25 @@ class _ContactWidgetState extends State<ContactWidget> {
                                 ),
                               ],
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'או המשפחה אליה אתם רוצים להגיע',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .redApple,
-                                      ),
-                                ),
-                              ],
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'שמרו על עצמכם',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Color(0xFF0B4B3C),
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

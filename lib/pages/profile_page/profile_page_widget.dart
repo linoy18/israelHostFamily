@@ -107,10 +107,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 160.0,
                 decoration: BoxDecoration(
-                  color: Color(0xFFDADADA),
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).tertiary,
-                  ),
+                  color: FlutterFlowTheme.of(context).darkText,
                 ),
                 child: Padding(
                   padding:
@@ -120,6 +117,34 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFDBE2E7),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              2.0, 2.0, 2.0, 2.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: double.infinity,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.network(
+                              valueOrDefault<String>(
+                                columnUsersRecord.photoUrl,
+                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                              ),
+                              fit: BoxFit.cover,
+                              alignment: Alignment(-0.00, 0.00),
+                            ),
+                          ),
+                        ),
+                      ),
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -135,8 +160,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     .headlineSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -151,7 +176,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
+                                            .primary,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),

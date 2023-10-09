@@ -4,6 +4,7 @@ import '/components/change_photo/change_photo_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -126,8 +127,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
-                          child: Image.asset(
-                            'assets/images/49svh_2.png',
+                          child: Image.network(
+                            valueOrDefault<String>(
+                              widget.userProfile?.photoUrl,
+                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                            ),
                             fit: BoxFit.cover,
                             alignment: Alignment(-0.00, 0.00),
                           ),
@@ -142,46 +146,49 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            barrierColor: Color(0xB2090F13),
-                            context: context,
-                            builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height: 470.0,
+                      Builder(
+                        builder: (context) => FFButtonWidget(
+                          onPressed: () async {
+                            await showAlignedDialog(
+                              context: context,
+                              isGlobal: true,
+                              avoidOverflow: false,
+                              targetAnchor: AlignmentDirectional(0.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              followerAnchor: AlignmentDirectional(-0.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              builder: (dialogContext) {
+                                return Material(
+                                  color: Colors.transparent,
                                   child: ChangePhotoWidget(),
+                                );
+                              },
+                            ).then((value) => setState(() {}));
+                          },
+                          text: 'שינוי תמונה',
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).lineGray,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,
                                 ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        text: 'שינוי תמונה',
-                        options: FFButtonOptions(
-                          width: 130.0,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).lineGray,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ],
