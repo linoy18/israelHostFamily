@@ -128,13 +128,13 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(100.0),
                               child: Image.network(
                                 valueOrDefault<String>(
                                   widget.imagePath,
                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
                                 ),
-                                width: 178.0,
+                                width: 150.0,
                                 height: 150.0,
                                 fit: BoxFit.cover,
                               ),
@@ -142,7 +142,7 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 24.0, 0.0, 0.0),
+                                0.0, 20.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 final selectedMedia =
@@ -218,6 +218,7 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                                     .update(createUsersRecordData(
                                   photoUrl: _model.uploadedFileUrl,
                                 ));
+                                // uploadProfileImage
                                 Navigator.pop(context, _model.uploadedFileUrl);
                               },
                               text: 'העלאת תמונה',

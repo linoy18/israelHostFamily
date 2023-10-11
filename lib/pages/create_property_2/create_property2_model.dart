@@ -31,6 +31,8 @@ class CreateProperty2Model extends FlutterFlowModel<CreateProperty2Widget> {
   bool? familyShabbatValue;
   // State field(s) for familyKosher widget.
   bool? familyKosherValue;
+  // State field(s) for emptyHouse widget.
+  bool? emptyHouseValue;
 
   /// Initialization and disposal methods.
 

@@ -4,11 +4,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'home_page_m_a_i_n_widget.dart' show HomePageMAINWidget;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomePageMAINModel extends FlutterFlowModel<HomePageMAINWidget> {
+  ///  Local state fields for this page.
+
+  String filterByArea = '';
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.

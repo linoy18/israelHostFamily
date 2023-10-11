@@ -30,3 +30,6 @@ export '/pages/phone_number/phone_number_widget.dart' show PhoneNumberWidget;
 export '/pages/create_account_copy/create_account_copy_widget.dart'
     show CreateAccountCopyWidget;
 export '/pages/login_copy/login_copy_widget.dart' show LoginCopyWidget;
+export '/pages/contact_details/contact_details_widget.dart'
+    show ContactDetailsWidget;
+export '/pages/filters_prop/filters_prop_widget.dart' show FiltersPropWidget;

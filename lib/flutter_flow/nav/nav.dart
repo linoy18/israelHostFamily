@@ -8,7 +8,8 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
 import '../../auth/base_auth_user_provider.dart';
-
+import '../../backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -163,6 +164,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             propNeighborhood:
                 params.getParam('propNeighborhood', ParamType.String),
             mainImage: params.getParam('mainImage', ParamType.String),
+            neighborhood: params.getParam('neighborhood', ParamType.String),
           ),
         ),
         FFRoute(
@@ -184,6 +186,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             descriptioon: params.getParam('descriptioon', ParamType.String),
             address: params.getParam('address', ParamType.String),
             neighborhood: params.getParam('neighborhood', ParamType.String),
+            emptyHouse: params.getParam('emptyHouse', ParamType.bool),
           ),
         ),
         FFRoute(
@@ -255,6 +258,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'loginCopy',
           path: '/loginCopy',
           builder: (context, params) => LoginCopyWidget(),
+        ),
+        FFRoute(
+          name: 'contactDetails',
+          path: '/contactDetails',
+          builder: (context, params) => ContactDetailsWidget(
+            phoneNumber: params.getParam('phoneNumber', ParamType.String),
+            name: params.getParam('name', ParamType.String),
+            email: params.getParam('email', ParamType.String),
+            bio: params.getParam('bio', ParamType.String),
+            instagram: params.getParam('instagram', ParamType.String),
+            profileImage: params.getParam('profileImage', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'filtersProp',
+          path: '/filtersProp',
+          builder: (context, params) => FiltersPropWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -441,7 +461,7 @@ class FFRoute {
                     fit: BoxFit.contain,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

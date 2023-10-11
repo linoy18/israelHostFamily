@@ -1,8 +1,10 @@
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'create_property1_widget.dart' show CreateProperty1Widget;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -33,8 +35,8 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
   TextEditingController? addressController;
   String? Function(BuildContext, String?)? addressControllerValidator;
   // State field(s) for area widget.
-  TextEditingController? areaController;
-  String? Function(BuildContext, String?)? areaControllerValidator;
+  String? areaValue;
+  FormFieldController<String>? areaValueController;
   // State field(s) for description widget.
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
@@ -50,7 +52,6 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
   void dispose() {
     nameController?.dispose();
     addressController?.dispose();
-    areaController?.dispose();
     descriptionController?.dispose();
   }
 

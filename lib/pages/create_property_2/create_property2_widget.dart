@@ -17,6 +17,7 @@ class CreateProperty2Widget extends StatefulWidget {
     String? propAddress,
     String? propNeighborhood,
     this.mainImage,
+    this.neighborhood,
   })  : this.propAddress = propAddress ?? '',
         this.propNeighborhood = propNeighborhood ?? ' ',
         super(key: key);
@@ -26,6 +27,7 @@ class CreateProperty2Widget extends StatefulWidget {
   final String propAddress;
   final String propNeighborhood;
   final String? mainImage;
+  final String? neighborhood;
 
   @override
   _CreateProperty2WidgetState createState() => _CreateProperty2WidgetState();
@@ -83,679 +85,756 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
       ),
       body: SafeArea(
         top: true,
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.family_restroom_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.familyValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.familyValue = newValue!);
-                                },
-                                title: Text(
-                                  'מתאים למשפחה',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+        child: Visibility(
+          visible: responsiveVisibility(
+            context: context,
+            tabletLandscape: false,
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.family_restroom_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
                                 ),
-                                subtitle: Text(
-                                  'סמנו האם מתאים למשפחה',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.group_sharp,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.coupleValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.coupleValue = newValue!);
-                                },
-                                title: Text(
-                                  'מתאים לזוג',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.familyValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.familyValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'מתאים למשפחה',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו האם מתאים למשפחה',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם מתאים לזוג',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.person,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.personValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.personValue = newValue!);
-                                },
-                                title: Text(
-                                  'מתאים לבודד',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.group_sharp,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם מתאים לבנאדם אחד',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.sensor_door_sharp,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.secureDoorValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.secureDoorValue = newValue!);
-                                },
-                                title: Text(
-                                  'ממ\"ד',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.coupleValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.coupleValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'מתאים לזוג',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם מתאים לזוג',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם יש לכם חדר מוגן',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.paw,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.dogFriendlyValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.dogFriendlyValue = newValue!);
-                                },
-                                title: Text(
-                                  'ידידותית לכלבים',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 18.0,
-                                      ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.person,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם זה אפשרי להביא כלב ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.cat,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.catFriendlyValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.catFriendlyValue = newValue!);
-                                },
-                                title: Text(
-                                  'ידידותית לחתולים',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.personValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.personValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'מתאים לבודד',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם מתאים לבנאדם אחד',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם זה אפשרי להביא חתול ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.babyCarriage,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.babyCribValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.babyCribValue = newValue!);
-                                },
-                                title: Text(
-                                  'מיטת תינוק',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.sensor_door_sharp,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם יש לכם לול לתינוק בבית ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.accessible,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.accessibilityValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.accessibilityValue = newValue!);
-                                },
-                                title: Text(
-                                  'נגישות (מעלית/כניסה שטוחה)',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.secureDoorValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.secureDoorValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'ממ\"ד',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם יש לכם חדר מוגן',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
                                 ),
-                                subtitle: Text(
-                                  'סמנו האם מתאים לבעלי מוגבלויות',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.synagogue,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.familyShabbatValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.familyShabbatValue = newValue!);
-                                },
-                                title: Text(
-                                  'משפחה שומרת שבת',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.paw,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם אתם שומרים שבת',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.food_bank,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: SwitchListTile.adaptive(
-                                value: _model.familyKosherValue ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.familyKosherValue = newValue!);
-                                },
-                                title: Text(
-                                  'משפחה שומרת כשרות',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.dogFriendlyValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.dogFriendlyValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'ידידותית לכלבים',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 18.0,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם זה אפשרי להביא כלב ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
                                 ),
-                                subtitle: Text(
-                                  'סמנו אם אתם שומרים כשרות',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                activeTrackColor: Color(0xFF392BBA),
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 0.0, 8.0),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.cat,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.catFriendlyValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.catFriendlyValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'ידידותית לחתולים',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם זה אפשרי להביא חתול ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.babyCarriage,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.babyCribValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.babyCribValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'מיטת תינוק',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם יש לכם לול לתינוק בבית ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.accessible,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.accessibilityValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.accessibilityValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'נגישות (מעלית/כניסה שטוחה)',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו האם מתאים לבעלי מוגבלויות',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.synagogue,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.familyShabbatValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.familyShabbatValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'משפחה שומרת שבת',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם אתם שומרים שבת',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.food_bank,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.familyKosherValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.familyKosherValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'משפחה שומרת כשרות',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם אתם שומרים כשרות',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.home,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 26.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: SwitchListTile.adaptive(
+                                  value: _model.emptyHouseValue ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() =>
+                                        _model.emptyHouseValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'בית ריק',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'סמנו אם הבית כרגע לא מאוכלס',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeTrackColor: Color(0xFF392BBA),
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 0.0, 8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'עמוד',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                        Text(
-                          '2/3',
-                          style: FlutterFlowTheme.of(context).headlineMedium,
-                        ),
-                      ],
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed(
-                          'createProperty_3',
-                          queryParameters: {
-                            'family': serializeParam(
-                              _model.familyValue,
-                              ParamType.bool,
-                            ),
-                            'couple': serializeParam(
-                              _model.coupleValue,
-                              ParamType.bool,
-                            ),
-                            'one': serializeParam(
-                              _model.personValue,
-                              ParamType.bool,
-                            ),
-                            'secureDoor': serializeParam(
-                              _model.secureDoorValue,
-                              ParamType.bool,
-                            ),
-                            'dog': serializeParam(
-                              _model.dogFriendlyValue,
-                              ParamType.bool,
-                            ),
-                            'cat': serializeParam(
-                              _model.catFriendlyValue,
-                              ParamType.bool,
-                            ),
-                            'babyCrib': serializeParam(
-                              _model.babyCribValue,
-                              ParamType.bool,
-                            ),
-                            'acessability': serializeParam(
-                              _model.accessibilityValue,
-                              ParamType.bool,
-                            ),
-                            'keepShabbat': serializeParam(
-                              _model.familyShabbatValue,
-                              ParamType.bool,
-                            ),
-                            'keepKosher': serializeParam(
-                              _model.familyKosherValue,
-                              ParamType.bool,
-                            ),
-                            'name': serializeParam(
-                              widget.propName,
-                              ParamType.String,
-                            ),
-                            'descriptioon': serializeParam(
-                              widget.propDescription,
-                              ParamType.String,
-                            ),
-                            'address': serializeParam(
-                              widget.propAddress,
-                              ParamType.String,
-                            ),
-                            'neighborhood': serializeParam(
-                              widget.propNeighborhood,
-                              ParamType.String,
-                            ),
-                            'mainImage': serializeParam(
-                              widget.mainImage,
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                        );
-                      },
-                      text: 'המשך',
-                      options: FFButtonOptions(
-                        width: 120.0,
-                        height: 50.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.white,
-                                ),
-                        elevation: 2.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(60.0),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'עמוד',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                          Text(
+                            '2/3',
+                            style: FlutterFlowTheme.of(context).headlineMedium,
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(
+                            'createProperty_3',
+                            queryParameters: {
+                              'family': serializeParam(
+                                _model.familyValue,
+                                ParamType.bool,
+                              ),
+                              'couple': serializeParam(
+                                _model.coupleValue,
+                                ParamType.bool,
+                              ),
+                              'one': serializeParam(
+                                _model.personValue,
+                                ParamType.bool,
+                              ),
+                              'secureDoor': serializeParam(
+                                _model.secureDoorValue,
+                                ParamType.bool,
+                              ),
+                              'dog': serializeParam(
+                                _model.dogFriendlyValue,
+                                ParamType.bool,
+                              ),
+                              'cat': serializeParam(
+                                _model.catFriendlyValue,
+                                ParamType.bool,
+                              ),
+                              'babyCrib': serializeParam(
+                                _model.babyCribValue,
+                                ParamType.bool,
+                              ),
+                              'acessability': serializeParam(
+                                _model.accessibilityValue,
+                                ParamType.bool,
+                              ),
+                              'keepShabbat': serializeParam(
+                                _model.familyShabbatValue,
+                                ParamType.bool,
+                              ),
+                              'keepKosher': serializeParam(
+                                _model.familyKosherValue,
+                                ParamType.bool,
+                              ),
+                              'name': serializeParam(
+                                widget.propName,
+                                ParamType.String,
+                              ),
+                              'descriptioon': serializeParam(
+                                widget.propDescription,
+                                ParamType.String,
+                              ),
+                              'address': serializeParam(
+                                widget.propAddress,
+                                ParamType.String,
+                              ),
+                              'neighborhood': serializeParam(
+                                widget.propNeighborhood,
+                                ParamType.String,
+                              ),
+                              'mainImage': serializeParam(
+                                widget.mainImage,
+                                ParamType.String,
+                              ),
+                              'emptyHouse': serializeParam(
+                                _model.emptyHouseValue,
+                                ParamType.bool,
+                              ),
+                            }.withoutNulls,
+                          );
+                        },
+                        text: 'המשך',
+                        options: FFButtonOptions(
+                          width: 120.0,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(60.0),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -66,6 +66,11 @@ class UsersRecord extends FirestoreRecord {
   int get numberActiveBookings => _numberActiveBookings ?? 0;
   bool hasNumberActiveBookings() => _numberActiveBookings != null;
 
+  // "instagramUserName" field.
+  String? _instagramUserName;
+  String get instagramUserName => _instagramUserName ?? '';
+  bool hasInstagramUserName() => _instagramUserName != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -78,6 +83,7 @@ class UsersRecord extends FirestoreRecord {
     _numberProperties = castToType<int>(snapshotData['numberProperties']);
     _numberActiveBookings =
         castToType<int>(snapshotData['numberActiveBookings']);
+    _instagramUserName = snapshotData['instagramUserName'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -124,6 +130,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? isHost,
   int? numberProperties,
   int? numberActiveBookings,
+  String? instagramUserName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -137,6 +144,7 @@ Map<String, dynamic> createUsersRecordData({
       'isHost': isHost,
       'numberProperties': numberProperties,
       'numberActiveBookings': numberActiveBookings,
+      'instagramUserName': instagramUserName,
     }.withoutNulls,
   );
 
@@ -157,7 +165,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.bio == e2?.bio &&
         e1?.isHost == e2?.isHost &&
         e1?.numberProperties == e2?.numberProperties &&
-        e1?.numberActiveBookings == e2?.numberActiveBookings;
+        e1?.numberActiveBookings == e2?.numberActiveBookings &&
+        e1?.instagramUserName == e2?.instagramUserName;
   }
 
   @override
@@ -171,7 +180,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.bio,
         e?.isHost,
         e?.numberProperties,
-        e?.numberActiveBookings
+        e?.numberActiveBookings,
+        e?.instagramUserName
       ]);
 
   @override

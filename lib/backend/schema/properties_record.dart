@@ -136,6 +136,31 @@ class PropertiesRecord extends FirestoreRecord {
   String get hostName => _hostName ?? '';
   bool hasHostName() => _hostName != null;
 
+  // "emptyHouse" field.
+  bool? _emptyHouse;
+  bool get emptyHouse => _emptyHouse ?? false;
+  bool hasEmptyHouse() => _emptyHouse != null;
+
+  // "hostEmail" field.
+  String? _hostEmail;
+  String get hostEmail => _hostEmail ?? '';
+  bool hasHostEmail() => _hostEmail != null;
+
+  // "hostInsatgram" field.
+  String? _hostInsatgram;
+  String get hostInsatgram => _hostInsatgram ?? '';
+  bool hasHostInsatgram() => _hostInsatgram != null;
+
+  // "hostBio" field.
+  String? _hostBio;
+  String get hostBio => _hostBio ?? '';
+  bool hasHostBio() => _hostBio != null;
+
+  // "hostProfileImge" field.
+  String? _hostProfileImge;
+  String get hostProfileImge => _hostProfileImge ?? '';
+  bool hasHostProfileImge() => _hostProfileImge != null;
+
   void _initializeFields() {
     _propertyName = snapshotData['propertyName'] as String?;
     _propertyDescription = snapshotData['propertyDescription'] as String?;
@@ -161,6 +186,11 @@ class PropertiesRecord extends FirestoreRecord {
     _familyKeepKosher = snapshotData['familyKeepKosher'] as bool?;
     _secureDoor = snapshotData['secureDoor'] as bool?;
     _hostName = snapshotData['hostName'] as String?;
+    _emptyHouse = snapshotData['emptyHouse'] as bool?;
+    _hostEmail = snapshotData['hostEmail'] as String?;
+    _hostInsatgram = snapshotData['hostInsatgram'] as String?;
+    _hostBio = snapshotData['hostBio'] as String?;
+    _hostProfileImge = snapshotData['hostProfileImge'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -222,6 +252,11 @@ Map<String, dynamic> createPropertiesRecordData({
   bool? familyKeepKosher,
   bool? secureDoor,
   String? hostName,
+  bool? emptyHouse,
+  String? hostEmail,
+  String? hostInsatgram,
+  String? hostBio,
+  String? hostProfileImge,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -249,6 +284,11 @@ Map<String, dynamic> createPropertiesRecordData({
       'familyKeepKosher': familyKeepKosher,
       'secureDoor': secureDoor,
       'hostName': hostName,
+      'emptyHouse': emptyHouse,
+      'hostEmail': hostEmail,
+      'hostInsatgram': hostInsatgram,
+      'hostBio': hostBio,
+      'hostProfileImge': hostProfileImge,
     }.withoutNulls,
   );
 
@@ -283,7 +323,12 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e1?.familyKeepShabbat == e2?.familyKeepShabbat &&
         e1?.familyKeepKosher == e2?.familyKeepKosher &&
         e1?.secureDoor == e2?.secureDoor &&
-        e1?.hostName == e2?.hostName;
+        e1?.hostName == e2?.hostName &&
+        e1?.emptyHouse == e2?.emptyHouse &&
+        e1?.hostEmail == e2?.hostEmail &&
+        e1?.hostInsatgram == e2?.hostInsatgram &&
+        e1?.hostBio == e2?.hostBio &&
+        e1?.hostProfileImge == e2?.hostProfileImge;
   }
 
   @override
@@ -311,7 +356,12 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e?.familyKeepShabbat,
         e?.familyKeepKosher,
         e?.secureDoor,
-        e?.hostName
+        e?.hostName,
+        e?.emptyHouse,
+        e?.hostEmail,
+        e?.hostInsatgram,
+        e?.hostBio,
+        e?.hostProfileImge
       ]);
 
   @override

@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "511353591146-qi7q2bhuo0ijjs28mgoetf059dsn2kp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "e2a65cd8035fe93b700c875ad4c9b628d701e8f3"
+          }
+        },
+        {
+          "client_id": "511353591146-tbennc7d74l7i5t84344p8i6gbn3cioe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "41fc388d49036ee20b7fad38d7c546a83b350c7e"
+          }
+        },
+        {
           "client_id": "511353591146-u1r83s2iel6erfqo6kt8ff8seau4qofk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

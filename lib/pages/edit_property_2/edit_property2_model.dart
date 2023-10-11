@@ -55,6 +55,10 @@ class EditProperty2Model extends FlutterFlowModel<EditProperty2Widget> {
   late AmenitityIndicatorModel amenitityIndicatorModel10;
   // State field(s) for familyKosher widget.
   bool? familyKosherValue;
+  // Model for amenitityIndicator component.
+  late AmenitityIndicatorModel amenitityIndicatorModel11;
+  // State field(s) for emptyHouse widget.
+  bool? emptyHouseValue;
 
   /// Initialization and disposal methods.
 
@@ -79,6 +83,8 @@ class EditProperty2Model extends FlutterFlowModel<EditProperty2Widget> {
         createModel(context, () => AmenitityIndicatorModel());
     amenitityIndicatorModel10 =
         createModel(context, () => AmenitityIndicatorModel());
+    amenitityIndicatorModel11 =
+        createModel(context, () => AmenitityIndicatorModel());
   }
 
   void dispose() {
@@ -92,6 +98,7 @@ class EditProperty2Model extends FlutterFlowModel<EditProperty2Widget> {
     amenitityIndicatorModel8.dispose();
     amenitityIndicatorModel9.dispose();
     amenitityIndicatorModel10.dispose();
+    amenitityIndicatorModel11.dispose();
   }
 
   /// Action blocks are added here.
