@@ -33,3 +33,5 @@ export '/pages/login_copy/login_copy_widget.dart' show LoginCopyWidget;
 export '/pages/contact_details/contact_details_widget.dart'
     show ContactDetailsWidget;
 export '/pages/filters_prop/filters_prop_widget.dart' show FiltersPropWidget;
+export '/pages/search_properties_copy/search_properties_copy_widget.dart'
+    show SearchPropertiesCopyWidget;

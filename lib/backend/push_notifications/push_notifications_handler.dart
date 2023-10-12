@@ -209,6 +209,11 @@ final parametersBuilderMap =
         },
       ),
   'filtersProp': ParameterData.none(),
+  'searchPropertiesCopy': (data) async => ParameterData(
+        allParams: {
+          'searchTerm': getParameter<String>(data, 'searchTerm'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

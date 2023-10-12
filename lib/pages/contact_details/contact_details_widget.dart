@@ -85,155 +85,263 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
       ),
       body: SafeArea(
         top: true,
-        child: Visibility(
-          visible: responsiveVisibility(
-            context: context,
-            tabletLandscape: false,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Divider(
-                thickness: 1.0,
-                color: FlutterFlowTheme.of(context).accent4,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Divider(
+              thickness: 1.0,
+              color: FlutterFlowTheme.of(context).accent4,
+            ),
+            if (widget.profileImage != null && widget.profileImage != '')
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFDBE2E7),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.network(
+                          widget.profileImage!,
+                          fit: BoxFit.cover,
+                          alignment: Alignment(-0.00, 0.00),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              if (widget.profileImage != null && widget.profileImage != '')
-                Row(
+            Align(
+              alignment: AlignmentDirectional(-0.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 16.0),
+                child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFDBE2E7),
-                        shape: BoxShape.circle,
-                      ),
+                    Flexible(
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
                         child: Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
-                            shape: BoxShape.circle,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                           ),
-                          child: Image.network(
-                            widget.profileImage!,
-                            fit: BoxFit.cover,
-                            alignment: Alignment(-0.00, 0.00),
+                          child: Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      'שימו לב !',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      'באחריותכם להיות אחראיים לוודא \nאת אמינותם של המארח או המארחים \nאליהם אתם רוצים להגיע להתארח',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            fontSize: 14.0,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      'שמרו על עצמכם',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
-              Align(
-                alignment: AlignmentDirectional(-0.00, 0.00),
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 16.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(-0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'שימו לב !',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context).error,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(-0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'באחריותכם להיות אחראיים לוודא את אמינותם\nשל המארח או המארחים אליהם אתם רוצים להגיע להתארח',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 14.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(-0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'שמרו על עצמכם',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
               ),
-              if (widget.name != null && widget.name != '')
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
+            ),
+            if (widget.name != null && widget.name != '')
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.person_rounded,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 20.0,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Icon(
-                          Icons.person_rounded,
-                          color: FlutterFlowTheme.of(context).secondary,
-                          size: 20.0,
+                        child: Text(
+                          widget.name!,
+                          style: FlutterFlowTheme.of(context).bodyLarge,
                         ),
                       ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            widget.name!,
-                            style: FlutterFlowTheme.of(context).bodyLarge,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  await launchUrl(Uri(
+                    scheme: 'tel',
+                    path: widget.phoneNumber!,
+                  ));
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.phone,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 20.0,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          widget.phoneNumber!,
+                          style: FlutterFlowTheme.of(context).bodyLarge,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (widget.email != null && widget.email != '')
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.email,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 20.0,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          widget.email!,
+                          style: FlutterFlowTheme.of(context).bodyLarge,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (widget.bio != null && widget.bio != '')
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.speaker_notes,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 20.0,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          widget.bio!,
+                          maxLines: 3,
+                          style: FlutterFlowTheme.of(context).bodyLarge,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (widget.instagram != null && widget.instagram != '')
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                 child: InkWell(
@@ -242,10 +350,8 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await launchUrl(Uri(
-                      scheme: 'tel',
-                      path: widget.phoneNumber!,
-                    ));
+                    await Clipboard.setData(
+                        ClipboardData(text: widget.instagram!));
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -253,8 +359,8 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Icon(
-                          Icons.phone,
+                        child: FaIcon(
+                          FontAwesomeIcons.instagram,
                           color: FlutterFlowTheme.of(context).secondary,
                           size: 20.0,
                         ),
@@ -264,7 +370,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            widget.phoneNumber!,
+                            widget.instagram!,
                             style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
@@ -273,106 +379,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                   ),
                 ),
               ),
-              if (widget.email != null && widget.email != '')
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Icon(
-                          Icons.email,
-                          color: FlutterFlowTheme.of(context).secondary,
-                          size: 20.0,
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            widget.email!,
-                            style: FlutterFlowTheme.of(context).bodyLarge,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              if (widget.bio != null && widget.bio != '')
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Icon(
-                          Icons.speaker_notes,
-                          color: FlutterFlowTheme.of(context).secondary,
-                          size: 20.0,
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            widget.bio!,
-                            maxLines: 3,
-                            style: FlutterFlowTheme.of(context).bodyLarge,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              if (widget.instagram != null && widget.instagram != '')
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      await Clipboard.setData(
-                          ClipboardData(text: widget.instagram!));
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: FaIcon(
-                            FontAwesomeIcons.instagram,
-                            color: FlutterFlowTheme.of(context).secondary,
-                            size: 20.0,
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              widget.instagram!,
-                              style: FlutterFlowTheme.of(context).bodyLarge,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-            ],
-          ),
+          ],
         ),
       ),
     );

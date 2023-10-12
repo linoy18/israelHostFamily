@@ -14,19 +14,13 @@ import 'package:text_search/text_search.dart';
 class SearchPropertiesModel extends FlutterFlowModel<SearchPropertiesWidget> {
   ///  State fields for stateful widgets in this page.
 
-  List<PropertiesRecord> simpleSearchResults1 = [];
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  List<PropertiesRecord> simpleSearchResults2 = [];
+  List<PropertiesRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    textController?.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 

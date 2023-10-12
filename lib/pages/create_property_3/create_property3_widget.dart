@@ -118,374 +118,464 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
       ),
       body: SafeArea(
         top: true,
-        child: Visibility(
-          visible: responsiveVisibility(
-            context: context,
-            tabletLandscape: false,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'כמות מיטות פנויות',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color:
-                                          FlutterFlowTheme.of(context).gray600,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: Container(
-                                width: 200.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineGray,
-                                    width: 2.0,
+                            Text(
+                              'כמות מיטות פנויות',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                ),
-                                child: FlutterFlowCountController(
-                                  decrementIconBuilder: (enabled) => Icon(
-                                    Icons.remove_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context)
-                                            .secondaryText
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  incrementIconBuilder: (enabled) => Icon(
-                                    Icons.add_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context).primary
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  countBuilder: (count) => Text(
-                                    count.toString(),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium,
-                                  ),
-                                  count: _model.countBedsValue ??= 1,
-                                  updateCount: (count) => setState(
-                                      () => _model.countBedsValue = count),
-                                  stepSize: 1,
-                                  minimum: 1,
-                                ),
-                              ),
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'כמות חדרים פנויים',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color:
-                                          FlutterFlowTheme.of(context).gray600,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: Container(
-                                width: 200.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineGray,
-                                    width: 2.0,
-                                  ),
-                                ),
-                                child: FlutterFlowCountController(
-                                  decrementIconBuilder: (enabled) => Icon(
-                                    Icons.remove_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context)
-                                            .secondaryText
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  incrementIconBuilder: (enabled) => Icon(
-                                    Icons.add_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context).primary
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  countBuilder: (count) => Text(
-                                    count.toString(),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium,
-                                  ),
-                                  count: _model.countRoomsValue ??= 1,
-                                  updateCount: (count) => setState(
-                                      () => _model.countRoomsValue = count),
-                                  stepSize: 1,
-                                  minimum: 1,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'אפשר להישאר כמות ימים של',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color:
-                                          FlutterFlowTheme.of(context).gray600,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: Container(
-                                width: 200.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineGray,
-                                    width: 2.0,
-                                  ),
-                                ),
-                                child: FlutterFlowCountController(
-                                  decrementIconBuilder: (enabled) => Icon(
-                                    Icons.remove_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context)
-                                            .secondaryText
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  incrementIconBuilder: (enabled) => Icon(
-                                    Icons.add_rounded,
-                                    color: enabled
-                                        ? FlutterFlowTheme.of(context).primary
-                                        : FlutterFlowTheme.of(context).grayIcon,
-                                    size: 32.0,
-                                  ),
-                                  countBuilder: (count) => Text(
-                                    count.toString(),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium,
-                                  ),
-                                  count: _model.countControllerValue ??= 1,
-                                  updateCount: (count) => setState(() =>
-                                      _model.countControllerValue = count),
-                                  stepSize: 1,
-                                  minimum: 1,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          height: 32.0,
-                          thickness: 2.0,
-                          color: FlutterFlowTheme.of(context).lineGray,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'פרטים נוספים',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color:
-                                          FlutterFlowTheme.of(context).gray600,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 0.0, 0.0),
-                          child: TextFormField(
-                            controller: _model.notesController,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              hintText: 'מלאו פרטים נוספים',
-                              hintStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              errorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              focusedErrorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 24.0),
-                            ),
-                            style: FlutterFlowTheme.of(context).bodySmall,
-                            maxLines: 4,
-                            validator: _model.notesControllerValidator
-                                .asValidator(context),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
-                          child: Padding(
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'מספר טלפון ליצירת קשר',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'Montserrat',
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Container(
+                              width: 200.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(25.0),
+                                shape: BoxShape.rectangle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).lineGray,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: FlutterFlowCountController(
+                                decrementIconBuilder: (enabled) => Icon(
+                                  Icons.remove_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context)
+                                          .secondaryText
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                incrementIconBuilder: (enabled) => Icon(
+                                  Icons.add_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context).primary
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                countBuilder: (count) => Text(
+                                  count.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium,
+                                ),
+                                count: _model.countBedsValue ??= 1,
+                                updateCount: (count) => setState(
+                                    () => _model.countBedsValue = count),
+                                stepSize: 1,
+                                minimum: 1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'כמות חדרים פנויים',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Container(
+                              width: 200.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(25.0),
+                                shape: BoxShape.rectangle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).lineGray,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: FlutterFlowCountController(
+                                decrementIconBuilder: (enabled) => Icon(
+                                  Icons.remove_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context)
+                                          .secondaryText
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                incrementIconBuilder: (enabled) => Icon(
+                                  Icons.add_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context).primary
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                countBuilder: (count) => Text(
+                                  count.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium,
+                                ),
+                                count: _model.countRoomsValue ??= 1,
+                                updateCount: (count) => setState(
+                                    () => _model.countRoomsValue = count),
+                                stepSize: 1,
+                                minimum: 1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'אפשר להישאר כמות ימים של',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Container(
+                              width: 200.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(25.0),
+                                shape: BoxShape.rectangle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).lineGray,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: FlutterFlowCountController(
+                                decrementIconBuilder: (enabled) => Icon(
+                                  Icons.remove_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context)
+                                          .secondaryText
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                incrementIconBuilder: (enabled) => Icon(
+                                  Icons.add_rounded,
+                                  color: enabled
+                                      ? FlutterFlowTheme.of(context).primary
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  size: 32.0,
+                                ),
+                                countBuilder: (count) => Text(
+                                  count.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium,
+                                ),
+                                count: _model.countControllerValue ??= 1,
+                                updateCount: (count) => setState(
+                                    () => _model.countControllerValue = count),
+                                stepSize: 1,
+                                minimum: 1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 32.0,
+                        thickness: 2.0,
+                        color: FlutterFlowTheme.of(context).lineGray,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'פרטים נוספים',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.notesController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'מלאו פרטים נוספים',
+                            hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 24.0),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodySmall,
+                          maxLines: 4,
+                          validator: _model.notesControllerValidator
+                              .asValidator(context),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'מספר טלפון ליצירת קשר',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .gray600,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.7,
+                                      decoration: BoxDecoration(),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => TextFormField(
+                                            controller: _model.phoneController,
+                                            autofocus: true,
+                                            textCapitalization:
+                                                TextCapitalization.none,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              hintText:
+                                                  'הכנס מספר טלפון נייד ליצירת קשר',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    fontSize: 14.0,
+                                                  ),
+                                              enabledBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .gray600,
-                                                  fontWeight: FontWeight.w500,
+                                                      .alternate,
+                                                  width: 2.0,
                                                 ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              errorBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            keyboardType: TextInputType.phone,
+                                            validator: _model
+                                                .phoneControllerValidator
+                                                .asValidator(context),
+                                            inputFormatters: [
+                                              FilteringTextInputFormatter.allow(
+                                                  RegExp('[0-9]'))
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.7,
-                                        decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: AuthUserStreamWidget(
-                                            builder: (context) => TextFormField(
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: Text(
+                                        'שם ליצירת קשר',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.7,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: TextFormField(
                                               controller:
-                                                  _model.phoneController,
+                                                  _model.hostNameController,
                                               autofocus: true,
-                                              textCapitalization:
-                                                  TextCapitalization.none,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 14.0,
+                                                    ),
                                                 hintText:
-                                                    'הכנס מספר טלפון נייד ליצירת קשר',
+                                                    'הכנס שם או שם משפחה ליצירת קשר',
                                                 hintStyle: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -549,280 +639,159 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
-                                              keyboardType: TextInputType.phone,
                                               validator: _model
-                                                  .phoneControllerValidator
+                                                  .hostNameControllerValidator
                                                   .asValidator(context),
-                                              inputFormatters: [
-                                                FilteringTextInputFormatter
-                                                    .allow(RegExp('[0-9]'))
-                                              ],
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: Text(
-                                          'שם ליצירת קשר',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.7,
-                                            decoration: BoxDecoration(),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
-                                              child: TextFormField(
-                                                controller:
-                                                    _model.hostNameController,
-                                                autofocus: true,
-                                                obscureText: false,
-                                                decoration: InputDecoration(
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontSize: 14.0,
-                                                      ),
-                                                  hintText:
-                                                      'הכנס שם או שם משפחה ליצירת קשר',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        fontSize: 14.0,
-                                                      ),
-                                                  enabledBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  focusedBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  errorBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  focusedErrorBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                                validator: _model
-                                                    .hostNameControllerValidator
-                                                    .asValidator(context),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'עמוד',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                        Text(
-                          '3/3',
-                          style: FlutterFlowTheme.of(context).headlineMedium,
-                        ),
-                      ],
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        if (_model.phoneController.text == null ||
-                            _model.phoneController.text == '') {
-                          var confirmDialogResponse = await showDialog<bool>(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('מספר טלפון חסר'),
-                                    content: Text('הכנס מספר טלפון ליצירת קשר'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () => Navigator.pop(
-                                            alertDialogContext, false),
-                                        child: Text('ביטול'),
-                                      ),
-                                      TextButton(
-                                        onPressed: () => Navigator.pop(
-                                            alertDialogContext, true),
-                                        child: Text('אישור'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ) ??
-                              false;
-                        } else {
-                          await PropertiesRecord.collection.doc().set({
-                            ...createPropertiesRecordData(
-                              propertyName: widget.name,
-                              propertyDescription: widget.descriptioon,
-                              propertyAddress: widget.address,
-                              userRef: currentUserReference,
-                              propertyNeighborhood: widget.neighborhood,
-                              notes: _model.notesController.text,
-                              minNights: _model.countControllerValue,
-                              bedsCount: _model.countBedsValue,
-                              roomsCount: _model.countRoomsValue,
-                              phoneNumber: _model.phoneController.text,
-                              forFamily: widget.family,
-                              forCouple: widget.couple,
-                              forOne: widget.one,
-                              dogFriendly: widget.dog,
-                              catFriendly: widget.cat,
-                              babyCrib: widget.babyCrib,
-                              accessibility: widget.acessability,
-                              familyKeepShabbat: widget.keepShabbat,
-                              familyKeepKosher: widget.keepKosher,
-                              secureDoor: widget.secureDoor,
-                              mainImage: widget.mainImage,
-                              hostName: _model.hostNameController.text,
-                              isLive: true,
-                              emptyHouse: widget.emptyHouse,
-                              hostEmail: currentUserEmail,
-                              hostInsatgram: valueOrDefault(
-                                  currentUserDocument?.instagramUserName, ''),
-                              hostBio:
-                                  valueOrDefault(currentUserDocument?.bio, ''),
-                              hostProfileImge: currentUserPhoto,
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'lastUpdated': FieldValue.serverTimestamp(),
-                              },
-                            ),
-                          });
-
-                          await currentUserReference!.update({
-                            ...mapToFirestore(
-                              {
-                                'numberProperties': FieldValue.increment(1),
-                              },
-                            ),
-                          });
-
-                          context.goNamed(
-                            'homePage_MAIN',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 250),
-                              ),
-                            },
-                          );
-                        }
-                      },
-                      text: 'פרסם',
-                      options: FFButtonOptions(
-                        width: 180.0,
-                        height: 50.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).turquoise,
-                        textStyle:
-                            FlutterFlowTheme.of(context).headlineSmall.override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                ),
-                        elevation: 2.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(60.0),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'עמוד',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
+                      Text(
+                        '3/3',
+                        style: FlutterFlowTheme.of(context).headlineMedium,
+                      ),
+                    ],
+                  ),
+                  FFButtonWidget(
+                    onPressed: () async {
+                      if (_model.phoneController.text == null ||
+                          _model.phoneController.text == '') {
+                        var confirmDialogResponse = await showDialog<bool>(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('מספר טלפון חסר'),
+                                  content: Text('הכנס מספר טלפון ליצירת קשר'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, false),
+                                      child: Text('ביטול'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, true),
+                                      child: Text('אישור'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ) ??
+                            false;
+                      } else {
+                        await PropertiesRecord.collection.doc().set({
+                          ...createPropertiesRecordData(
+                            propertyName: widget.name,
+                            propertyDescription: widget.descriptioon,
+                            propertyAddress: widget.address,
+                            userRef: currentUserReference,
+                            propertyNeighborhood: widget.neighborhood,
+                            notes: _model.notesController.text,
+                            minNights: _model.countControllerValue,
+                            bedsCount: _model.countBedsValue,
+                            roomsCount: _model.countRoomsValue,
+                            phoneNumber: _model.phoneController.text,
+                            forFamily: widget.family,
+                            forCouple: widget.couple,
+                            forOne: widget.one,
+                            dogFriendly: widget.dog,
+                            catFriendly: widget.cat,
+                            babyCrib: widget.babyCrib,
+                            accessibility: widget.acessability,
+                            familyKeepShabbat: widget.keepShabbat,
+                            familyKeepKosher: widget.keepKosher,
+                            secureDoor: widget.secureDoor,
+                            mainImage: widget.mainImage,
+                            hostName: _model.hostNameController.text,
+                            isLive: true,
+                            emptyHouse: widget.emptyHouse,
+                            hostEmail: currentUserEmail,
+                            hostInsatgram: valueOrDefault(
+                                currentUserDocument?.instagramUserName, ''),
+                            hostBio:
+                                valueOrDefault(currentUserDocument?.bio, ''),
+                            hostProfileImge: currentUserPhoto,
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'lastUpdated': FieldValue.serverTimestamp(),
+                            },
+                          ),
+                        });
+
+                        await currentUserReference!.update({
+                          ...mapToFirestore(
+                            {
+                              'numberProperties': FieldValue.increment(1),
+                            },
+                          ),
+                        });
+
+                        context.goNamed(
+                          'homePage_MAIN',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 250),
+                            ),
+                          },
+                        );
+                      }
+                    },
+                    text: 'פרסם',
+                    options: FFButtonOptions(
+                      width: 180.0,
+                      height: 50.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).turquoise,
+                      textStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).tertiary,
+                              ),
+                      elevation: 2.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(60.0),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
