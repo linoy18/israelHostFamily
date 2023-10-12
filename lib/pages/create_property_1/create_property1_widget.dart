@@ -428,7 +428,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               try {
                                 showUploadMessage(
                                   context,
-                                  'Uploading file...',
+                                  'מעלה את התמונה...',
                                   showLoading: true,
                                 );
                                 selectedUploadedFiles = selectedMedia
@@ -463,11 +463,12 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                       selectedUploadedFiles.first;
                                   _model.uploadedFileUrl = downloadUrls.first;
                                 });
-                                showUploadMessage(context, 'Success!');
+                                showUploadMessage(
+                                    context, 'התמונה הועלתה בהצלחה!');
                               } else {
                                 setState(() {});
                                 showUploadMessage(
-                                    context, 'Failed to upload data');
+                                    context, 'טעות בהעלאת תמונה, נסה שוב');
                                 return;
                               }
                             }

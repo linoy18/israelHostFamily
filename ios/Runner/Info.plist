@@ -56,9 +56,9 @@
 	<false/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת אפליקציית המצלמה על מנת לעלות תמונה</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת גלריית התמונות על מנת לעלות תמונה</string>
 
     <key>UIBackgroundModes</key>
     <array>

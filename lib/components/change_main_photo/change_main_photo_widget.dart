@@ -208,7 +208,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                       try {
                         showUploadMessage(
                           context,
-                          'Uploading file...',
+                          'מעלה את התמונה...',
                           showLoading: true,
                         );
                         selectedUploadedFiles = selectedMedia
@@ -242,10 +242,11 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                               selectedUploadedFiles.first;
                           _model.uploadedFileUrl = downloadUrls.first;
                         });
-                        showUploadMessage(context, 'Success!');
+                        showUploadMessage(context, 'התמונה הועלתה בהצלחה!');
                       } else {
                         setState(() {});
-                        showUploadMessage(context, 'Failed to upload data');
+                        showUploadMessage(
+                            context, 'טעות בהעלאת תמונה, נסה שוב');
                         return;
                       }
                     }

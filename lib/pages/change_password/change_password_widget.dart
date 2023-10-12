@@ -176,7 +176,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                'Email required!',
+                                'נדרש אימייל',
                               ),
                             ),
                           );

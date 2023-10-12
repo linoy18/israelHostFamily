@@ -100,7 +100,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                 alignment: AlignmentDirectional(0.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 10.0),
+                                      10.0, 20.0, 25.0, 10.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [

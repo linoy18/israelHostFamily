@@ -171,8 +171,8 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
                               !phoneNumberVal.startsWith('+')) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text(
-                                    'Phone Number is required and has to start with +.'),
+                                content:
+                                    Text('מספר הטלפון צריך להיות עם סימן +'),
                               ),
                             );
                             return;

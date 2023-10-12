@@ -93,7 +93,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       enableActiveFill: false,
                       autoFocus: true,
-                      enablePinAutofill: false,
+                      enablePinAutofill: true,
                       errorTextSpace: 0.0,
                       showCursor: true,
                       cursorColor: FlutterFlowTheme.of(context).primary,
@@ -102,7 +102,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                       keyboardType: TextInputType.number,
                       pinTheme: PinTheme(
                         fieldHeight: 55.0,
-                        fieldWidth: 55.0,
+                        fieldWidth: 45.0,
                         borderWidth: 2.0,
                         borderRadius: BorderRadius.circular(12.0),
                         shape: PinCodeFieldShape.box,
@@ -136,7 +136,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                           if (smsCodeVal == null || smsCodeVal.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Enter SMS verification code.'),
+                                content: Text('הכנס את הקוד שנשלח אליך בsms'),
                               ),
                             );
                             return;

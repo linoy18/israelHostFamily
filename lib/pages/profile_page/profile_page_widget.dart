@@ -137,7 +137,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             child: Image.network(
                               valueOrDefault<String>(
                                 columnUsersRecord.photoUrl,
-                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/xqf15kci0gle/2.png',
                               ),
                               fit: BoxFit.cover,
                               alignment: Alignment(-0.00, 0.00),
@@ -626,15 +626,74 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   },
                   text: 'התנתק',
                   options: FFButtonOptions(
-                    width: 110.0,
+                    width: 250.0,
                     height: 50.0,
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: FlutterFlowTheme.of(context).secondary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.of(context).darkText,
+                          color: FlutterFlowTheme.of(context).cultured,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                    elevation: 0.0,
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    var confirmDialogResponse = await showDialog<bool>(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('האם אתה בטוח?'),
+                              content: Text(
+                                  'האם אתה בטוח רוצה למחוק את החשבון שלך?'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, false),
+                                  child: Text('לא'),
+                                ),
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, true),
+                                  child: Text('כן'),
+                                ),
+                              ],
+                            );
+                          },
+                        ) ??
+                        false;
+                    if (confirmDialogResponse) {
+                      await authManager.deleteUser(context);
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
+                    } else {
+                      Navigator.pop(context);
+                    }
+                  },
+                  text: 'מחיקת החשבון שלי',
+                  options: FFButtonOptions(
+                    width: 250.0,
+                    height: 50.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).error,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.of(context).tertiary,
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
                         ),

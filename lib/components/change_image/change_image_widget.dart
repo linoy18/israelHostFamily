@@ -167,7 +167,7 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                                   try {
                                     showUploadMessage(
                                       context,
-                                      'Uploading file...',
+                                      'מעלה את התמונה...',
                                       showLoading: true,
                                     );
                                     selectedUploadedFiles = selectedMedia
@@ -205,11 +205,12 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                                       _model.uploadedFileUrl =
                                           downloadUrls.first;
                                     });
-                                    showUploadMessage(context, 'Success!');
+                                    showUploadMessage(
+                                        context, 'התמונה הועלתה בהצלחה!');
                                   } else {
                                     setState(() {});
                                     showUploadMessage(
-                                        context, 'Failed to upload data');
+                                        context, 'טעות בהעלאת תמונה, נסה שוב');
                                     return;
                                   }
                                 }
