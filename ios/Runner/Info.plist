@@ -56,9 +56,9 @@
 	<false/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת אפליקציית המצלמה על מנת לעלות תמונה</string>
+    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת המצלמה כדי שתוכלו לצלם ולעלות תמונות לפרופיל שלכם</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת גלריית התמונות על מנת לעלות תמונה</string>
+    <string>&quot;אירוח מהלב&quot; מבקשת הרשאה לפתיחת גלריית התמונות כדי שתוכלו לעלות תמונות למקומות האירוח שלכם</string>
 
     <key>UIBackgroundModes</key>
     <array>
