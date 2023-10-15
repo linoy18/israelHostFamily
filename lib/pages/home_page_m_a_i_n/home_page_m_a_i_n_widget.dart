@@ -389,26 +389,26 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                     child: Builder(
                       builder: (context) {
                         final propItem = homePageMAINPropertiesRecordList
-                            .where((e) => () {
-                                  if (_model.dropdownA && _model.dropdownB) {
-                                    return (_model.areaDropDownValue!
-                                            .contains(e.propertyNeighborhood) &&
-                                        functions.checkIfProps(
-                                            _model.propDropDownValue!.toList(),
-                                            e.props.toList())!);
-                                  } else if (_model.dropdownA) {
-                                    return (_model.areaDropDownValue?.contains(
-                                            e.propertyNeighborhood) ==
-                                        true);
-                                  } else if (_model.dropdownB) {
-                                    return functions.checkIfProps(
-                                        _model.propDropDownValue!.toList(),
-                                        e.props.toList())!;
-                                  } else {
-                                    return false;
-                                  }
-                                }())
-                            .toList();
+                                    .where((e) => () {
+                                          if (_model.dropdownA && _model.dropdownB) {
+                                            return (_model.areaDropDownValue!
+                                                    .contains(e.propertyNeighborhood) &&
+                                                functions.checkIfProps(
+                                                    _model.propDropDownValue!.toList(),
+                                                    e.props.toList())!);
+                                          } else if (_model.dropdownA) {
+                                            return (_model.areaDropDownValue
+                                                    ?.contains(e.propertyNeighborhood) ==
+                                                true);
+                                          } else if (_model.dropdownB) {
+                                            return functions.checkIfProps(
+                                                _model.propDropDownValue!.toList(),
+                                                e.props.toList())!;
+                                          } else {
+                                            return true;  // <-- CHANGE THIS LINE
+                                          }
+                                        }())
+                                    .toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
