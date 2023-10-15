@@ -466,8 +466,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         },
                         text: 'שמירת פרטים',
                         options: FFButtonOptions(
-                          width: 340.0,
-                          height: 60.0,
+                          width: MediaQuery.sizeOf(context).width * 0.9,
+                          height: MediaQuery.sizeOf(context).height * 0.06,
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(

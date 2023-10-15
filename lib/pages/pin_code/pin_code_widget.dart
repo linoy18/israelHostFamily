@@ -52,136 +52,141 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
           centerTitle: true,
           elevation: 0.0,
         ),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
-                    child: Text(
-                      'אישור קוד',
-                      style: FlutterFlowTheme.of(context).headlineSmall,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(44.0, 8.0, 44.0, 10.0),
-                    child: Text(
-                      'אנא הקלד את הקוד שהגיע למכשיר הטלפון שלך',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodySmall,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(25.0, 32.0, 25.0, 0.0),
-                    child: PinCodeTextField(
-                      autoDisposeControllers: false,
-                      appContext: context,
-                      length: 6,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).primary,
-                              ),
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      enableActiveFill: false,
-                      autoFocus: true,
-                      enablePinAutofill: true,
-                      errorTextSpace: 0.0,
-                      showCursor: true,
-                      cursorColor: FlutterFlowTheme.of(context).primary,
-                      obscureText: false,
-                      hintCharacter: '-',
-                      keyboardType: TextInputType.number,
-                      pinTheme: PinTheme(
-                        fieldHeight: 55.0,
-                        fieldWidth: 45.0,
-                        borderWidth: 2.0,
-                        borderRadius: BorderRadius.circular(12.0),
-                        shape: PinCodeFieldShape.box,
-                        activeColor: FlutterFlowTheme.of(context).primary,
-                        inactiveColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                        selectedColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                        activeFillColor: FlutterFlowTheme.of(context).primary,
-                        inactiveFillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                        selectedFillColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                      controller: _model.pinCodeController,
-                      onChanged: (_) {},
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: _model.pinCodeControllerValidator
-                          .asValidator(context),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-0.00, 0.00),
-                    child: Padding(
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 50.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          final smsCodeVal = _model.pinCodeController!.text;
-                          if (smsCodeVal == null || smsCodeVal.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('הכנס את הקוד שנשלח אליך בsms'),
-                              ),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
+                      child: Text(
+                        'אישור קוד',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(44.0, 8.0, 44.0, 10.0),
+                      child: Text(
+                        'אנא הקלד את הקוד שהגיע למכשיר הטלפון שלך',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodySmall,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(25.0, 32.0, 25.0, 0.0),
+                      child: PinCodeTextField(
+                        autoDisposeControllers: false,
+                        appContext: context,
+                        length: 6,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        enableActiveFill: false,
+                        autoFocus: true,
+                        enablePinAutofill: true,
+                        errorTextSpace: 0.0,
+                        showCursor: true,
+                        cursorColor: FlutterFlowTheme.of(context).primary,
+                        obscureText: false,
+                        hintCharacter: '-',
+                        keyboardType: TextInputType.number,
+                        pinTheme: PinTheme(
+                          fieldHeight: 55.0,
+                          fieldWidth: 45.0,
+                          borderWidth: 2.0,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: PinCodeFieldShape.box,
+                          activeColor: FlutterFlowTheme.of(context).primary,
+                          inactiveColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                          selectedColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                          activeFillColor: FlutterFlowTheme.of(context).primary,
+                          inactiveFillColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                          selectedFillColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                        ),
+                        controller: _model.pinCodeController,
+                        onChanged: (_) {},
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: _model.pinCodeControllerValidator
+                            .asValidator(context),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.00, 0.00),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 50.0, 0.0, 50.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            final smsCodeVal = _model.pinCodeController!.text;
+                            if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('הכנס את הקוד שנשלח אליך בsms'),
+                                ),
+                              );
+                              return;
+                            }
+                            final phoneVerifiedUser =
+                                await authManager.verifySmsCode(
+                              context: context,
+                              smsCode: smsCodeVal,
                             );
-                            return;
-                          }
-                          final phoneVerifiedUser =
-                              await authManager.verifySmsCode(
-                            context: context,
-                            smsCode: smsCodeVal,
-                          );
-                          if (phoneVerifiedUser == null) {
-                            return;
-                          }
+                            if (phoneVerifiedUser == null) {
+                              return;
+                            }
 
-                          context.goNamedAuth('homePage_MAIN', context.mounted);
-                        },
-                        text: 'אישור והמשך',
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.6,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            context.goNamedAuth(
+                                'homePage_MAIN', context.mounted);
+                          },
+                          text: 'אישור והמשך',
+                          options: FFButtonOptions(
+                            width: MediaQuery.sizeOf(context).width * 0.6,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(40.0),
                           ),
-                          borderRadius: BorderRadius.circular(40.0),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

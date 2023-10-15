@@ -622,6 +622,19 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                     FFButtonWidget(
                       onPressed: () async {
                         await widget.propertyRef!.reference.update({
+                          ...createPropertiesRecordData(
+                            forFamily: _model.familyValue,
+                            forCouple: _model.coupleValue,
+                            forOne: _model.personValue,
+                            catFriendly: _model.catValue,
+                            dogFriendly: _model.dogValue,
+                            babyCrib: _model.babyCribValue,
+                            accessibility: _model.accessibilityValue,
+                            secureDoor: _model.secureDoorValue,
+                            familyKeepShabbat: _model.familyShabbatValue,
+                            familyKeepKosher: _model.familyKosherValue,
+                            emptyHouse: _model.emptyHouseValue,
+                          ),
                           ...mapToFirestore(
                             {
                               'props': functions.parseBoolPropToList(

@@ -388,17 +388,27 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                 () => _model.switchListTileValue = newValue!);
                           },
                           title: Text(
-                            'פעיל',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            'הפסק או הפעל',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).redApple,
+                                ),
                           ),
                           subtitle: Text(
-                            'הפעל אם ברצונך לפרסם את מקום האירוח',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            'הפסק / הפעל את פרסום המודעה',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).gray600,
+                                ),
                           ),
                           tileColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          activeColor: FlutterFlowTheme.of(context).primary,
-                          activeTrackColor: Color(0xFF0748A2),
+                          activeColor: FlutterFlowTheme.of(context).error,
+                          activeTrackColor: Color(0xFF96444C),
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                           contentPadding: EdgeInsetsDirectional.fromSTEB(

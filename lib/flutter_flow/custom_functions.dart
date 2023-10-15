@@ -17,28 +17,10 @@ bool? checkIfProps(
   List<String> dropDownProp,
   List<String> dbProps,
 ) {
-  return dbProps.any((dbString) => dropDownProp.contains(dbString));
-}
-
-bool? checkDropDowns(
-  List<String>? dropDownArea,
-  List<String> dropDownProp,
-  String areaString,
-  List<String> dbProps,
-) {
-  bool areaCondition = dropDownArea != null && dropDownArea == areaString;
-  bool propCondition =
-      dbProps.any((dbString) => dropDownProp.contains(dbString));
-
-  if (dropDownArea != null && dropDownProp.isNotEmpty) {
-    return areaCondition && propCondition;
-  } else if (dropDownArea != null) {
-    return areaCondition;
-  } else if (dropDownProp.isNotEmpty) {
-    return propCondition;
+  if (dbProps.isEmpty) {
+    return false;
   }
-
-  return false;
+  return dbProps.any((dbString) => dropDownProp.contains(dbString));
 }
 
 List<String>? parseBoolPropToList(

@@ -149,10 +149,10 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: Colors.white,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           selectedItemColor: FlutterFlowTheme.of(context).secondary,
           unselectedItemColor: FlutterFlowTheme.of(context).grayIcon,
-          showSelectedLabels: false,
+          showSelectedLabels: true,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
@@ -177,7 +177,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icons.account_circle,
                 size: 24.0,
               ),
-              label: 'Profile',
+              label: 'הפרופיל שלי',
               tooltip: '',
             )
           ],

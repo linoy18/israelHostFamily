@@ -174,7 +174,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Text(
-                                      'באחריותכם להיות אחראיים לוודא \nאת אמינותם של המארח או המארחים \nאליהם אתם רוצים להגיע להתארח',
+                                      'באחריותכם להיות אחראיים לוודא \nאת אמינותם של המארח או המארחים \nאליהם אתם רוצים להגיע להתארח,\nמומלץ להיפגש או לבצע שיחת וידאו לפני',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
