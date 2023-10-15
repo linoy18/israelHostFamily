@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -717,7 +718,6 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             minNights: _model.countControllerValue,
                             bedsCount: _model.countBedsValue,
                             roomsCount: _model.countRoomsValue,
-                            phoneNumber: _model.phoneController.text,
                             forFamily: widget.family,
                             forCouple: widget.couple,
                             forOne: widget.one,
@@ -738,10 +738,24 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             hostBio:
                                 valueOrDefault(currentUserDocument?.bio, ''),
                             hostProfileImge: currentUserPhoto,
+                            phoneNumber: _model.phoneController.text,
                           ),
                           ...mapToFirestore(
                             {
                               'lastUpdated': FieldValue.serverTimestamp(),
+                              'created_time': FieldValue.serverTimestamp(),
+                              'props': functions.parseBoolPropToList(
+                                  widget.family,
+                                  widget.couple,
+                                  widget.one,
+                                  widget.secureDoor,
+                                  widget.dog,
+                                  widget.cat,
+                                  widget.babyCrib,
+                                  widget.acessability,
+                                  widget.keepShabbat,
+                                  widget.keepKosher,
+                                  widget.emptyHouse),
                             },
                           ),
                         });

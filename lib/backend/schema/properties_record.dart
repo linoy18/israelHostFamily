@@ -76,11 +76,6 @@ class PropertiesRecord extends FirestoreRecord {
   int get roomsCount => _roomsCount ?? 0;
   bool hasRoomsCount() => _roomsCount != null;
 
-  // "phoneNumber" field.
-  String? _phoneNumber;
-  String get phoneNumber => _phoneNumber ?? '';
-  bool hasPhoneNumber() => _phoneNumber != null;
-
   // "forFamily" field.
   bool? _forFamily;
   bool get forFamily => _forFamily ?? false;
@@ -161,6 +156,41 @@ class PropertiesRecord extends FirestoreRecord {
   String get hostProfileImge => _hostProfileImge ?? '';
   bool hasHostProfileImge() => _hostProfileImge != null;
 
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  bool hasEmail() => _email != null;
+
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
+
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
+  // "created_time" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
+  // "phoneNumber" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "props" field.
+  List<String>? _props;
+  List<String> get props => _props ?? const [];
+  bool hasProps() => _props != null;
+
   void _initializeFields() {
     _propertyName = snapshotData['propertyName'] as String?;
     _propertyDescription = snapshotData['propertyDescription'] as String?;
@@ -174,7 +204,6 @@ class PropertiesRecord extends FirestoreRecord {
     _minNights = castToType<int>(snapshotData['minNights']);
     _bedsCount = castToType<int>(snapshotData['bedsCount']);
     _roomsCount = castToType<int>(snapshotData['roomsCount']);
-    _phoneNumber = snapshotData['phoneNumber'] as String?;
     _forFamily = snapshotData['forFamily'] as bool?;
     _forCouple = snapshotData['forCouple'] as bool?;
     _forOne = snapshotData['forOne'] as bool?;
@@ -191,6 +220,13 @@ class PropertiesRecord extends FirestoreRecord {
     _hostInsatgram = snapshotData['hostInsatgram'] as String?;
     _hostBio = snapshotData['hostBio'] as String?;
     _hostProfileImge = snapshotData['hostProfileImge'] as String?;
+    _email = snapshotData['email'] as String?;
+    _displayName = snapshotData['display_name'] as String?;
+    _photoUrl = snapshotData['photo_url'] as String?;
+    _uid = snapshotData['uid'] as String?;
+    _createdTime = snapshotData['created_time'] as DateTime?;
+    _phoneNumber = snapshotData['phoneNumber'] as String?;
+    _props = getDataList(snapshotData['props']);
   }
 
   static CollectionReference get collection =>
@@ -240,7 +276,6 @@ Map<String, dynamic> createPropertiesRecordData({
   int? minNights,
   int? bedsCount,
   int? roomsCount,
-  String? phoneNumber,
   bool? forFamily,
   bool? forCouple,
   bool? forOne,
@@ -257,6 +292,12 @@ Map<String, dynamic> createPropertiesRecordData({
   String? hostInsatgram,
   String? hostBio,
   String? hostProfileImge,
+  String? email,
+  String? displayName,
+  String? photoUrl,
+  String? uid,
+  DateTime? createdTime,
+  String? phoneNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -272,7 +313,6 @@ Map<String, dynamic> createPropertiesRecordData({
       'minNights': minNights,
       'bedsCount': bedsCount,
       'roomsCount': roomsCount,
-      'phoneNumber': phoneNumber,
       'forFamily': forFamily,
       'forCouple': forCouple,
       'forOne': forOne,
@@ -289,6 +329,12 @@ Map<String, dynamic> createPropertiesRecordData({
       'hostInsatgram': hostInsatgram,
       'hostBio': hostBio,
       'hostProfileImge': hostProfileImge,
+      'email': email,
+      'display_name': displayName,
+      'photo_url': photoUrl,
+      'uid': uid,
+      'created_time': createdTime,
+      'phoneNumber': phoneNumber,
     }.withoutNulls,
   );
 
@@ -300,6 +346,7 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
 
   @override
   bool equals(PropertiesRecord? e1, PropertiesRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.propertyName == e2?.propertyName &&
         e1?.propertyDescription == e2?.propertyDescription &&
         e1?.mainImage == e2?.mainImage &&
@@ -312,7 +359,6 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e1?.minNights == e2?.minNights &&
         e1?.bedsCount == e2?.bedsCount &&
         e1?.roomsCount == e2?.roomsCount &&
-        e1?.phoneNumber == e2?.phoneNumber &&
         e1?.forFamily == e2?.forFamily &&
         e1?.forCouple == e2?.forCouple &&
         e1?.forOne == e2?.forOne &&
@@ -328,7 +374,14 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e1?.hostEmail == e2?.hostEmail &&
         e1?.hostInsatgram == e2?.hostInsatgram &&
         e1?.hostBio == e2?.hostBio &&
-        e1?.hostProfileImge == e2?.hostProfileImge;
+        e1?.hostProfileImge == e2?.hostProfileImge &&
+        e1?.email == e2?.email &&
+        e1?.displayName == e2?.displayName &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.uid == e2?.uid &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        listEquality.equals(e1?.props, e2?.props);
   }
 
   @override
@@ -345,7 +398,6 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e?.minNights,
         e?.bedsCount,
         e?.roomsCount,
-        e?.phoneNumber,
         e?.forFamily,
         e?.forCouple,
         e?.forOne,
@@ -361,7 +413,14 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e?.hostEmail,
         e?.hostInsatgram,
         e?.hostBio,
-        e?.hostProfileImge
+        e?.hostProfileImge,
+        e?.email,
+        e?.displayName,
+        e?.photoUrl,
+        e?.uid,
+        e?.createdTime,
+        e?.phoneNumber,
+        e?.props
       ]);
 
   @override

@@ -113,13 +113,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'searchProperties',
-          path: '/searchProperties',
-          builder: (context, params) => SearchPropertiesWidget(
-            searchTerm: params.getParam('searchTerm', ParamType.String),
-          ),
-        ),
-        FFRoute(
           name: 'profilePage',
           path: '/profilePage',
           builder: (context, params) => params.isEmpty
@@ -275,13 +268,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'filtersProp',
           path: '/filtersProp',
           builder: (context, params) => FiltersPropWidget(),
-        ),
-        FFRoute(
-          name: 'searchPropertiesCopy',
-          path: '/searchPropertiesCopy',
-          builder: (context, params) => SearchPropertiesCopyWidget(
-            searchTerm: params.getParam('searchTerm', ParamType.String),
-          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

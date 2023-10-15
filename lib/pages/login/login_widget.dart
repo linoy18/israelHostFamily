@@ -117,10 +117,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           Align(
                             alignment: AlignmentDirectional(-0.00, 0.00),
-                            child: Text(
-                              'שלום לכולם,\nהאפליקציה פותחה לתת מענה\nלמי שמחפש מקום שקט יותר לימים הקרובים',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Text(
+                                'שלום לכולם,\nהאפליקציה פותחה לתת מענה\nלמי שמחפש מקום שקט יותר לימים הקרובים',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
                             ),
                           ),
                         ],
@@ -181,10 +185,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           Align(
                             alignment: AlignmentDirectional(-0.00, 0.00),
-                            child: Text(
-                              'מטעמי אבטחה\nההתחברות עם מספר טלפון ישראלי בלבד',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Text(
+                                'מטעמי אבטחה\nההתחברות עם מספר טלפון ישראלי בלבד',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
                             ),
                           ),
                         ],

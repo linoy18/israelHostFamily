@@ -165,7 +165,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icons.home_rounded,
                 size: 24.0,
               ),
-              label: 'Home',
+              label: 'דף הבית',
               tooltip: '',
             ),
             BottomNavigationBarItem(

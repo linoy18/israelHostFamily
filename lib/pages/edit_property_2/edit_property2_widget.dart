@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -620,20 +621,24 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        await widget.propertyRef!.reference
-                            .update(createPropertiesRecordData(
-                          forFamily: _model.familyValue,
-                          forCouple: _model.coupleValue,
-                          forOne: _model.personValue,
-                          dogFriendly: _model.dogValue,
-                          catFriendly: _model.catValue,
-                          babyCrib: _model.babyCribValue,
-                          accessibility: _model.accessibilityValue,
-                          familyKeepShabbat: _model.familyShabbatValue,
-                          familyKeepKosher: _model.familyKosherValue,
-                          secureDoor: _model.secureDoorValue,
-                          emptyHouse: _model.emptyHouseValue,
-                        ));
+                        await widget.propertyRef!.reference.update({
+                          ...mapToFirestore(
+                            {
+                              'props': functions.parseBoolPropToList(
+                                  _model.familyValue,
+                                  _model.coupleValue,
+                                  _model.personValue,
+                                  _model.secureDoorValue,
+                                  _model.dogValue,
+                                  _model.catValue,
+                                  _model.babyCribValue,
+                                  _model.accessibilityValue,
+                                  _model.familyShabbatValue,
+                                  _model.familyKosherValue,
+                                  _model.emptyHouseValue),
+                            },
+                          ),
+                        });
 
                         context.pushNamed(
                           'editProperty_3',

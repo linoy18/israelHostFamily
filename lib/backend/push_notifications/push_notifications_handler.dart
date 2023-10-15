@@ -116,11 +116,6 @@ final parametersBuilderMap =
               data, 'propertyRef', PropertiesRecord.fromSnapshot),
         },
       ),
-  'searchProperties': (data) async => ParameterData(
-        allParams: {
-          'searchTerm': getParameter<String>(data, 'searchTerm'),
-        },
-      ),
   'profilePage': ParameterData.none(),
   'editProfile': (data) async => ParameterData(
         allParams: {
@@ -209,11 +204,6 @@ final parametersBuilderMap =
         },
       ),
   'filtersProp': ParameterData.none(),
-  'searchPropertiesCopy': (data) async => ParameterData(
-        allParams: {
-          'searchTerm': getParameter<String>(data, 'searchTerm'),
-        },
-      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

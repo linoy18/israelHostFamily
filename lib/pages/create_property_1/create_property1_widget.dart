@@ -122,13 +122,14 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             controller: _model.nameController,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'בחרו שם למקום האירוח שלכם',
+                              hintText: 'בחרו שם (דירת גן/בית קטן/גדול)',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
+                                    fontSize: 18.0,
                                   ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
@@ -171,7 +172,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                 ),
                               ),
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 24.0),
+                                  0.0, 18.0, 0.0, 18.0),
                             ),
                             style: FlutterFlowTheme.of(context).headlineMedium,
                             keyboardType: TextInputType.url,
@@ -213,7 +214,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                     fontFamily: 'Montserrat',
                                     color:
                                         FlutterFlowTheme.of(context).grayIcon,
-                                    fontSize: 20.0,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                               enabledBorder: UnderlineInputBorder(
@@ -257,7 +258,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                 ),
                               ),
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 24.0),
+                                  0.0, 18.0, 0.0, 18.0),
                             ),
                             style: FlutterFlowTheme.of(context).headlineSmall,
                             validator: _model.addressControllerValidator

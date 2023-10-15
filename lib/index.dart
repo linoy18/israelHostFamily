@@ -4,8 +4,6 @@ export '/pages/home_page_m_a_i_n/home_page_m_a_i_n_widget.dart'
     show HomePageMAINWidget;
 export '/pages/property_details_owner/property_details_owner_widget.dart'
     show PropertyDetailsOwnerWidget;
-export '/pages/search_properties/search_properties_widget.dart'
-    show SearchPropertiesWidget;
 export '/pages/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/pages/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/pages/change_password/change_password_widget.dart'
@@ -33,5 +31,3 @@ export '/pages/login_copy/login_copy_widget.dart' show LoginCopyWidget;
 export '/pages/contact_details/contact_details_widget.dart'
     show ContactDetailsWidget;
 export '/pages/filters_prop/filters_prop_widget.dart' show FiltersPropWidget;
-export '/pages/search_properties_copy/search_properties_copy_widget.dart'
-    show SearchPropertiesCopyWidget;

@@ -863,10 +863,6 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                           context.pushNamed(
                             'contactDetails',
                             queryParameters: {
-                              'phoneNumber': serializeParam(
-                                propertyDetailsPropertiesRecord?.phoneNumber,
-                                ParamType.String,
-                              ),
                               'name': serializeParam(
                                 propertyDetailsPropertiesRecord?.hostName,
                                 ParamType.String,
@@ -885,6 +881,10 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                               ),
                               'profileImage': serializeParam(
                                 widget.propertyRef?.hostProfileImge,
+                                ParamType.String,
+                              ),
+                              'phoneNumber': serializeParam(
+                                widget.propertyRef?.phoneNumber,
                                 ParamType.String,
                               ),
                             }.withoutNulls,

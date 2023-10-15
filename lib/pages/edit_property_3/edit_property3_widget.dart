@@ -432,14 +432,20 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      await widget.propertyRef!.reference
-                          .update(createPropertiesRecordData(
-                        notes: _model.notesController.text,
-                        minNights: _model.daysCountValue,
-                        isLive: _model.switchListTileValue,
-                        bedsCount: _model.bedsCountValue,
-                        roomsCount: _model.roomCountValue,
-                      ));
+                      await widget.propertyRef!.reference.update({
+                        ...createPropertiesRecordData(
+                          notes: _model.notesController.text,
+                          minNights: _model.daysCountValue,
+                          isLive: _model.switchListTileValue,
+                          bedsCount: _model.bedsCountValue,
+                          roomsCount: _model.roomCountValue,
+                        ),
+                        ...mapToFirestore(
+                          {
+                            'lastUpdated': FieldValue.serverTimestamp(),
+                          },
+                        ),
+                      });
 
                       context.goNamed(
                         'profilePage',
