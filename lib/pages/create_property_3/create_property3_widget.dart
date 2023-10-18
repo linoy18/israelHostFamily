@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_property3_model.dart';
@@ -28,11 +27,11 @@ class CreateProperty3Widget extends StatefulWidget {
     bool? acessability,
     required this.keepShabbat,
     required this.keepKosher,
-    required this.name,
     required this.descriptioon,
     this.address,
     this.neighborhood,
     bool? emptyHouse,
+    String? propName,
   })  : this.family = family ?? false,
         this.couple = couple ?? false,
         this.one = one ?? false,
@@ -41,6 +40,7 @@ class CreateProperty3Widget extends StatefulWidget {
         this.babyCrib = babyCrib ?? false,
         this.acessability = acessability ?? false,
         this.emptyHouse = emptyHouse ?? false,
+        this.propName = propName ?? ' ',
         super(key: key);
 
   final String? mainImage;
@@ -54,11 +54,11 @@ class CreateProperty3Widget extends StatefulWidget {
   final bool acessability;
   final bool? keepShabbat;
   final bool? keepKosher;
-  final String? name;
   final String? descriptioon;
   final String? address;
   final String? neighborhood;
   final bool emptyHouse;
+  final String propName;
 
   @override
   _CreateProperty3WidgetState createState() => _CreateProperty3WidgetState();
@@ -77,7 +77,6 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createProperty_3'});
     _model.notesController ??= TextEditingController();
-    _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.hostNameController ??= TextEditingController();
   }
 
@@ -455,84 +454,18 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                       decoration: BoxDecoration(),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                            0.0, 10.0, 0.0, 10.0),
                                         child: AuthUserStreamWidget(
-                                          builder: (context) => TextFormField(
-                                            controller: _model.phoneController,
-                                            autofocus: true,
-                                            textCapitalization:
-                                                TextCapitalization.none,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium,
-                                              hintText:
-                                                  'הכנס מספר טלפון נייד ליצירת קשר',
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 14.0,
-                                                  ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                            ),
+                                          builder: (context) => Text(
+                                            currentPhoneNumber,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                            keyboardType: TextInputType.phone,
-                                            validator: _model
-                                                .phoneControllerValidator
-                                                .asValidator(context),
-                                            inputFormatters: [
-                                              FilteringTextInputFormatter.allow(
-                                                  RegExp('[0-9]'))
-                                            ],
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -682,103 +615,71 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      if (_model.phoneController.text == null ||
-                          _model.phoneController.text == '') {
-                        var confirmDialogResponse = await showDialog<bool>(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  title: Text('מספר טלפון חסר'),
-                                  content: Text('הכנס מספר טלפון ליצירת קשר'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(
-                                          alertDialogContext, false),
-                                      child: Text('ביטול'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(
-                                          alertDialogContext, true),
-                                      child: Text('אישור'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            ) ??
-                            false;
-                      } else {
-                        await PropertiesRecord.collection.doc().set({
-                          ...createPropertiesRecordData(
-                            propertyName: widget.name,
-                            propertyDescription: widget.descriptioon,
-                            propertyAddress: widget.address,
-                            userRef: currentUserReference,
-                            propertyNeighborhood: widget.neighborhood,
-                            notes: _model.notesController.text,
-                            minNights: _model.countControllerValue,
-                            bedsCount: _model.countBedsValue,
-                            roomsCount: _model.countRoomsValue,
-                            forFamily: widget.family,
-                            forCouple: widget.couple,
-                            forOne: widget.one,
-                            dogFriendly: widget.dog,
-                            catFriendly: widget.cat,
-                            babyCrib: widget.babyCrib,
-                            accessibility: widget.acessability,
-                            familyKeepShabbat: widget.keepShabbat,
-                            familyKeepKosher: widget.keepKosher,
-                            secureDoor: widget.secureDoor,
-                            mainImage: widget.mainImage,
-                            hostName: _model.hostNameController.text,
-                            isLive: true,
-                            emptyHouse: widget.emptyHouse,
-                            hostEmail: currentUserEmail,
-                            hostInsatgram: valueOrDefault(
-                                currentUserDocument?.instagramUserName, ''),
-                            hostBio:
-                                valueOrDefault(currentUserDocument?.bio, ''),
-                            hostProfileImge: currentUserPhoto,
-                            phoneNumber: _model.phoneController.text,
-                          ),
-                          ...mapToFirestore(
-                            {
-                              'lastUpdated': FieldValue.serverTimestamp(),
-                              'created_time': FieldValue.serverTimestamp(),
-                              'props': functions.parseBoolPropToList(
-                                  widget.family,
-                                  widget.couple,
-                                  widget.one,
-                                  widget.secureDoor,
-                                  widget.dog,
-                                  widget.cat,
-                                  widget.babyCrib,
-                                  widget.acessability,
-                                  widget.keepShabbat,
-                                  widget.keepKosher,
-                                  widget.emptyHouse),
-                            },
-                          ),
-                        });
-
-                        await currentUserReference!.update({
-                          ...mapToFirestore(
-                            {
-                              'numberProperties': FieldValue.increment(1),
-                            },
-                          ),
-                        });
-
-                        context.goNamed(
-                          'homePage_MAIN',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 250),
-                            ),
+                      await PropertiesRecord.collection.doc().set({
+                        ...createPropertiesRecordData(
+                          propertyName: widget.propName,
+                          propertyDescription: widget.descriptioon,
+                          propertyAddress: widget.address,
+                          userRef: currentUserReference,
+                          propertyNeighborhood: widget.neighborhood,
+                          notes: _model.notesController.text,
+                          minNights: _model.countControllerValue,
+                          bedsCount: _model.countBedsValue,
+                          roomsCount: _model.countRoomsValue,
+                          forFamily: widget.family,
+                          forCouple: widget.couple,
+                          forOne: widget.one,
+                          dogFriendly: widget.dog,
+                          catFriendly: widget.cat,
+                          babyCrib: widget.babyCrib,
+                          accessibility: widget.acessability,
+                          familyKeepShabbat: widget.keepShabbat,
+                          familyKeepKosher: widget.keepKosher,
+                          secureDoor: widget.secureDoor,
+                          mainImage: widget.mainImage,
+                          hostName: _model.hostNameController.text,
+                          isLive: true,
+                          emptyHouse: widget.emptyHouse,
+                          phoneNumber: currentPhoneNumber,
+                        ),
+                        ...mapToFirestore(
+                          {
+                            'lastUpdated': FieldValue.serverTimestamp(),
+                            'created_time': FieldValue.serverTimestamp(),
+                            'props': functions.parseBoolPropToList(
+                                widget.family,
+                                widget.couple,
+                                widget.one,
+                                widget.secureDoor,
+                                widget.dog,
+                                widget.cat,
+                                widget.babyCrib,
+                                widget.acessability,
+                                widget.keepShabbat,
+                                widget.keepKosher,
+                                widget.emptyHouse),
                           },
-                        );
-                      }
+                        ),
+                      });
+
+                      await currentUserReference!.update({
+                        ...mapToFirestore(
+                          {
+                            'numberProperties': FieldValue.increment(1),
+                          },
+                        ),
+                      });
+
+                      context.goNamed(
+                        'homePage_MAIN',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 250),
+                          ),
+                        },
+                      );
                     },
                     text: 'פרסם',
                     options: FFButtonOptions(

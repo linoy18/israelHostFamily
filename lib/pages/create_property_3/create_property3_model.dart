@@ -9,7 +9,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'create_property3_widget.dart' show CreateProperty3Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,9 +24,6 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   // State field(s) for notes widget.
   TextEditingController? notesController;
   String? Function(BuildContext, String?)? notesControllerValidator;
-  // State field(s) for phone widget.
-  TextEditingController? phoneController;
-  String? Function(BuildContext, String?)? phoneControllerValidator;
   // State field(s) for hostName widget.
   TextEditingController? hostNameController;
   String? Function(BuildContext, String?)? hostNameControllerValidator;
@@ -38,7 +34,6 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
 
   void dispose() {
     notesController?.dispose();
-    phoneController?.dispose();
     hostNameController?.dispose();
   }
 

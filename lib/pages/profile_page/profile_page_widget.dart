@@ -8,8 +8,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'profile_page_model.dart';
 export 'profile_page_model.dart';
 
@@ -108,16 +110,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         children: [
                           if (columnUsersRecord.photoUrl != null &&
                               columnUsersRecord.photoUrl != '')
-                            Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFDBE2E7),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    2.0, 2.0, 2.0, 2.0),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 10.0),
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFDBE2E7),
+                                  shape: BoxShape.circle,
+                                ),
                                 child: Container(
                                   width: double.infinity,
                                   height: double.infinity,
@@ -224,17 +226,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 4.0),
+                                      15.0, 4.0, 15.0, 4.0),
                                   child: Container(
-                                    width: 250.0,
-                                    height: 50.0,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.05,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .primaryBackground,
                                         width: 1.0,
                                       ),
                                     ),
@@ -244,95 +248,101 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Expanded(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                setDarkModeSetting(
-                                                    context, ThemeMode.light);
-                                              },
-                                              child: Container(
-                                                width: 115.0,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(
-                                                  color: valueOrDefault<Color>(
-                                                    Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.light
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  setDarkModeSetting(
+                                                      context, ThemeMode.light);
+                                                },
+                                                child: Container(
+                                                  width: 120.0,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(
                                                     color:
                                                         valueOrDefault<Color>(
                                                       Theme.of(context)
                                                                   .brightness ==
                                                               Brightness.light
-                                                          ? Color(0xFFE0E3E7)
-                                                          : Color(0xFFF1F4F8),
-                                                      Color(0xFFE0E3E7),
-                                                    ),
-                                                    width: 1.0,
-                                                  ),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.wb_sunny_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
+                                                          ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      size: 16.0,
+                                                              .secondaryBackground
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'מצב בהיר',
-                                                        style:
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        Theme.of(context)
+                                                                    .brightness ==
+                                                                Brightness.light
+                                                            ? Color(0xFFE0E3E7)
+                                                            : Color(0xFFF1F4F8),
+                                                        Color(0xFFE0E3E7),
+                                                      ),
+                                                      width: 1.0,
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Icon(
+                                                        Icons.wb_sunny_rounded,
+                                                        color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                                .primaryText,
+                                                        size: 16.0,
                                                       ),
-                                                    ),
-                                                  ],
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'מצב בהיר',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -433,30 +443,30 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'editProfile',
-                            queryParameters: {
-                              'userProfile': serializeParam(
-                                columnUsersRecord,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'userProfile': columnUsersRecord,
-                            },
-                          );
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'editProfile',
+                        queryParameters: {
+                          'userProfile': serializeParam(
+                            columnUsersRecord,
+                            ParamType.Document,
+                          ),
+                        }.withoutNulls,
+                        extra: <String, dynamic>{
+                          'userProfile': columnUsersRecord,
                         },
-                        child: Material(
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Material(
                           color: Colors.transparent,
                           elevation: 0.0,
                           shape: RoundedRectangleBorder(
@@ -513,25 +523,25 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (columnUsersRecord.numberProperties > 0)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 2.0, 0.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('myProperties');
-                            },
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('myProperties');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (columnUsersRecord.numberProperties > 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 2.0, 0.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 0.0,
@@ -593,8 +603,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               ),
                             ),
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
                   Padding(
                     padding:
@@ -694,6 +704,112 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         ),
                         borderRadius: BorderRadius.circular(40.0),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 10.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'צריכים עזרה? צרו קשר:',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 15.0, 10.0, 0.0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      borderRadius: 50.0,
+                                      borderWidth: 2.0,
+                                      buttonSize: 50.0,
+                                      icon: Icon(
+                                        Icons.email,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        await launchUrl(Uri(
+                                            scheme: 'mailto',
+                                            path: 'helpfamilyhost@gmail.com',
+                                            query: {
+                                              'subject': 'תמיכה טכנית',
+                                            }
+                                                .entries
+                                                .map((MapEntry<String, String>
+                                                        e) =>
+                                                    '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                                .join('&')));
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 15.0, 10.0, 0.0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      borderRadius: 50.0,
+                                      borderWidth: 2.0,
+                                      buttonSize: 50.0,
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.instagram,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        await launchURL(
+                                            'https://www.instagram.com/israel_family_host/?hl=he');
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 15.0, 10.0, 0.0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      borderRadius: 50.0,
+                                      borderWidth: 2.0,
+                                      buttonSize: 50.0,
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.linkedinIn,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        await launchURL(
+                                            'https://www.linkedin.com/in/linoy-bar-gal/');
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

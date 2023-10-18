@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,8 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'change_main_photo_model.dart';
@@ -28,64 +25,8 @@ class ChangeMainPhotoWidget extends StatefulWidget {
   _ChangeMainPhotoWidgetState createState() => _ChangeMainPhotoWidgetState();
 }
 
-class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
-    with TickerProviderStateMixin {
+class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget> {
   late ChangeMainPhotoModel _model;
-
-  final animationsMap = {
-    'buttonOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: Offset(0.6, 0.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: Offset(0.6, 0.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -97,13 +38,6 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeMainPhotoModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -270,8 +204,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                ).animateOnPageLoad(
-                    animationsMap['buttonOnPageLoadAnimation1']!),
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
@@ -302,8 +235,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                ).animateOnPageLoad(
-                    animationsMap['buttonOnPageLoadAnimation2']!),
+                ),
               ),
             ],
           ),

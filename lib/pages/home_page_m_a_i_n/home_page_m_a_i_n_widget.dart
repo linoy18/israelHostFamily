@@ -109,11 +109,10 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 10.0),
+                                      0.0, 20.0, 0.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -123,7 +122,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 20.0, 15.0, 10.0),
+                                                  30.0, 45.0, 30.0, 10.0),
                                           child: Container(
                                             decoration: BoxDecoration(),
                                             child: Row(
@@ -143,30 +142,26 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
-                                                          0.28,
+                                                          0.25,
                                                       height: MediaQuery.sizeOf(
                                                                   context)
                                                               .height *
-                                                          0.15,
+                                                          0.1,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
                                                 ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                20.0,
-                                                                25.0,
-                                                                10.0),
+                                                Flexible(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.00, 0.00),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
                                                       children: [
                                                         Text(
                                                           'ברוכים הבאים',
@@ -181,40 +176,30 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                                     .secondary,
                                                               ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      24.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Text(
-                                                                'מחבקים את תושבי החזית',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Montserrat',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w300,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'מחבקים את תושבי החזית',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                  ),
+                                                            ),
+                                                          ],
                                                         ),
                                                         Padding(
                                                           padding:
@@ -290,7 +275,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: AlignmentDirectional(-0.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 10.0),
@@ -306,7 +291,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(1.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -339,7 +324,11 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                             height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMedium,
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      lineHeight: 1.2,
+                                                    ),
                                             hintText: ' איזור',
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
@@ -387,7 +376,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: AlignmentDirectional(-0.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 15.0, 10.0),
@@ -433,7 +422,11 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                             height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMedium,
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      lineHeight: 1.2,
+                                                    ),
                                             hintText: 'מאפיינים',
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,

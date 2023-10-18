@@ -763,10 +763,6 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                               _model.familyKosherValue,
                               ParamType.bool,
                             ),
-                            'name': serializeParam(
-                              widget.propName,
-                              ParamType.String,
-                            ),
                             'descriptioon': serializeParam(
                               widget.propDescription,
                               ParamType.String,
@@ -786,6 +782,10 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                             'emptyHouse': serializeParam(
                               _model.emptyHouseValue,
                               ParamType.bool,
+                            ),
+                            'propName': serializeParam(
+                              widget.propName,
+                              ParamType.String,
                             ),
                           }.withoutNulls,
                         );

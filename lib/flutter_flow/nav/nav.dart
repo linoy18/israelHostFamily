@@ -175,11 +175,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             acessability: params.getParam('acessability', ParamType.bool),
             keepShabbat: params.getParam('keepShabbat', ParamType.bool),
             keepKosher: params.getParam('keepKosher', ParamType.bool),
-            name: params.getParam('name', ParamType.String),
             descriptioon: params.getParam('descriptioon', ParamType.String),
             address: params.getParam('address', ParamType.String),
             neighborhood: params.getParam('neighborhood', ParamType.String),
             emptyHouse: params.getParam('emptyHouse', ParamType.bool),
+            propName: params.getParam('propName', ParamType.String),
           ),
         ),
         FFRoute(
@@ -256,12 +256,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'contactDetails',
           path: '/contactDetails',
           builder: (context, params) => ContactDetailsWidget(
-            phoneNumber: params.getParam('phoneNumber', ParamType.String),
             name: params.getParam('name', ParamType.String),
-            email: params.getParam('email', ParamType.String),
-            bio: params.getParam('bio', ParamType.String),
-            instagram: params.getParam('instagram', ParamType.String),
-            profileImage: params.getParam('profileImage', ParamType.String),
+            hostId: params.getParam(
+                'hostId', ParamType.DocumentReference, false, ['users']),
+            propertyRef: params.getParam('propertyRef',
+                ParamType.DocumentReference, false, ['properties']),
           ),
         ),
         FFRoute(

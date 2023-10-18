@@ -407,8 +407,8 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           ),
                           tileColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          activeColor: FlutterFlowTheme.of(context).error,
-                          activeTrackColor: Color(0xFF96444C),
+                          activeColor: FlutterFlowTheme.of(context).success,
+                          activeTrackColor: Color(0xFF3F7758),
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                           contentPadding: EdgeInsetsDirectional.fromSTEB(

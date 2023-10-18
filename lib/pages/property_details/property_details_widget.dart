@@ -48,14 +48,8 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<PropertiesRecord>>(
-      stream: queryPropertiesRecord(
-        queryBuilder: (propertiesRecord) => propertiesRecord.where(
-          'propertyName',
-          isEqualTo: widget.propertyRef?.propertyName,
-        ),
-        singleRecord: true,
-      ),
+    return StreamBuilder<PropertiesRecord>(
+      stream: PropertiesRecord.getDocument(widget.propertyRef!.reference),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -74,16 +68,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
             ),
           );
         }
-        List<PropertiesRecord> propertyDetailsPropertiesRecordList =
-            snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final propertyDetailsPropertiesRecord =
-            propertyDetailsPropertiesRecordList.isNotEmpty
-                ? propertyDetailsPropertiesRecordList.first
-                : null;
+        final propertyDetailsPropertiesRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -124,9 +109,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              if (propertyDetailsPropertiesRecord?.mainImage !=
+                              if (propertyDetailsPropertiesRecord.mainImage !=
                                       null &&
-                                  propertyDetailsPropertiesRecord?.mainImage !=
+                                  propertyDetailsPropertiesRecord.mainImage !=
                                       '')
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
@@ -239,9 +224,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                             ],
                           ),
                         ),
-                        if (propertyDetailsPropertiesRecord?.propertyAddress !=
+                        if (propertyDetailsPropertiesRecord.propertyAddress !=
                                 null &&
-                            propertyDetailsPropertiesRecord?.propertyAddress !=
+                            propertyDetailsPropertiesRecord.propertyAddress !=
                                 '')
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -345,9 +330,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                if (propertyDetailsPropertiesRecord
-                                        ?.forFamily ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.forFamily)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -379,9 +362,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord
-                                        ?.forCouple ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.forCouple)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -413,8 +394,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord?.forOne ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.forOne)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -447,8 +427,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                     ),
                                   ),
                                 if (propertyDetailsPropertiesRecord
-                                        ?.accessibility ??
-                                    true)
+                                    .accessibility)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -480,9 +459,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord
-                                        ?.dogFriendly ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.dogFriendly)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -514,9 +491,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord
-                                        ?.catFriendly ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.catFriendly)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -549,8 +524,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                     ),
                                   ),
                                 if (propertyDetailsPropertiesRecord
-                                        ?.familyKeepShabbat ??
-                                    true)
+                                    .familyKeepShabbat)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -583,8 +557,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                     ),
                                   ),
                                 if (propertyDetailsPropertiesRecord
-                                        ?.familyKeepKosher ??
-                                    true)
+                                    .familyKeepKosher)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -616,8 +589,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord?.babyCrib ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.babyCrib)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -649,9 +621,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord
-                                        ?.secureDoor ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.secureDoor)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -683,9 +653,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                       ],
                                     ),
                                   ),
-                                if (propertyDetailsPropertiesRecord
-                                        ?.emptyHouse ??
-                                    true)
+                                if (propertyDetailsPropertiesRecord.emptyHouse)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
@@ -745,7 +713,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    propertyDetailsPropertiesRecord!.bedsCount
+                                    propertyDetailsPropertiesRecord.bedsCount
                                         .toString(),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -779,7 +747,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    propertyDetailsPropertiesRecord!.roomsCount
+                                    propertyDetailsPropertiesRecord.roomsCount
                                         .toString(),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -813,7 +781,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    propertyDetailsPropertiesRecord!.minNights
+                                    propertyDetailsPropertiesRecord.minNights
                                         .toString(),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -823,8 +791,8 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                             ],
                           ),
                         ),
-                        if (propertyDetailsPropertiesRecord?.hasNotes() ==
-                            false)
+                        if (propertyDetailsPropertiesRecord.notes != null &&
+                            propertyDetailsPropertiesRecord.notes != '')
                           Align(
                             alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Padding(
@@ -854,7 +822,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
-                                      widget.propertyRef!.notes,
+                                      propertyDetailsPropertiesRecord.notes,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -882,28 +850,16 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                               'contactDetails',
                               queryParameters: {
                                 'name': serializeParam(
-                                  propertyDetailsPropertiesRecord?.hostName,
+                                  propertyDetailsPropertiesRecord.hostName,
                                   ParamType.String,
                                 ),
-                                'email': serializeParam(
-                                  widget.propertyRef?.hostEmail,
-                                  ParamType.String,
+                                'hostId': serializeParam(
+                                  widget.propertyRef?.userRef,
+                                  ParamType.DocumentReference,
                                 ),
-                                'bio': serializeParam(
-                                  widget.propertyRef?.hostBio,
-                                  ParamType.String,
-                                ),
-                                'instagram': serializeParam(
-                                  widget.propertyRef?.hostInsatgram,
-                                  ParamType.String,
-                                ),
-                                'profileImage': serializeParam(
-                                  widget.propertyRef?.hostProfileImge,
-                                  ParamType.String,
-                                ),
-                                'phoneNumber': serializeParam(
-                                  widget.propertyRef?.phoneNumber,
-                                  ParamType.String,
+                                'propertyRef': serializeParam(
+                                  propertyDetailsPropertiesRecord.reference,
+                                  ParamType.DocumentReference,
                                 ),
                               }.withoutNulls,
                             );
