@@ -8,6 +8,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
@@ -38,12 +39,17 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'editProfile'});
     _model.textController1 ??=
         TextEditingController(text: widget.userProfile?.displayName);
+    _model.textFieldFocusNode ??= FocusNode();
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
+    _model.emailAddressFocusNode ??= FocusNode();
     _model.myBioController ??=
         TextEditingController(text: widget.userProfile?.bio);
+    _model.myBioFocusNode ??= FocusNode();
     _model.instagramController ??=
         TextEditingController(text: widget.userProfile?.instagramUserName);
+    _model.instagramFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -55,6 +61,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(currentUserReference!),
       builder: (context, snapshot) {
@@ -132,9 +147,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
-                              valueOrDefault<String>(
-                                widget.userProfile?.photoUrl,
-                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                              getCORSProxyUrl(
+                                valueOrDefault<String>(
+                                  widget.userProfile?.photoUrl,
+                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                ),
                               ),
                               fit: BoxFit.cover,
                               alignment: Alignment(-0.00, 0.00),
@@ -235,6 +252,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                     child: TextFormField(
                       controller: _model.textController1,
+                      focusNode: _model.textFieldFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'שם',
@@ -285,6 +303,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                     child: TextFormField(
                       controller: _model.emailAddressController,
+                      focusNode: _model.emailAddressFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'כתובת דואר אלקטרוני',
@@ -335,6 +354,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                     child: TextFormField(
                       controller: _model.myBioController,
+                      focusNode: _model.myBioFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'קצת עלי או עלינו',
@@ -394,6 +414,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 20.0, 0.0, 20.0, 12.0),
                             child: TextFormField(
                               controller: _model.instagramController,
+                              focusNode: _model.instagramFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'שם משתמש באינסטגרם',

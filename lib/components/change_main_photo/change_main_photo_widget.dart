@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'change_main_photo_model.dart';
@@ -38,6 +39,8 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeMainPhotoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -110,9 +113,11 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
                   child: Image.network(
-                    valueOrDefault<String>(
-                      _model.uploadedFileUrl,
-                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/uxii7iwtqpy8/emptyAvatar@2x.png',
+                    getCORSProxyUrl(
+                      valueOrDefault<String>(
+                        _model.uploadedFileUrl,
+                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/uxii7iwtqpy8/emptyAvatar@2x.png',
+                      ),
                     ),
                     width: double.infinity,
                     height: 240.0,

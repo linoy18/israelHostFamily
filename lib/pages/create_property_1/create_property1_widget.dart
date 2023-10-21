@@ -39,8 +39,12 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createProperty_1'});
     _model.nameController ??= TextEditingController();
+    _model.nameFocusNode ??= FocusNode();
     _model.addressController ??= TextEditingController();
+    _model.addressFocusNode ??= FocusNode();
     _model.descriptionController ??= TextEditingController();
+    _model.descriptionFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -52,6 +56,15 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -120,6 +133,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.nameController,
+                            focusNode: _model.nameFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'בחרו שם (דירת גן/בית קטן/גדול)',
@@ -205,6 +219,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.addressController,
+                            focusNode: _model.addressFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'מלאו עיר / ישוב או כתובת כללית',
@@ -349,6 +364,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.descriptionController,
+                            focusNode: _model.descriptionFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText:
@@ -492,9 +508,11 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                               child: CachedNetworkImage(
                                 fadeInDuration: Duration(milliseconds: 500),
                                 fadeOutDuration: Duration(milliseconds: 500),
-                                imageUrl: valueOrDefault<String>(
-                                  _model.uploadedFileUrl,
-                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sorti-u4mwh8/assets/u8qaz2yaa5kp/Untitled55-441.png',
+                                imageUrl: getCORSProxyUrl(
+                                  valueOrDefault<String>(
+                                    _model.uploadedFileUrl,
+                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sorti-u4mwh8/assets/u8qaz2yaa5kp/Untitled55-441.png',
+                                  ),
                                 ),
                                 width: double.infinity,
                                 height: MediaQuery.sizeOf(context).height * 0.3,

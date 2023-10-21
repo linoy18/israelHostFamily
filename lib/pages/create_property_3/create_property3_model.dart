@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'create_property3_widget.dart' show CreateProperty3Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -22,9 +23,15 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   // State field(s) for CountController widget.
   int? countControllerValue;
   // State field(s) for notes widget.
+  FocusNode? notesFocusNode;
   TextEditingController? notesController;
   String? Function(BuildContext, String?)? notesControllerValidator;
+  // State field(s) for phone widget.
+  FocusNode? phoneFocusNode;
+  TextEditingController? phoneController;
+  String? Function(BuildContext, String?)? phoneControllerValidator;
   // State field(s) for hostName widget.
+  FocusNode? hostNameFocusNode;
   TextEditingController? hostNameController;
   String? Function(BuildContext, String?)? hostNameControllerValidator;
 
@@ -33,7 +40,13 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    notesFocusNode?.dispose();
     notesController?.dispose();
+
+    phoneFocusNode?.dispose();
+    phoneController?.dispose();
+
+    hostNameFocusNode?.dispose();
     hostNameController?.dispose();
   }
 

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -37,6 +38,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'propertyDetails'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -48,6 +50,15 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return StreamBuilder<PropertiesRecord>(
       stream: PropertiesRecord.getDocument(widget.propertyRef!.reference),
       builder: (context, snapshot) {
@@ -142,8 +153,10 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                                         milliseconds: 500),
                                                     fadeOutDuration: Duration(
                                                         milliseconds: 500),
-                                                    imageUrl: widget
-                                                        .propertyRef!.mainImage,
+                                                    imageUrl: getCORSProxyUrl(
+                                                      widget.propertyRef!
+                                                          .mainImage,
+                                                    ),
                                                     fit: BoxFit.contain,
                                                   ),
                                                   allowRotation: false,
@@ -165,8 +178,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                                     Duration(milliseconds: 500),
                                                 fadeOutDuration:
                                                     Duration(milliseconds: 500),
-                                                imageUrl: widget
-                                                    .propertyRef!.mainImage,
+                                                imageUrl: getCORSProxyUrl(
+                                                  widget.propertyRef!.mainImage,
+                                                ),
                                                 width: double.infinity,
                                                 height: double.infinity,
                                                 fit: BoxFit.cover,
@@ -860,6 +874,10 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                 'propertyRef': serializeParam(
                                   propertyDetailsPropertiesRecord.reference,
                                   ParamType.DocumentReference,
+                                ),
+                                'phoneNumberFromProp': serializeParam(
+                                  propertyDetailsPropertiesRecord.phoneNumber,
+                                  ParamType.String,
                                 ),
                               }.withoutNulls,
                             );

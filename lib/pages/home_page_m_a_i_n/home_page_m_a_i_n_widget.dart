@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_m_a_i_n_model.dart';
@@ -32,6 +33,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'homePage_MAIN'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -43,6 +45,15 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return FutureBuilder<List<PropertiesRecord>>(
       future: (_model.firestoreRequestCompleter ??=
               Completer<List<PropertiesRecord>>()
@@ -573,8 +584,9 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                     Duration(milliseconds: 500),
                                                 fadeOutDuration:
                                                     Duration(milliseconds: 500),
-                                                imageUrl:
-                                                    propItemItem.mainImage,
+                                                imageUrl: getCORSProxyUrl(
+                                                  propItemItem.mainImage,
+                                                ),
                                                 width: double.infinity,
                                                 height: 190.0,
                                                 fit: BoxFit.cover,

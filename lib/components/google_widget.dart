@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'google_model.dart';
@@ -27,6 +28,8 @@ class _GoogleWidgetState extends State<GoogleWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GoogleModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -91,7 +94,9 @@ class _GoogleWidgetState extends State<GoogleWidget> {
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
-                  'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                  getCORSProxyUrl(
+                    'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                  ),
                   fit: BoxFit.contain,
                 ),
               ),

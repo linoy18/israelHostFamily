@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_property3_model.dart';
@@ -38,6 +39,8 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
         parameters: {'screen_name': 'editProperty_3'});
     _model.notesController ??=
         TextEditingController(text: widget.propertyRef?.notes);
+    _model.notesFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,6 +52,15 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -324,6 +336,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 12.0),
                         child: TextFormField(
                           controller: _model.notesController,
+                          focusNode: _model.notesFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'פרטים נוספים',
@@ -377,44 +390,6 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                               .asValidator(context),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
-                        child: SwitchListTile.adaptive(
-                          value: _model.switchListTileValue ??=
-                              widget.propertyRef!.isLive,
-                          onChanged: (newValue) async {
-                            setState(
-                                () => _model.switchListTileValue = newValue!);
-                          },
-                          title: Text(
-                            'הפסק או הפעל',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).redApple,
-                                ),
-                          ),
-                          subtitle: Text(
-                            'הפסק / הפעל את פרסום המודעה',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).gray600,
-                                ),
-                          ),
-                          tileColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          activeColor: FlutterFlowTheme.of(context).success,
-                          activeTrackColor: Color(0xFF3F7758),
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -446,7 +421,6 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                         ...createPropertiesRecordData(
                           notes: _model.notesController.text,
                           minNights: _model.daysCountValue,
-                          isLive: _model.switchListTileValue,
                           bedsCount: _model.bedsCountValue,
                           roomsCount: _model.roomCountValue,
                         ),

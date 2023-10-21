@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_account_copy_model.dart';
@@ -29,7 +30,10 @@ class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createAccountCopy'});
     _model.emailAddressController ??= TextEditingController();
+    _model.emailAddressFocusNode ??= FocusNode();
     _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -41,6 +45,15 @@ class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF4B39EF),
@@ -147,6 +160,7 @@ class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
                             Expanded(
                               child: TextFormField(
                                 controller: _model.emailAddressController,
+                                focusNode: _model.emailAddressFocusNode,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'כתובת דואר אלקטרוני',
@@ -210,6 +224,7 @@ class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
                             Expanded(
                               child: TextFormField(
                                 controller: _model.passwordController,
+                                focusNode: _model.passwordFocusNode,
                                 obscureText: !_model.passwordVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'סיסמה',

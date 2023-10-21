@@ -12,6 +12,7 @@ import 'edit_property1_widget.dart' show EditProperty1Widget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +21,7 @@ class EditProperty1Model extends FlutterFlowModel<EditProperty1Widget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for propertyName widget.
+  FocusNode? propertyNameFocusNode;
   TextEditingController? propertyNameController;
   String? Function(BuildContext, String?)? propertyNameControllerValidator;
   String? _propertyNameControllerValidator(BuildContext context, String? val) {
@@ -31,6 +33,7 @@ class EditProperty1Model extends FlutterFlowModel<EditProperty1Widget> {
   }
 
   // State field(s) for propertyAddress widget.
+  FocusNode? propertyAddressFocusNode;
   TextEditingController? propertyAddressController;
   String? Function(BuildContext, String?)? propertyAddressControllerValidator;
   // State field(s) for area widget.
@@ -42,6 +45,7 @@ class EditProperty1Model extends FlutterFlowModel<EditProperty1Widget> {
   String uploadedFileUrl = '';
 
   // State field(s) for propertyDescription widget.
+  FocusNode? propertyDescriptionFocusNode;
   TextEditingController? propertyDescriptionController;
   String? Function(BuildContext, String?)?
       propertyDescriptionControllerValidator;
@@ -53,8 +57,13 @@ class EditProperty1Model extends FlutterFlowModel<EditProperty1Widget> {
   }
 
   void dispose() {
+    propertyNameFocusNode?.dispose();
     propertyNameController?.dispose();
+
+    propertyAddressFocusNode?.dispose();
     propertyAddressController?.dispose();
+
+    propertyDescriptionFocusNode?.dispose();
     propertyDescriptionController?.dispose();
   }
 

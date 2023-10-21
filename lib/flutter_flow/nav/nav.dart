@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
-import '../../auth/base_auth_user_provider.dart';
-import '../../backend/push_notifications/push_notifications_handler.dart'
+import '/auth/base_auth_user_provider.dart';
+
+import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
@@ -261,6 +262,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 'hostId', ParamType.DocumentReference, false, ['users']),
             propertyRef: params.getParam('propertyRef',
                 ParamType.DocumentReference, false, ['properties']),
+            phoneNumberFromProp:
+                params.getParam('phoneNumberFromProp', ParamType.String),
           ),
         ),
         FFRoute(

@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'change_image_model.dart';
@@ -38,6 +39,8 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeImageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -142,9 +145,11 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
                                     child: Image.network(
-                                      valueOrDefault<String>(
-                                        widget.imagePath,
-                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                      getCORSProxyUrl(
+                                        valueOrDefault<String>(
+                                          widget.imagePath,
+                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                        ),
                                       ),
                                       width: 170.0,
                                       height: 170.0,
@@ -160,6 +165,7 @@ class _ChangeImageWidgetState extends State<ChangeImageWidget> {
                                       final selectedMedia =
                                           await selectMediaWithSourceBottomSheet(
                                         context: context,
+                                        imageQuality: 50,
                                         allowPhoto: true,
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)

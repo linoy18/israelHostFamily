@@ -18,11 +18,14 @@ class ContactDetailsWidget extends StatefulWidget {
     this.name,
     required this.hostId,
     required this.propertyRef,
-  }) : super(key: key);
+    String? phoneNumberFromProp,
+  })  : this.phoneNumberFromProp = phoneNumberFromProp ?? ' ',
+        super(key: key);
 
   final String? name;
   final DocumentReference? hostId;
   final DocumentReference? propertyRef;
+  final String phoneNumberFromProp;
 
   @override
   _ContactDetailsWidgetState createState() => _ContactDetailsWidgetState();
@@ -40,6 +43,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'contactDetails'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -51,6 +55,15 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
         queryBuilder: (usersRecord) => usersRecord.where(
@@ -150,7 +163,9 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    contactDetailsUsersRecord!.photoUrl,
+                                    getCORSProxyUrl(
+                                      contactDetailsUsersRecord!.photoUrl,
+                                    ),
                                     fit: BoxFit.cover,
                                     alignment: Alignment(-0.00, 0.00),
                                   ),
@@ -315,10 +330,16 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            await launchUrl(Uri(
-                              scheme: 'tel',
-                              path: contactDetailsUsersRecord!.phoneNumber,
-                            ));
+                            if (!isWeb) {
+                              await launchUrl(Uri(
+                                scheme: 'tel',
+                                path: contactDetailsUsersRecord!.phoneNumber,
+                              ));
+                            } else {
+                              await Clipboard.setData(ClipboardData(
+                                  text:
+                                      contactDetailsUsersRecord!.phoneNumber));
+                            }
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -337,7 +358,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    contactDetailsUsersRecord!.phoneNumber,
+                                    widget.phoneNumberFromProp,
                                     style:
                                         FlutterFlowTheme.of(context).bodyLarge,
                                   ),

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'phone_number_model.dart';
@@ -27,7 +28,9 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'phoneNumber'});
     _model.phoneNumberController ??= TextEditingController();
+    _model.phoneNumberFocusNode ??= FocusNode();
     authManager.handlePhoneAuthStateChanges(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -39,6 +42,15 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -91,6 +103,7 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
                           Expanded(
                             child: TextFormField(
                               controller: _model.phoneNumberController,
+                              focusNode: _model.phoneNumberFocusNode,
                               textCapitalization: TextCapitalization.none,
                               obscureText: false,
                               decoration: InputDecoration(

@@ -29,15 +29,18 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for name widget.
+  FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
   // State field(s) for address widget.
+  FocusNode? addressFocusNode;
   TextEditingController? addressController;
   String? Function(BuildContext, String?)? addressControllerValidator;
   // State field(s) for area widget.
   String? areaValue;
   FormFieldController<String>? areaValueController;
   // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
   bool isDataUploading = false;
@@ -50,8 +53,13 @@ class CreateProperty1Model extends FlutterFlowModel<CreateProperty1Widget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    nameFocusNode?.dispose();
     nameController?.dispose();
+
+    addressFocusNode?.dispose();
     addressController?.dispose();
+
+    descriptionFocusNode?.dispose();
     descriptionController?.dispose();
   }
 

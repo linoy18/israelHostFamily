@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'change_password_model.dart';
@@ -36,6 +37,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         parameters: {'screen_name': 'changePassword'});
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
+    _model.emailAddressFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -47,6 +50,15 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(currentUserReference!),
       builder: (context, snapshot) {
@@ -106,6 +118,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
                   child: TextFormField(
                     controller: _model.emailAddressController,
+                    focusNode: _model.emailAddressFocusNode,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'כתובת דואר אלקטרוני',

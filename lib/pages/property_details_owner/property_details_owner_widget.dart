@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -40,6 +41,7 @@ class _PropertyDetailsOwnerWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'propertyDetails_Owner'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -51,6 +53,15 @@ class _PropertyDetailsOwnerWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return StreamBuilder<List<PropertiesRecord>>(
       stream: queryPropertiesRecord(
         queryBuilder: (propertiesRecord) => propertiesRecord
@@ -167,8 +178,10 @@ class _PropertyDetailsOwnerWidgetState
                                                         milliseconds: 500),
                                                     fadeOutDuration: Duration(
                                                         milliseconds: 500),
-                                                    imageUrl: widget
-                                                        .propertyRef!.mainImage,
+                                                    imageUrl: getCORSProxyUrl(
+                                                      widget.propertyRef!
+                                                          .mainImage,
+                                                    ),
                                                     fit: BoxFit.contain,
                                                   ),
                                                   allowRotation: false,
@@ -190,8 +203,9 @@ class _PropertyDetailsOwnerWidgetState
                                                     Duration(milliseconds: 500),
                                                 fadeOutDuration:
                                                     Duration(milliseconds: 500),
-                                                imageUrl: widget
-                                                    .propertyRef!.mainImage,
+                                                imageUrl: getCORSProxyUrl(
+                                                  widget.propertyRef!.mainImage,
+                                                ),
                                                 width: double.infinity,
                                                 height: double.infinity,
                                                 fit: BoxFit.cover,

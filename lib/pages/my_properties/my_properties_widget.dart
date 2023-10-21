@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/is_live_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'my_properties_model.dart';
@@ -29,6 +31,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'myProperties'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,6 +43,15 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -245,6 +257,18 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                 ),
                                           ),
                                         ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: IsLiveWidget(
+                                        key: Key(
+                                            'Keyvu5_${listViewIndex}_of_${listViewPropertiesRecordList.length}'),
+                                        isLiveValue:
+                                            listViewPropertiesRecord.isLive,
+                                        propRef:
+                                            listViewPropertiesRecord.reference,
                                       ),
                                     ),
                                   ],

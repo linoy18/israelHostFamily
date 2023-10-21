@@ -11,6 +11,7 @@ import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_property1_model.dart';
@@ -42,10 +43,14 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
         parameters: {'screen_name': 'editProperty_1'});
     _model.propertyNameController ??=
         TextEditingController(text: widget.propertyRef?.propertyName);
+    _model.propertyNameFocusNode ??= FocusNode();
     _model.propertyAddressController ??=
         TextEditingController(text: widget.propertyRef?.propertyAddress);
+    _model.propertyAddressFocusNode ??= FocusNode();
     _model.propertyDescriptionController ??=
         TextEditingController(text: widget.propertyRef?.propertyDescription);
+    _model.propertyDescriptionFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -57,6 +62,15 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -127,6 +141,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 0.0, 4.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.propertyNameController,
+                              focusNode: _model.propertyNameFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Something Catchy...',
@@ -212,6 +227,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 0.0, 4.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.propertyAddressController,
+                              focusNode: _model.propertyAddressFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: '123 Disney way here…',
@@ -467,16 +483,16 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                                         milliseconds: 500),
                                                     fadeOutDuration: Duration(
                                                         milliseconds: 500),
-                                                    imageUrl:
-                                                        _model.uploadedFileUrl !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl !=
-                                                                    ''
-                                                            ? _model
-                                                                .uploadedFileUrl
-                                                            : widget
-                                                                .propertyRef!
-                                                                .mainImage,
+                                                    imageUrl: getCORSProxyUrl(
+                                                      _model.uploadedFileUrl !=
+                                                                  null &&
+                                                              _model.uploadedFileUrl !=
+                                                                  ''
+                                                          ? _model
+                                                              .uploadedFileUrl
+                                                          : widget.propertyRef!
+                                                              .mainImage,
+                                                    ),
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
@@ -499,9 +515,11 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                                       BorderRadius.circular(
                                                           16.0),
                                                   child: Image.network(
-                                                    valueOrDefault<String>(
-                                                      _model.uploadedFileUrl,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/vjtefpjrs2y0/Untitled55-441.png',
+                                                    getCORSProxyUrl(
+                                                      valueOrDefault<String>(
+                                                        _model.uploadedFileUrl,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/vjtefpjrs2y0/Untitled55-441.png',
+                                                      ),
                                                     ),
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -549,6 +567,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 0.0, 4.0, 0.0, 12.0),
                             child: TextFormField(
                               controller: _model.propertyDescriptionController,
+                              focusNode: _model.propertyDescriptionFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Neighborhood or city…',
@@ -633,29 +652,111 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          await widget.propertyRef!.reference
-                              .update(createPropertiesRecordData(
-                            propertyName: _model.propertyNameController.text,
-                            propertyDescription:
-                                _model.propertyDescriptionController.text,
-                            propertyAddress:
-                                _model.propertyAddressController.text,
-                            propertyNeighborhood: _model.areaValue,
-                            mainImage: _model.uploadedFileUrl,
-                          ));
+                          if (/* NOT RECOMMENDED */ _model
+                                  .propertyNameController.text ==
+                              'true') {
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('מלא שם'),
+                                      content: Text('מלא שם למקום האירוח'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: Text('ביטול'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: Text('אישור'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                          } else {
+                            if (_model.areaValue == null ||
+                                _model.areaValue == '') {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('לא בחרת איזור'),
+                                            content:
+                                                Text('בחר איזור למקום האירוח'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('ביטול'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('אישור'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                            } else if (/* NOT RECOMMENDED */ _model
+                                    .propertyDescriptionController.text ==
+                                'true') {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('לא תיארת את המקום'),
+                                            content: Text('תאר את מקום האירוח'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('ביטול'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('אישור'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                            } else {
+                              await widget.propertyRef!.reference
+                                  .update(createPropertiesRecordData(
+                                propertyName:
+                                    _model.propertyNameController.text,
+                                propertyDescription:
+                                    _model.propertyDescriptionController.text,
+                                propertyAddress:
+                                    _model.propertyAddressController.text,
+                                propertyNeighborhood: _model.areaValue,
+                                mainImage: _model.uploadedFileUrl,
+                              ));
 
-                          context.pushNamed(
-                            'editProperty_2',
-                            queryParameters: {
-                              'propertyRef': serializeParam(
-                                widget.propertyRef,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'propertyRef': widget.propertyRef,
-                            },
-                          );
+                              context.pushNamed(
+                                'editProperty_2',
+                                queryParameters: {
+                                  'propertyRef': serializeParam(
+                                    widget.propertyRef,
+                                    ParamType.Document,
+                                  ),
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  'propertyRef': widget.propertyRef,
+                                },
+                              );
+                            }
+                          }
                         },
                         text: 'הבא',
                         options: FFButtonOptions(

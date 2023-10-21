@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,6 +57,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -67,6 +70,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -128,9 +140,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    valueOrDefault<String>(
-                                      columnUsersRecord.photoUrl,
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                    getCORSProxyUrl(
+                                      valueOrDefault<String>(
+                                        columnUsersRecord.photoUrl,
+                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/apart-wenglu/assets/8q2m3effkszm/7474049.png',
+                                      ),
                                     ),
                                     fit: BoxFit.cover,
                                     alignment: Alignment(-0.00, 0.00),
@@ -226,10 +240,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 4.0, 15.0, 4.0),
+                                      15.0, 4.0, 25.0, 4.0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    width: MediaQuery.sizeOf(context).width *
+                                        0.646,
                                     height: MediaQuery.sizeOf(context).height *
                                         0.05,
                                     decoration: BoxDecoration(

@@ -9,6 +9,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,15 +17,19 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for emailAddress widget.
+  FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
   // State field(s) for myBio widget.
+  FocusNode? myBioFocusNode;
   TextEditingController? myBioController;
   String? Function(BuildContext, String?)? myBioControllerValidator;
   // State field(s) for instagram widget.
+  FocusNode? instagramFocusNode;
   TextEditingController? instagramController;
   String? Function(BuildContext, String?)? instagramControllerValidator;
 
@@ -33,9 +38,16 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    textFieldFocusNode?.dispose();
     textController1?.dispose();
+
+    emailAddressFocusNode?.dispose();
     emailAddressController?.dispose();
+
+    myBioFocusNode?.dispose();
     myBioController?.dispose();
+
+    instagramFocusNode?.dispose();
     instagramController?.dispose();
   }
 

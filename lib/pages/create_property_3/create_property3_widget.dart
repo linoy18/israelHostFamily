@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_property3_model.dart';
@@ -77,7 +78,12 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createProperty_3'});
     _model.notesController ??= TextEditingController();
+    _model.notesFocusNode ??= FocusNode();
+    _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode ??= FocusNode();
     _model.hostNameController ??= TextEditingController();
+    _model.hostNameFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -89,6 +95,15 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -364,6 +379,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: TextFormField(
                           controller: _model.notesController,
+                          focusNode: _model.notesFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'מלאו פרטים נוספים',
@@ -454,18 +470,69 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                       decoration: BoxDecoration(),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 10.0),
+                                            8.0, 0.0, 8.0, 0.0),
                                         child: AuthUserStreamWidget(
-                                          builder: (context) => Text(
-                                            currentPhoneNumber,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
+                                          builder: (context) => TextFormField(
+                                            controller: _model.phoneController,
+                                            focusNode: _model.phoneFocusNode,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              enabledBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryText,
+                                                      .alternate,
+                                                  width: 2.0,
                                                 ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              errorBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            validator: _model
+                                                .phoneControllerValidator
+                                                .asValidator(context),
                                           ),
                                         ),
                                       ),
@@ -494,6 +561,8 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                             child: TextFormField(
                                               controller:
                                                   _model.hostNameController,
+                                              focusNode:
+                                                  _model.hostNameFocusNode,
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
@@ -640,7 +709,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           hostName: _model.hostNameController.text,
                           isLive: true,
                           emptyHouse: widget.emptyHouse,
-                          phoneNumber: currentPhoneNumber,
+                          phoneNumber: _model.phoneController.text,
                         ),
                         ...mapToFirestore(
                           {

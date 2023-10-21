@@ -198,6 +198,8 @@ final parametersBuilderMap =
           'name': getParameter<String>(data, 'name'),
           'hostId': getParameter<DocumentReference>(data, 'hostId'),
           'propertyRef': getParameter<DocumentReference>(data, 'propertyRef'),
+          'phoneNumberFromProp':
+              getParameter<String>(data, 'phoneNumberFromProp'),
         },
       ),
   'filtersProp': ParameterData.none(),

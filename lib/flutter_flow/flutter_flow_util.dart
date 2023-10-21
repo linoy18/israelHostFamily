@@ -310,3 +310,16 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
     }
   }
 }
+
+String getCORSProxyUrl(String path) {
+  if (!kIsWeb) {
+    return path;
+  }
+  // No need to use proxy for images that come from Firebase Storage.
+  if (path.contains('israelhostfamilies.appspot.com')) {
+    return path;
+  }
+  const proxyUrl =
+      'https://us-central1-israelhostfamilies.cloudfunctions.net/corsProxy?url=';
+  return '$proxyUrl$path';
+}

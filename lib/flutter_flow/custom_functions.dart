@@ -17,10 +17,11 @@ bool? checkIfProps(
   List<String> dropDownProp,
   List<String> dbProps,
 ) {
-  if (dbProps.isEmpty) {
+  if (dbProps.isEmpty || dropDownProp.isEmpty) {
     return false;
   }
-  return dbProps.any((dbString) => dropDownProp.contains(dbString));
+  return dropDownProp
+      .every((dropDownString) => dbProps.contains(dropDownString));
 }
 
 List<String>? parseBoolPropToList(

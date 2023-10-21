@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'amenitity_indicator_model.dart';
@@ -36,6 +37,8 @@ class _AmenitityIndicatorWidgetState extends State<AmenitityIndicatorWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AmenitityIndicatorModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
