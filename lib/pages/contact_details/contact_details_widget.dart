@@ -333,7 +333,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                             if (!isWeb) {
                               await launchUrl(Uri(
                                 scheme: 'tel',
-                                path: contactDetailsUsersRecord!.phoneNumber,
+                                path: widget.phoneNumberFromProp,
                               ));
                             } else {
                               await Clipboard.setData(ClipboardData(

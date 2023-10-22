@@ -201,74 +201,178 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Material(
-                        color: Colors.transparent,
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0.0),
-                        ),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 0.0,
-                                color: Color(0xFFE3E5E7),
-                                offset: Offset(0.0, 2.0),
-                              )
-                            ],
+                      Flexible(
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 0.0,
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).lineGray,
-                              width: 0.0,
-                            ),
                           ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 4.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'פרטי חשבון',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 4.0, 25.0, 4.0),
-                                  child: Container(
-                                    width: MediaQuery.sizeOf(context).width *
-                                        0.646,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.05,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      border: Border.all(
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: Color(0xFFE3E5E7),
+                                  offset: Offset(0.0, 2.0),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(0.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).lineGray,
+                                width: 0.0,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 4.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'פרטי חשבון',
+                                    style:
+                                        FlutterFlowTheme.of(context).titleSmall,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 4.0, 25.0, 4.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.646,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.05,
+                                      decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        width: 1.0,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          width: 1.0,
+                                        ),
                                       ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          4.0, 4.0, 4.0, 4.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            4.0, 4.0, 4.0, 4.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setDarkModeSetting(context,
+                                                        ThemeMode.light);
+                                                  },
+                                                  child: Container(
+                                                    width: 120.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        Theme.of(context)
+                                                                    .brightness ==
+                                                                Brightness.light
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          Theme.of(context)
+                                                                      .brightness ==
+                                                                  Brightness
+                                                                      .light
+                                                              ? Color(
+                                                                  0xFFE0E3E7)
+                                                              : Color(
+                                                                  0xFFF1F4F8),
+                                                          Color(0xFFE0E3E7),
+                                                        ),
+                                                        width: 1.0,
+                                                      ),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .wb_sunny_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 16.0,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'מצב בהיר',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -277,27 +381,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   setDarkModeSetting(
-                                                      context, ThemeMode.light);
+                                                      context, ThemeMode.dark);
                                                 },
                                                 child: Container(
-                                                  width: 120.0,
+                                                  width: 115.0,
                                                   height: 100.0,
                                                   decoration: BoxDecoration(
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      Theme.of(context)
-                                                                  .brightness ==
-                                                              Brightness.light
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                    ),
+                                                    color: Theme.of(context)
+                                                                .brightness ==
+                                                            Brightness.dark
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .cultured
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .cultured,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -306,10 +404,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           valueOrDefault<Color>(
                                                         Theme.of(context)
                                                                     .brightness ==
-                                                                Brightness.light
+                                                                Brightness.dark
                                                             ? Color(0xFFE0E3E7)
                                                             : Color(0xFFF1F4F8),
-                                                        Color(0xFFE0E3E7),
+                                                        Color(0xFFF1F4F8),
                                                       ),
                                                       width: 1.0,
                                                     ),
@@ -322,11 +420,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             .center,
                                                     children: [
                                                       Icon(
-                                                        Icons.wb_sunny_rounded,
+                                                        Icons.nightlight_round,
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
+                                                            Color(0xFF14181B),
                                                         size: 16.0,
                                                       ),
                                                       Padding(
@@ -338,16 +434,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'מצב בהיר',
+                                                          'מצב כהה',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
+                                                                color: Color(
+                                                                    0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -358,99 +453,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     ],
                                                   ),
                                                 ),
+                                              ).animateOnActionTrigger(
+                                                animationsMap[
+                                                    'containerOnActionTriggerAnimation']!,
                                               ),
                                             ),
-                                          ),
-                                          Expanded(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                setDarkModeSetting(
-                                                    context, ThemeMode.dark);
-                                              },
-                                              child: Container(
-                                                width: 115.0,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                              .brightness ==
-                                                          Brightness.dark
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .cultured
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .cultured,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      Theme.of(context)
-                                                                  .brightness ==
-                                                              Brightness.dark
-                                                          ? Color(0xFFE0E3E7)
-                                                          : Color(0xFFF1F4F8),
-                                                      Color(0xFFF1F4F8),
-                                                    ),
-                                                    width: 1.0,
-                                                  ),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.nightlight_round,
-                                                      color: Color(0xFF14181B),
-                                                      size: 16.0,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'מצב כהה',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xFF14181B),
-                                                              fontSize: 14.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ).animateOnActionTrigger(
-                                              animationsMap[
-                                                  'containerOnActionTriggerAnimation']!,
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

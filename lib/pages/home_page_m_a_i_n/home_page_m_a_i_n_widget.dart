@@ -91,7 +91,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           body: SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
                   child: Align(
@@ -125,7 +125,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 10.0),
                                   child: Row(
-                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
@@ -169,7 +169,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                             0.00, 0.00),
                                                     child: Column(
                                                       mainAxisSize:
-                                                          MainAxisSize.max,
+                                                          MainAxisSize.min,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
@@ -235,10 +235,10 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -563,7 +563,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                       );
                                     },
                                     child: Column(
-                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         if (propItemItem.mainImage != null &&
                                             propItemItem.mainImage != '')
