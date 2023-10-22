@@ -530,9 +530,14 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
+                                            keyboardType: TextInputType.phone,
                                             validator: _model
                                                 .phoneControllerValidator
                                                 .asValidator(context),
+                                            inputFormatters: [
+                                              FilteringTextInputFormatter.allow(
+                                                  RegExp('[0-9]'))
+                                            ],
                                           ),
                                         ),
                                       ),
