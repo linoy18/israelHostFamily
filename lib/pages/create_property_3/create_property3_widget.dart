@@ -689,71 +689,97 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      await PropertiesRecord.collection.doc().set({
-                        ...createPropertiesRecordData(
-                          propertyName: widget.propName,
-                          propertyDescription: widget.descriptioon,
-                          propertyAddress: widget.address,
-                          userRef: currentUserReference,
-                          propertyNeighborhood: widget.neighborhood,
-                          notes: _model.notesController.text,
-                          minNights: _model.countControllerValue,
-                          bedsCount: _model.countBedsValue,
-                          roomsCount: _model.countRoomsValue,
-                          forFamily: widget.family,
-                          forCouple: widget.couple,
-                          forOne: widget.one,
-                          dogFriendly: widget.dog,
-                          catFriendly: widget.cat,
-                          babyCrib: widget.babyCrib,
-                          accessibility: widget.acessability,
-                          familyKeepShabbat: widget.keepShabbat,
-                          familyKeepKosher: widget.keepKosher,
-                          secureDoor: widget.secureDoor,
-                          mainImage: widget.mainImage,
-                          hostName: _model.hostNameController.text,
-                          isLive: true,
-                          emptyHouse: widget.emptyHouse,
-                          phoneNumber: _model.phoneController.text,
-                        ),
-                        ...mapToFirestore(
-                          {
-                            'lastUpdated': FieldValue.serverTimestamp(),
-                            'created_time': FieldValue.serverTimestamp(),
-                            'props': functions.parseBoolPropToList(
-                                widget.family,
-                                widget.couple,
-                                widget.one,
-                                widget.secureDoor,
-                                widget.dog,
-                                widget.cat,
-                                widget.babyCrib,
-                                widget.acessability,
-                                widget.keepShabbat,
-                                widget.keepKosher,
-                                widget.emptyHouse),
-                          },
-                        ),
-                      });
-
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'numberProperties': FieldValue.increment(1),
-                          },
-                        ),
-                      });
-
-                      context.goNamed(
-                        'homePage_MAIN',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 250),
+                      if (_model.phoneController.text == null ||
+                          _model.phoneController.text == '') {
+                        var confirmDialogResponse = await showDialog<bool>(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('מספר טלפון ריק'),
+                                  content: Text('מלא מספר טלפון תקין'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, false),
+                                      child: Text('ביטול'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, true),
+                                      child: Text('אישור'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ) ??
+                            false;
+                      } else {
+                        await PropertiesRecord.collection.doc().set({
+                          ...createPropertiesRecordData(
+                            propertyName: widget.propName,
+                            propertyDescription: widget.descriptioon,
+                            propertyAddress: widget.address,
+                            userRef: currentUserReference,
+                            propertyNeighborhood: widget.neighborhood,
+                            notes: _model.notesController.text,
+                            minNights: _model.countControllerValue,
+                            bedsCount: _model.countBedsValue,
+                            roomsCount: _model.countRoomsValue,
+                            forFamily: widget.family,
+                            forCouple: widget.couple,
+                            forOne: widget.one,
+                            dogFriendly: widget.dog,
+                            catFriendly: widget.cat,
+                            babyCrib: widget.babyCrib,
+                            accessibility: widget.acessability,
+                            familyKeepShabbat: widget.keepShabbat,
+                            familyKeepKosher: widget.keepKosher,
+                            secureDoor: widget.secureDoor,
+                            mainImage: widget.mainImage,
+                            hostName: _model.hostNameController.text,
+                            isLive: true,
+                            emptyHouse: widget.emptyHouse,
+                            phoneNumber: _model.phoneController.text,
                           ),
-                        },
-                      );
+                          ...mapToFirestore(
+                            {
+                              'lastUpdated': FieldValue.serverTimestamp(),
+                              'created_time': FieldValue.serverTimestamp(),
+                              'props': functions.parseBoolPropToList(
+                                  widget.family,
+                                  widget.couple,
+                                  widget.one,
+                                  widget.secureDoor,
+                                  widget.dog,
+                                  widget.cat,
+                                  widget.babyCrib,
+                                  widget.acessability,
+                                  widget.keepShabbat,
+                                  widget.keepKosher,
+                                  widget.emptyHouse),
+                            },
+                          ),
+                        });
+
+                        await currentUserReference!.update({
+                          ...mapToFirestore(
+                            {
+                              'numberProperties': FieldValue.increment(1),
+                            },
+                          ),
+                        });
+
+                        context.goNamed(
+                          'homePage_MAIN',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 250),
+                            ),
+                          },
+                        );
+                      }
                     },
                     text: 'פרסם',
                     options: FFButtonOptions(
