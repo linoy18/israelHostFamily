@@ -14,18 +14,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
+  ///  Local state fields for this page.
+
+  bool isLimitDays = true;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for countBeds widget.
   int? countBedsValue;
   // State field(s) for countRooms widget.
   int? countRoomsValue;
+  // State field(s) for CheckboxListTile widget.
+  bool? checkboxListTileValue;
   // State field(s) for CountController widget.
   int? countControllerValue;
-  // State field(s) for notes widget.
-  FocusNode? notesFocusNode;
-  TextEditingController? notesController;
-  String? Function(BuildContext, String?)? notesControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneController;
@@ -34,20 +36,24 @@ class CreateProperty3Model extends FlutterFlowModel<CreateProperty3Widget> {
   FocusNode? hostNameFocusNode;
   TextEditingController? hostNameController;
   String? Function(BuildContext, String?)? hostNameControllerValidator;
+  // State field(s) for notes widget.
+  FocusNode? notesFocusNode;
+  TextEditingController? notesController;
+  String? Function(BuildContext, String?)? notesControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
-    notesFocusNode?.dispose();
-    notesController?.dispose();
-
     phoneFocusNode?.dispose();
     phoneController?.dispose();
 
     hostNameFocusNode?.dispose();
     hostNameController?.dispose();
+
+    notesFocusNode?.dispose();
+    notesController?.dispose();
   }
 
   /// Action blocks are added here.

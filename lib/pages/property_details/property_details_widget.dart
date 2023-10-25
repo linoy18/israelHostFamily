@@ -771,40 +771,63 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 10.0, 24.0, 10.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'כמות ימים פנויים לאירוח',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
+                        if (widget.propertyRef!.minNights > 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 10.0, 24.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'כמות ימים פנויים לאירוח',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      propertyDetailsPropertiesRecord.minNights
+                                          .toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    propertyDetailsPropertiesRecord.minNights
-                                        .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
+                        if (widget.propertyRef?.minNights == 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 10.0, 24.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'אפשר להישאר ללא הגבלה , עד שיגמר המצב',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
                         if (propertyDetailsPropertiesRecord.notes != null &&
                             propertyDetailsPropertiesRecord.notes != '')
                           Align(

@@ -95,11 +95,12 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: StreamBuilder<List<PropertiesRecord>>(
                     stream: queryPropertiesRecord(
-                      queryBuilder: (propertiesRecord) =>
-                          propertiesRecord.where(
-                        'userRef',
-                        isEqualTo: currentUserReference,
-                      ),
+                      queryBuilder: (propertiesRecord) => propertiesRecord
+                          .where(
+                            'userRef',
+                            isEqualTo: currentUserReference,
+                          )
+                          .orderBy('lastUpdated', descending: true),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

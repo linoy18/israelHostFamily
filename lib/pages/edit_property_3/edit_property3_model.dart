@@ -13,8 +13,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class EditProperty3Model extends FlutterFlowModel<EditProperty3Widget> {
+  ///  Local state fields for this page.
+
+  bool isLimitDays = true;
+
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for CheckboxListTile widget.
+  bool? checkboxListTileValue;
   // State field(s) for daysCount widget.
   int? daysCountValue;
   // State field(s) for roomCount widget.

@@ -77,12 +77,12 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'createProperty_3'});
-    _model.notesController ??= TextEditingController();
-    _model.notesFocusNode ??= FocusNode();
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
     _model.hostNameController ??= TextEditingController();
     _model.hostNameFocusNode ??= FocusNode();
+    _model.notesController ??= TextEditingController();
+    _model.notesFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -155,7 +155,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -224,7 +224,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -287,73 +287,23 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'אפשר להישאר כמות ימים של',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Text(
+                                'אפשר להישאר כמות ימים של',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 0.0),
-                            child: Container(
-                              width: 200.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(25.0),
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).lineGray,
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: FlutterFlowCountController(
-                                decrementIconBuilder: (enabled) => Icon(
-                                  Icons.remove_rounded,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context)
-                                          .secondaryText
-                                      : FlutterFlowTheme.of(context).grayIcon,
-                                  size: 32.0,
-                                ),
-                                incrementIconBuilder: (enabled) => Icon(
-                                  Icons.add_rounded,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context).primary
-                                      : FlutterFlowTheme.of(context).grayIcon,
-                                  size: 32.0,
-                                ),
-                                countBuilder: (count) => Text(
-                                  count.toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineMedium,
-                                ),
-                                count: _model.countControllerValue ??= 1,
-                                updateCount: (count) => setState(
-                                    () => _model.countControllerValue = count),
-                                stepSize: 1,
-                                minimum: 1,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        height: 32.0,
-                        thickness: 2.0,
-                        color: FlutterFlowTheme.of(context).lineGray,
                       ),
                       Padding(
                         padding:
@@ -361,77 +311,119 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'פרטים נוספים',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                    fontWeight: FontWeight.w500,
+                            Expanded(
+                              child: Theme(
+                                data: ThemeData(
+                                  checkboxTheme: CheckboxThemeData(
+                                    visualDensity: VisualDensity.standard,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.padded,
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                ),
+                                child: CheckboxListTile(
+                                  value: _model.checkboxListTileValue ??=
+                                      _model.isLimitDays,
+                                  onChanged: (newValue) async {
+                                    setState(() => _model
+                                        .checkboxListTileValue = newValue!);
+                                    if (newValue!) {
+                                      setState(() {
+                                        _model.isLimitDays = true;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        _model.isLimitDays = false;
+                                      });
+                                    }
+                                  },
+                                  title: Text(
+                                    'ללא הגבלה',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 18.0,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'אפשר להישאר כמות ימים לא מוגבלת בהתאם למצב',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  checkColor: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.notesController,
-                          focusNode: _model.notesFocusNode,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'מלאו פרטים נוספים',
-                            hintStyle: FlutterFlowTheme.of(context).bodyMedium,
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
+                      if (!_model.isLimitDays)
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
+                              child: Container(
+                                width: 200.0,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).lineGray,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: FlutterFlowCountController(
+                                  decrementIconBuilder: (enabled) => Icon(
+                                    Icons.remove_rounded,
+                                    color: enabled
+                                        ? FlutterFlowTheme.of(context)
+                                            .secondaryText
+                                        : FlutterFlowTheme.of(context).grayIcon,
+                                    size: 32.0,
+                                  ),
+                                  incrementIconBuilder: (enabled) => Icon(
+                                    Icons.add_rounded,
+                                    color: enabled
+                                        ? FlutterFlowTheme.of(context).primary
+                                        : FlutterFlowTheme.of(context).grayIcon,
+                                    size: 32.0,
+                                  ),
+                                  countBuilder: (count) => Text(
+                                    count.toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineMedium,
+                                  ),
+                                  count: _model.countControllerValue ??= 1,
+                                  updateCount: (count) => setState(() =>
+                                      _model.countControllerValue = count),
+                                  stepSize: 1,
+                                  minimum: 1,
+                                ),
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 24.0, 0.0, 24.0),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
-                          maxLines: 4,
-                          validator: _model.notesControllerValidator
-                              .asValidator(context),
+                          ],
                         ),
+                      Divider(
+                        height: 32.0,
+                        thickness: 2.0,
+                        color: FlutterFlowTheme.of(context).lineGray,
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),
@@ -662,6 +654,89 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           ),
                         ),
                       ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Text(
+                                'פרטים נוספים',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color:
+                                          FlutterFlowTheme.of(context).gray600,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.notesController,
+                          focusNode: _model.notesFocusNode,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'מלאו פרטים נוספים',
+                            hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 24.0),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodySmall,
+                          maxLines: 4,
+                          validator: _model.notesControllerValidator
+                              .asValidator(context),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -722,7 +797,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             userRef: currentUserReference,
                             propertyNeighborhood: widget.neighborhood,
                             notes: _model.notesController.text,
-                            minNights: _model.countControllerValue,
+                            minNights: _model.isLimitDays
+                                ? 0
+                                : _model.countControllerValue,
                             bedsCount: _model.countBedsValue,
                             roomsCount: _model.countRoomsValue,
                             forFamily: widget.family,

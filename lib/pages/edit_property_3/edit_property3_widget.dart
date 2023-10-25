@@ -112,9 +112,74 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.w500,
                                   ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Theme(
+                                data: ThemeData(
+                                  checkboxTheme: CheckboxThemeData(
+                                    visualDensity: VisualDensity.standard,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.padded,
+                                  ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                ),
+                                child: CheckboxListTile(
+                                  value: _model.checkboxListTileValue ??=
+                                      widget.propertyRef?.minNights == 0
+                                          ? true
+                                          : false,
+                                  onChanged: (newValue) async {
+                                    setState(() => _model
+                                        .checkboxListTileValue = newValue!);
+                                    if (newValue!) {
+                                      setState(() {
+                                        _model.isLimitDays = true;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        _model.isLimitDays = false;
+                                      });
+                                    }
+                                  },
+                                  title: Text(
+                                    'ללא הגבלה',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 18.0,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    'אפשר להישאר כמות ימים לא מוגבלת בהתאם למצב',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  checkColor: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -181,7 +246,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -250,7 +315,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).gray600,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -420,7 +485,8 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                       await widget.propertyRef!.reference.update({
                         ...createPropertiesRecordData(
                           notes: _model.notesController.text,
-                          minNights: _model.daysCountValue,
+                          minNights:
+                              _model.isLimitDays ? 0 : _model.daysCountValue,
                           bedsCount: _model.bedsCountValue,
                           roomsCount: _model.roomCountValue,
                         ),
