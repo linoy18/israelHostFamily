@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,18 +53,15 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
       );
     }
 
-    return FutureBuilder<List<PropertiesRecord>>(
-      future: (_model.firestoreRequestCompleter ??=
-              Completer<List<PropertiesRecord>>()
-                ..complete(queryPropertiesRecordOnce(
-                  queryBuilder: (propertiesRecord) => propertiesRecord
-                      .where(
-                        'isLive',
-                        isEqualTo: true,
-                      )
-                      .orderBy('lastUpdated', descending: true),
-                )))
-          .future,
+    return StreamBuilder<List<PropertiesRecord>>(
+      stream: queryPropertiesRecord(
+        queryBuilder: (propertiesRecord) => propertiesRecord
+            .where(
+              'isLive',
+              isEqualTo: true,
+            )
+            .orderBy('lastUpdated', descending: true),
+      ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -519,133 +515,122 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   }
                                 }())
                             .toList();
-                        return RefreshIndicator(
-                          onRefresh: () async {
-                            setState(
-                                () => _model.firestoreRequestCompleter = null);
-                            await _model.waitForFirestoreRequestCompleted();
-                          },
-                          child: ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: propItem.length,
-                            itemBuilder: (context, propItemIndex) {
-                              final propItemItem = propItem[propItemIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 12.0),
-                                child: Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'propertyDetails',
-                                        queryParameters: {
-                                          'propertyRef': serializeParam(
-                                            propItemItem,
-                                            ParamType.Document,
-                                          ),
-                                        }.withoutNulls,
-                                        extra: <String, dynamic>{
-                                          'propertyRef': propItemItem,
-                                        },
-                                      );
-                                    },
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        if (propItemItem.mainImage != null &&
-                                            propItemItem.mainImage != '')
-                                          Hero(
-                                            tag: propItemItem.mainImage,
-                                            transitionOnUserGestures: true,
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(8.0),
-                                                topRight: Radius.circular(8.0),
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          primary: false,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: propItem.length,
+                          itemBuilder: (context, propItemIndex) {
+                            final propItemItem = propItem[propItemIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 12.0),
+                              child: Card(
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'propertyDetails',
+                                      queryParameters: {
+                                        'propertyRef': serializeParam(
+                                          propItemItem,
+                                          ParamType.Document,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'propertyRef': propItemItem,
+                                      },
+                                    );
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      if (propItemItem.mainImage != null &&
+                                          propItemItem.mainImage != '')
+                                        Hero(
+                                          tag: propItemItem.mainImage,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(8.0),
+                                              topRight: Radius.circular(8.0),
+                                            ),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl: getCORSProxyUrl(
+                                                propItemItem.mainImage,
                                               ),
-                                              child: CachedNetworkImage(
-                                                fadeInDuration:
-                                                    Duration(milliseconds: 500),
-                                                fadeOutDuration:
-                                                    Duration(milliseconds: 500),
-                                                imageUrl: getCORSProxyUrl(
-                                                  propItemItem.mainImage,
-                                                ),
-                                                width: double.infinity,
-                                                height: 190.0,
-                                                fit: BoxFit.cover,
-                                              ),
+                                              width: double.infinity,
+                                              height: 190.0,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 12.0, 16.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  propItemItem.propertyName
-                                                      .maybeHandleOverflow(
-                                                    maxChars: 36,
-                                                    replacement: '…',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  propItemItem
-                                                      .propertyNeighborhood
-                                                      .maybeHandleOverflow(
-                                                    maxChars: 90,
-                                                    replacement: '…',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 12.0, 16.0, 8.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                propItemItem.propertyName
+                                                    .maybeHandleOverflow(
+                                                  maxChars: 36,
+                                                  replacement: '…',
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall,
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 8.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                propItemItem
+                                                    .propertyNeighborhood
+                                                    .maybeHandleOverflow(
+                                                  maxChars: 90,
+                                                  replacement: '…',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),

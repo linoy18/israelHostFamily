@@ -393,6 +393,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
+                                          imageQuality: 30,
                                           allowPhoto: true,
                                         );
                                         if (selectedMedia != null &&

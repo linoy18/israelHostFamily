@@ -739,76 +739,78 @@ class _PropertyDetailsOwnerWidgetState
                               ],
                             ),
                           ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 10.0, 24.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'כמות מיטות פנויות',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
+                        if (widget.propertyRef!.bedsCount > 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 10.0, 24.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'כמות מיטות פנויות',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      propertyDetailsOwnerPropertiesRecord!
+                                          .bedsCount
+                                          .toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    propertyDetailsOwnerPropertiesRecord!
-                                        .bedsCount
-                                        .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 10.0, 24.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'כמות חדרים פנויים',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
+                        if (widget.propertyRef!.roomsCount > 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 10.0, 24.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'כמות חדרים פנויים',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      propertyDetailsOwnerPropertiesRecord!
+                                          .roomsCount
+                                          .toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    propertyDetailsOwnerPropertiesRecord!
-                                        .roomsCount
-                                        .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
                         if (widget.propertyRef!.minNights > 0)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(

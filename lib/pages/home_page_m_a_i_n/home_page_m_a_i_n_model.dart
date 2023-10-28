@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'home_page_m_a_i_n_widget.dart' show HomePageMAINWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,6 @@ class HomePageMAINModel extends FlutterFlowModel<HomePageMAINWidget> {
   // State field(s) for propDropDown widget.
   List<String>? propDropDownValue;
   FormFieldController<String>? propDropDownValueController;
-  Completer<List<PropertiesRecord>>? firestoreRequestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -39,19 +37,4 @@ class HomePageMAINModel extends FlutterFlowModel<HomePageMAINWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  Future waitForFirestoreRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 }

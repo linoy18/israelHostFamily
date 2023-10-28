@@ -432,7 +432,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             final selectedMedia =
                                 await selectMediaWithSourceBottomSheet(
                               context: context,
-                              imageQuality: 50,
+                              imageQuality: 30,
                               allowPhoto: true,
                               includeDimensions: true,
                             );
