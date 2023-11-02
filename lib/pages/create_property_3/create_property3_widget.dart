@@ -845,17 +845,31 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                             },
                           ),
                         });
+                        var confirmDialogResponse = await showDialog<bool>(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('מקום האירוח נוסף'),
+                                  content: Text(
+                                      'תודה רבה, מקום האירוח נוסף בהצלחה!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, false),
+                                      child: Text('חזרה'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, true),
+                                      child: Text('אישור'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ) ??
+                            false;
 
-                        context.goNamed(
-                          'homePage_MAIN',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 250),
-                            ),
-                          },
-                        );
+                        context.goNamed('homePage_MAIN');
                       }
                     },
                     text: 'פרסם',
