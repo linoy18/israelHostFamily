@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "511353591146",
+    "project_id": "israelhostfamilies",
+    "storage_bucket": "israelhostfamilies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511353591146:android:92e33e4d9906c2e1874113",
+        "android_client_info": {
+          "package_name": "com.linoybargal.hostFamilies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511353591146-jcigqjkaeshrp881ennpa68spean6quj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "511353591146-qi7q2bhuo0ijjs28mgoetf059dsn2kp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "e2a65cd8035fe93b700c875ad4c9b628d701e8f3"
+          }
+        },
+        {
+          "client_id": "511353591146-tbennc7d74l7i5t84344p8i6gbn3cioe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "41fc388d49036ee20b7fad38d7c546a83b350c7e"
+          }
+        },
+        {
+          "client_id": "511353591146-u1r83s2iel6erfqo6kt8ff8seau4qofk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linoybargal.hostFamilies",
+            "certificate_hash": "3bf43152255f192f583e47ee5c8af6c99ed97916"
+          }
+        },
+        {
+          "client_id": "511353591146-ts053fu9q2bh5s14clgmvbitnimrlkgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyiZw8qQZSN0tQjdSS9GRoDbP3juXzVgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511353591146-ts053fu9q2bh5s14clgmvbitnimrlkgg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511353591146-ijvvr76pnef9o7ngqtt30uopb19k6o39.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.linoybargal.hostFamilies",
+                "app_store_id": "6468937346"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
