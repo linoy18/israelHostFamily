@@ -40,10 +40,13 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
         parameters: {'screen_name': 'createProperty_1'});
     _model.nameController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
+
     _model.addressController ??= TextEditingController();
     _model.addressFocusNode ??= FocusNode();
+
     _model.descriptionController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -108,6 +111,29 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'שימו לב! אין להוסיף מקומות אירוח עם מחיר,\nפלטפורמה זו נועדה לכל המעוניין לארח ללא תמורה.',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),

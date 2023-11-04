@@ -236,7 +236,7 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget> {
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Text(
-                                                'באחריותכם להיות אחראיים לוודא \nאת אמינותם של המארח או המארחים \nאליהם אתם רוצים להגיע להתארח,\nמומלץ להיפגש או לבצע שיחת וידאו לפני',
+                                                'הפלטפורמה בטוחה לשימוש אך באחריותכם להיות אחראיים לוודא את אמינותם של המארח או המארחים \nאליהם אתם רוצים להגיע להתארח,\nמומלץ להיפגש או לבצע שיחת וידאו לפני.',
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)

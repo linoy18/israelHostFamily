@@ -29,6 +29,7 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'phoneNumber'});
     _model.phoneNumberController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
+
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

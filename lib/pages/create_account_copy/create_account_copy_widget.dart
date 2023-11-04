@@ -31,8 +31,10 @@ class _CreateAccountCopyWidgetState extends State<CreateAccountCopyWidget> {
         parameters: {'screen_name': 'createAccountCopy'});
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
+
     _model.passwordController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

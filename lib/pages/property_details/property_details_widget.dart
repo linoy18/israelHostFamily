@@ -322,7 +322,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 24.0),
                                   child: Text(
-                                    'שימו לב , יתכנו טעויות קטנות במידע, הקפידו לשים לב להערות ולברר האם רלוונטי ואת הפרטים המדויקים עם איש הקשר במידת הצורך',
+                                    'שימו לב , יתכנו טעויות קטנות במידע, הקפידו לשים לב להערות ולברר את הפרטים המדויקים עם איש הקשר במידת הצורך',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall

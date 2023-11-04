@@ -40,6 +40,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
     _model.notesController ??=
         TextEditingController(text: widget.propertyRef?.notes);
     _model.notesFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

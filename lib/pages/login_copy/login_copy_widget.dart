@@ -30,8 +30,10 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'loginCopy'});
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
+
     _model.passwordController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

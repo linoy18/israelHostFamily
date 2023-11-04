@@ -29,6 +29,7 @@ class _FiltersPropWidgetState extends State<FiltersPropWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'filtersProp'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

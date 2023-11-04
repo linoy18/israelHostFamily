@@ -38,6 +38,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
     _model.emailAddressFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

@@ -449,13 +449,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: FlutterFlowTheme.of(context).tertiary,
-                  child: Image.asset(
-                    'assets/images/___(3).png',
-                    fit: BoxFit.contain,
-                  ),
-                )
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: FlutterFlowTheme.of(context).tertiary,
+                      child: Image.asset(
+                        'assets/images/___(3).png',
+                        fit: BoxFit.contain,
+                      ),
+                    )
               : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;

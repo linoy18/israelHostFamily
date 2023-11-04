@@ -13,12 +13,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-bool? checkIfProps(
+bool checkIfProps(
   List<String> dropDownProp,
   List<String> dbProps,
 ) {
-  if (dbProps.isEmpty || dropDownProp.isEmpty) {
+  if (dbProps.isEmpty) {
     return false;
+  }
+  if (dropDownProp.isEmpty) {
+    return true;
   }
   return dropDownProp
       .every((dropDownString) => dbProps.contains(dropDownString));

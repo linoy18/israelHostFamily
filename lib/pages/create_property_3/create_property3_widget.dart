@@ -79,10 +79,13 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
         parameters: {'screen_name': 'createProperty_3'});
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
+
     _model.hostNameController ??= TextEditingController();
     _model.hostNameFocusNode ??= FocusNode();
+
     _model.notesController ??= TextEditingController();
     _model.notesFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

@@ -181,6 +181,21 @@ class PropertiesRecord extends FirestoreRecord {
   List<String> get props => _props ?? const [];
   bool hasProps() => _props != null;
 
+  // "fitForFamily" field.
+  bool? _fitForFamily;
+  bool get fitForFamily => _fitForFamily ?? false;
+  bool hasFitForFamily() => _fitForFamily != null;
+
+  // "fitForCouple" field.
+  bool? _fitForCouple;
+  bool get fitForCouple => _fitForCouple ?? false;
+  bool hasFitForCouple() => _fitForCouple != null;
+
+  // "bunker" field.
+  bool? _bunker;
+  bool get bunker => _bunker ?? false;
+  bool hasBunker() => _bunker != null;
+
   void _initializeFields() {
     _propertyName = snapshotData['propertyName'] as String?;
     _propertyDescription = snapshotData['propertyDescription'] as String?;
@@ -215,6 +230,9 @@ class PropertiesRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phoneNumber'] as String?;
     _props = getDataList(snapshotData['props']);
+    _fitForFamily = snapshotData['fitForFamily'] as bool?;
+    _fitForCouple = snapshotData['fitForCouple'] as bool?;
+    _bunker = snapshotData['bunker'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -284,6 +302,9 @@ Map<String, dynamic> createPropertiesRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  bool? fitForFamily,
+  bool? fitForCouple,
+  bool? bunker,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -319,6 +340,9 @@ Map<String, dynamic> createPropertiesRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phoneNumber': phoneNumber,
+      'fitForFamily': fitForFamily,
+      'fitForCouple': fitForCouple,
+      'bunker': bunker,
     }.withoutNulls,
   );
 
@@ -363,7 +387,10 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        listEquality.equals(e1?.props, e2?.props);
+        listEquality.equals(e1?.props, e2?.props) &&
+        e1?.fitForFamily == e2?.fitForFamily &&
+        e1?.fitForCouple == e2?.fitForCouple &&
+        e1?.bunker == e2?.bunker;
   }
 
   @override
@@ -400,7 +427,10 @@ class PropertiesRecordDocumentEquality implements Equality<PropertiesRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.props
+        e?.props,
+        e?.fitForFamily,
+        e?.fitForCouple,
+        e?.bunker
       ]);
 
   @override

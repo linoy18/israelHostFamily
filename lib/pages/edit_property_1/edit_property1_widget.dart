@@ -44,12 +44,15 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
     _model.propertyNameController ??=
         TextEditingController(text: widget.propertyRef?.propertyName);
     _model.propertyNameFocusNode ??= FocusNode();
+
     _model.propertyAddressController ??=
         TextEditingController(text: widget.propertyRef?.propertyAddress);
     _model.propertyAddressFocusNode ??= FocusNode();
+
     _model.propertyDescriptionController ??=
         TextEditingController(text: widget.propertyRef?.propertyDescription);
     _model.propertyDescriptionFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

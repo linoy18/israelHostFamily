@@ -40,15 +40,19 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     _model.textController1 ??=
         TextEditingController(text: widget.userProfile?.displayName);
     _model.textFieldFocusNode ??= FocusNode();
+
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile?.email);
     _model.emailAddressFocusNode ??= FocusNode();
+
     _model.myBioController ??=
         TextEditingController(text: widget.userProfile?.bio);
     _model.myBioFocusNode ??= FocusNode();
+
     _model.instagramController ??=
         TextEditingController(text: widget.userProfile?.instagramUserName);
     _model.instagramFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

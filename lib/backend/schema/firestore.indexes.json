@@ -9,6 +9,54 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "forFamily",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "forCouple",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "forOne",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "dogFriendly",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "catFriendly",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "babyCrib",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "accessibility",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "familyKeepKosher",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "familyKeepShabbat",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "secureDoor",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "emptyHouse",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "propertyNeighborhood",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "lastUpdated",
           "order": "DESCENDING"
         }
